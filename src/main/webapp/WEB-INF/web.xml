@@ -4,6 +4,7 @@
 	version="3.0">
 	<display-name>HKPassDemo</display-name>
 	
+	<!--  
 	<context-param>
 		<param-name>contextClass</param-name>
 		<param-value>
@@ -14,10 +15,13 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
+	-->
+
 
 	<servlet>
-		<servlet-name>SpringDispatcher</servlet-name>
+		<servlet-name>spring-web</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<!--  
 		<init-param>
 			<param-name>contextClass</param-name>
 			<param-value>
@@ -28,11 +32,12 @@
 			<param-name>contextConfigLocation</param-name>
 			<param-value>com.accenture.hkha</param-value>
 		</init-param>
+	-->
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	
 	<servlet-mapping>
-		<servlet-name>SpringDispatcher</servlet-name>
+		<servlet-name>spring-web</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 	

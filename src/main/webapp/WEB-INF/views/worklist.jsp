@@ -7,10 +7,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Worklist</title>
-<spring:url value="/resources/core/css/bootstrap.min.css" var="bootstrapCss" />
+<spring:url value="/resources/core/css/bootstrap.min.css"
+	var="bootstrapCss" />
 <link href="${bootstrapCss}" rel="stylesheet" />
 </head>
 <body>
+
+
 
 	<div class="container">
 
@@ -21,7 +24,7 @@
 					<th>#ID</th>
 					<th>Status</th>
 					<th>Created Date</th>
-					<th>Created Time</th>
+					<th>Created By</th>
 				</tr>
 			</thead>
 			<c:forEach var="worklist" items="${worklist}">
@@ -32,6 +35,8 @@
 					<td>${worklist.createdBy}</td>
 				</tr>
 			</c:forEach>
+
+
 
 		</table>
 
