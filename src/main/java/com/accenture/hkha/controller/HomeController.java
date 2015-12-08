@@ -33,6 +33,7 @@ public class HomeController {
 		return "home";
 	}
 	
+	
 	@RequestMapping(value="/worklist", method = RequestMethod.GET)
 	public String showWorkList(Model model){
 		logger.info("showWorkList()");
@@ -61,11 +62,22 @@ public class HomeController {
 		
 		logger.info("submitAssessment()");
 		
-		assessment.setStatus("SUBMITTED");
+		assessment.setStatus("FOR APPROVAL");
 		assessmentService.saveOrUpdate(assessment);
 		logger.info(assessment.toString());
 		
 		return "redirect:/worklist";
+	}
+	
+	
+	@RequestMapping(value="/approvals", method = RequestMethod.GET)
+	public String showApprovals(Model model){
+		
+		logger.info("showApprovals()");
+		
+		
+		
+		return "approvals";
 	}
 	
 	
