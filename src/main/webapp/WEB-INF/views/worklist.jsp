@@ -12,6 +12,7 @@
 <link href="${bootstrapCss}" rel="stylesheet" />
 </head>
 <body>
+	<div class="banner"><img src="resources/images/banner_logo.png"/><img align="right" src="resources/images/banner_side_logo.png"/></div>
 	<div><h2>Welcome : ${pageContext.request.userPrincipal.name}
            | <a href="<c:url value="/logout" />" > Logout</a></h2></div>
 

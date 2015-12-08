@@ -1,0 +1,406 @@
+tab-nav, header-item, bar.bar-stable {
+	background-color: #FFF !important;
+}
+
+body * { 
+	text-rendering: optimizeLegibility;
+	image-rendering: -webkit-optimize-contrast; 
+}
+
+table tr td a {
+    display:block;
+    height:100%;
+    width:100%;
+}
+table tr td {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+ion-footer-bar .button { font-size: 14px !important; }
+
+/* Start of Login */
+
+.pane-login {
+	background-color: #FAF4B5;
+}
+
+.l-header {
+	padding: 9px !important;
+	height: 300px !important;
+	border-color: #FAF4B5 !important;
+}
+
+.l-bg-header {
+	position: absolute;
+    left: 0;
+    bottom: -17%;
+    width: 100%;
+    height: 100%;
+	background-size: 100%;
+	background-image: url("../img/login-header-bg.gif");
+    background-repeat: no-repeat;
+	background-color: #FAF4B5 !important;
+}
+
+.l-footer {
+	padding: 0 !important;
+	width: 100% !important;
+	height: 267px !important;
+	background-color: #FAF4B5;
+}
+
+.l-bg-footer {
+	position: absolute;
+	width: 100% !important;
+	height: 274px !important;
+	background-size: 100% 274px;
+	background-image: url("../img/login-footer-bg.png");
+    background-repeat: no-repeat;
+	background-color: #FAF4B5;
+}
+
+.d-login-form {
+	border: solid 0px #FFF;
+	z-index: 10 !important;
+	margin-top: 37px;
+}
+
+.d-login-form table {
+	width: 427px !important;
+	margin: 0 auto !important;
+}
+
+.d-login-form table td {
+    border-top: none !important;
+}
+
+.d-logo-hkpass {
+	width: 265px;
+	height: 45px;
+	background-size: 100%;
+	background-image: url("../img/hkha-logo.png");
+    background-repeat: no-repeat;
+}
+
+.login-title {
+	width: 350px;
+	height: 37px;
+	background-size: 100%;
+	background-image: url("../img/login-title.gif");
+    background-repeat: no-repeat;
+}
+
+.login-table td {
+	padding: 0 !important;
+	margin:0 !important;
+}
+
+.login-table-inner {
+	position: relative;
+	top: 24px;
+	left: 10px;
+	background-color: transparent !important;
+	font-size: 20px;
+	font-family: Arial, Verdana, 'Myriad Web', Syntax, sans-serif;
+	word-spacing: 0px;
+}
+
+.login-table-inner td {
+    padding-bottom: 12px !important;
+}
+
+.login-overlay-content-c1 {
+	width: 240px;
+	height: 173px;
+	background-size: 110%;
+	background-image: url("../img/login-overlay-c1.jpg");
+    background-repeat: no-repeat;
+}
+
+.login-overlay-content-c2 {
+	width: 410px;
+	height: 173px;
+	background-size: 111%;
+	background-image: url("../img/login-overlay-c2.gif");
+    background-repeat: no-repeat;
+    float: left !important;
+}
+
+.input150 {
+	background: rgb(255, 255, 255); 
+	width: 145px;
+	color: rgb(0, 0, 0);
+	font-family: arial, Helvetica, sans-serif; 
+	font-size: 15px;
+	padding-left: 10px !important;
+	padding-right: 10px !important;
+	border: solid 1px grey !important;
+	position: relative !important;
+    top: -3px !important;
+}
+
+.login-btn-signin {
+	width: 147px !important;
+	height: 28px !important;
+	background-size: contain;
+	background-image: url("../img/login-btn-signin.gif");
+    background-repeat: no-repeat;
+    image-rendering: pixelated !important;
+}
+
+.t-login-disc {
+	max-width: 637px;
+	font-size: 14px;
+	font-family: Arial, Verdana, 'Myriad Web', Syntax, sans-serif;
+	position: fixed;
+	right: 0 !important;
+	bottom: 0 !important;
+	margin-right: 1% !important;
+	margin-bottom: 3% !important;
+}
+
+.acenter {
+  position: absolute;
+  left: 50%;
+  top: 37%;
+  transform: translate(-50%, -37%);
+}
+
+/* Center Placeholder Text */
+
+.d-login-form ::-webkit-input-placeholder {
+   text-align: center;
+}
+
+.d-login-form :-moz-placeholder { /* Firefox 18- */
+   text-align: center;  
+}
+
+.d-login-form ::-moz-placeholder {  /* Firefox 19+ */
+   text-align: center;  
+}
+
+.d-login-form :-ms-input-placeholder {  
+   text-align: center; 
+}
+
+/* End of Login */
+
+/* My Worklist */
+
+.l-title-fix {
+	padding-top: 14px !important;
+	margin-bottom: 0px !important;
+	text-align: left !important;
+	white-space: nowrap;
+}
+.table-sub {
+	width: 100%;
+}
+
+.td-sub {
+	border-top: 1px solid #ddd;
+	margin: 0 !important; 
+	padding: 0 !important;
+}
+
+.td-height {
+	line-height: 22px;
+}
+
+.no-border-top {
+	border: none !important;
+}
+
+.no-border-top-all * {
+	border: none !important;
+}
+
+.padding-left-30 {
+	padding-left: 30px !important;
+}
+
+.t-ca-det-title {
+	font-size: 15px;
+}
+
+.form-ca-detail {
+	font-size: 15px;
+}
+
+.form-ca-detail .form-control {
+	padding-top: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+	font-size: 15px !important;
+}
+
+.table-ca-det tr td {
+	padding: 12px !important;
+}
+
+.loading {
+	width: 183px !important;
+    height: 137px !important;
+}
+
+.t-loading {
+	color: #FFF;
+	margin-top: 17px;
+	margin-bottom: -3px;
+}
+
+.i-load-icon {
+	font-size:57px;
+}
+
+.ta-worklist {
+	font-size: 17px;
+}
+
+.clickable-row td {
+	padding: 14px !important;
+}
+
+.t-wl-notif-s {
+	color: #DFF2BF !important;
+}
+
+.t-wl-notif-f {
+	color: #FFBABA !important;
+}
+
+.t-wl-notif-s i {
+    margin-left: 3px;
+}
+
+.tr-td-tc {
+	text-align: center;
+}
+
+.r-size-scale {
+	transform: scale(2, 2); 
+	-moz-transform: scale(2, 2); 
+	-ms-transform: scale(2, 2); 
+	-webkit-transform: scale(1.9, 1.9);  
+	-o-transform: scale(2, 2);  
+}
+
+.ca-photo-view {
+	width: 200px;
+	height: 200px;
+	margin-bottom: 30px;
+	border: 2px grey black;
+	background: #EDEDED;
+}
+
+/* End of My Worklist */
+
+/* Worklist Confirm */
+
+.ic-aconfirm .col-md-12 {
+	padding-left: 20px !important;
+	padding-right: 20px !important;
+}
+
+.table-ca-con * {
+	font-size: 18px;
+	margin: 0 !important;
+}
+
+.table-ca-con td {
+	margin: 0 !important;
+	padding: 0 !important;
+	vertical-align: baseline !important;
+}
+
+.t-label-pad-ctitle {
+	white-space: nowrap;
+	padding-top: 20px;
+}
+
+.t-ca-con-indent {
+	text-indent: 15px;
+}
+
+.t-ca-con-title {
+	font-size: 15px;
+	padding-top: 20px;
+}
+
+.t-label-pad-adate {
+	padding-top: 20px;
+}
+
+.t-underline {
+	border-bottom: 2px solid #DDD !important;
+}
+
+.t-ca-con-t2-th {
+	font-size: 21px;
+	margin: 0 27px !important;
+}
+
+.t-tmargs { margin-top: 47px !important; }
+.t-cpads { padding-top: 9px !important; }
+.t-cpads b { border: none !important; }
+
+.t-ca-con-map { font-size: 15px !important; }
+
+.shade-cell { background-color: #EDEDED !important; }
+
+.hidden-cell { visibility: hidden !important; }
+
+/* End of Worklist Confirm */
+
+/* Bootstrap/Datepicker Prior */
+
+.form-control {
+    background-color: #fff !important;
+    background-image: none !important;
+    border: 1px solid #ccc !important;
+    border-radius: 4px !important;
+}
+
+.ionic_datepicker .row {
+	margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+
+.ionic_datepicker .selected_date_full, .ion-chevron-left, .ion-chevron-right   {
+	color: #000 !important;
+}
+
+.ionic_datepicker_modal .button-clear {
+	top: -3px !important;
+}
+
+ionic-datepicker ::-webkit-input-placeholder {
+   text-align: center;
+}
+
+ionic-datepicker ::-webkit-input-placeholder {
+   text-align: center;  
+}
+
+ionic-datepicker ::-webkit-input-placeholder { 
+   text-align: center;  
+}
+
+ionic-datepicker ::-webkit-input-placeholder {  
+   text-align: center; 
+}
+
+/* End of Bootstrap Prior*/
+
+.spinner svg {
+  width: 112px;
+  height: 56px;
+  stroke: #777;
+  fill: #444;
+}
+
+ion-tabs.tabs-color-active-positive .tab-item.tab-item-active, ion-tabs.tabs-color-active-positive .tab-item.active, ion-tabs.tabs-color-active-positive .tab-item.activated {
+    color: #444 !important;
+}

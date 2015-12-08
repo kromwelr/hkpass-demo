@@ -14,9 +14,12 @@
 <link rel="stylesheet"
 	href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" href="/resources/core/css/calendar.css">
-
+<spring:url value="/resources/core/css/bootstrap.min.css"
+	var="bootstrapCss" />
+<link href="${bootstrapCss}" rel="stylesheet" />
 </head>
 <body>
+	<div class="banner"><img src="resources/images/banner_logo.png"/><img align="right" src="resources/images/banner_side_logo.png"/></div>
 	<div>
 		<h1>Assessment (PASS-${assessmentForm.id})</h1>
 		<br />
@@ -243,14 +246,14 @@
 					</tr>
 				</table>
 			</div>
-			
+
 			<div align="right">
 				<br/>
 				<spring:url value="/worklist" var="worklist"/>
 				<button type="button" onclick="location.href='${worklist}'">Back</button>
 				<button type="submit">Submit</button>
 			</div>
-			
+
 		</form:form>
 	</div>
 
