@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.accenture.hkha.config;
 
@@ -40,5 +40,5 @@ public class SpringDBConfig {
 				.addScript("db/sql/create-db.sql").addScript("db/sql/insert-data.sql").build();
 		return db;
 	}
-	
+
 }

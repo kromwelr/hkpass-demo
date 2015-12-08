@@ -12,7 +12,8 @@
 <link href="${bootstrapCss}" rel="stylesheet" />
 </head>
 <body>
-
+	<div><h2>Welcome : ${pageContext.request.userPrincipal.name}
+           | <a href="<c:url value="/logout" />" > Logout</a></h2></div>
 
 
 	<div class="container">
