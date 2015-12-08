@@ -1,0 +1,49 @@
+<ion-pane class="pane-login">
+  <ion-content scroll="false">
+
+    <div class="l-header bar bar-header">
+      <div class="d-logo-hkpass"></div>
+      <div class="l-bg-header"></div>
+    </div>
+
+    <div class="d-login-form acenter">
+
+      <div class="login-title center-block"></div>
+
+      <table class="table no-border-top login-table">
+        <tr>
+          <td><div class="login-overlay-content-c1"></div></td>
+          <td>
+            <div class="login-overlay-content-c2">
+              <table class="table no-border-top login-table-inner">
+                <tr>
+                  <td>Username (用戶名稱):</td>
+                  <td><input name="username" class="input150" onkeypress="if(event.which==13||event.keyCode==13) submitTheForm(document.loginForm)" type="text" maxlength="30"></td>
+                </tr>
+
+                <tr>
+                  <td>Password (密碼):</td>
+                  <td><input name="password" class="input150" onkeypress="if(event.which==13||event.keyCode==13) submitTheForm(document.loginForm)" type="password" maxlength="30"></td>
+                </tr>
+
+                <tr>
+                  <td></td>
+                  <td><a href="#/tab/worklist"><div class="login-btn-signin"></div></a></td>
+                </tr>
+
+              </table>
+            </div>
+          </td>
+        </tr>
+      </table>
+
+    </div>
+
+  </ion-content>
+
+  <ion-footer-bar align-title="left" class="l-footer">
+    <div class="l-bg-footer">
+      <div class="t-login-disc text-right">For login problem, please contact IT Service Desk at 2624 6626, ithelpdesk@housingauthority.gov.hk.有關系統登入問題, 請致電資訊科技服務熱線2624 6626,ithelpdesk@housingauthority.gov.hk。</div>
+    </div>
+  </ion-footer-bar>
+</ion-pane>

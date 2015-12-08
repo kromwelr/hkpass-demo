@@ -1,0 +1,234 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="Conduct Assessment">
+  <ion-content>
+
+    <p class="t-ca-det-title text-center padding"><b>Architectural Works (Interim) Assessment - Score Sheet<b></p>
+
+    <form id="form-ca-detail" class="form-ca-detail form-horizontal text-left col-xs-11 col-xs-offset-0 col-sm-12 col-sm-offset-0 col-md-10 col-md-offset-1" role="form">
+
+      <table class="table no-border-top-all">
+        <tbody>
+          <tr>
+            <td class="l-title-fix col-md-2">Contact Title:</td>
+            <td colspan="5"><input type="text" id="contact_title" class="form-control" ng-model="data.ctitle"></td>
+          </tr>
+          <tr>
+            <td class="l-title-fix col-md-2">Assessment Date:</td>
+            <td>
+            <ionic-datepicker input-obj="datepickerObjectModal">
+              <input type="text" class="datepicker form-control" placeholder="{{datepickerObjectModal.inputDate | date:'dd - MMMM - yyyy'}}" ng-model="data.adate">
+            </ionic-datepicker>
+            <td class="l-title-fix col-md-2 padding-left-30">Floor:</td>
+            <td><input type="text" id="contact_title" class="form-control" ng-model="data.floor"></td>
+          </tr>
+          <tr>
+            <td class="l-title-fix col-md-2">Block / Zone:</td>
+            <td><input type="text" id="contact_title" class="form-control" ng-model="data.bzone"></td>
+            <td class="l-title-fix col-md-2 padding-left-30">Location / Flat:</td>
+            <td><input type="text" id="contact_title" class="form-control" ng-model="data.lflat"></td>
+          </tr>
+          <tr>
+            <td class="l-title-fix col-md-2">Sub-Factor / Item:</td>
+            <td colspan="5"><input class="input-sfitem form-control" value="1. 1 Grano / Terrazzo / Cement Sand Screed" disabled="disabled">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="table-ca-det table table-bordered">
+        <thead>
+          <tr>
+            <td>Spot</td>
+            <td>Sub-Factor</td>
+            <td colspan="7">Grading</td>
+          </tr>
+
+          <tr class="tr-td-tc">
+            <td colspan="2"></td>
+            <td>A*</td>
+            <td>A</td>
+            <td>B</td>
+            <td>C</td>
+            <td>D</td>
+            <td>N</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="(key, title) in tableItems">
+            <td rowspan="4" ng-if="!($index%4)">1</td>
+            <td>{{title}}</td>
+
+            <td class="text-center"><input class="r-size-scale" type="radio" ng-model="data.row1s" ng-value="'1{{key}}aa'"></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" ng-model="data.row1s" ng-value="'1{{key}}a'"></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" ng-model="data.row1s" ng-value="'1{{key}}b'"></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" ng-model="data.row1s" ng-value="'1{{key}}c'"></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" ng-model="data.row1s" ng-value="'1{{key}}d'"></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" ng-model="data.row1s" ng-value="'1{{key}}n'"></td>
+          </tr>
+
+          <tr><td></td></tr>
+
+          <tr>
+            <td rowspan="4">2</td>
+            <td>Soundness</td>
+
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+          </tr>
+
+          <tr>
+            <td>Evenness</td>
+
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+          </tr>
+
+          <tr>
+            <td>Level</td>
+
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+          </tr>
+
+          <tr>
+            <td>Fall</td>
+
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+          </tr>
+
+          <tr><td></td></tr>
+
+          <tr>
+            <td rowspan="4">3</td>
+            <td>Soundness</td>
+
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+          </tr>
+
+          <tr>
+            <td>Evenness</td>
+
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+          </tr>
+
+          <tr>
+            <td>Level</td>
+
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+          </tr>
+
+          <tr>
+            <td>Fall</td>
+
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+          </tr>
+
+          <tr><td></td></tr>
+
+          <tr>
+            <td rowspan="4">4</td>
+            <td>Soundness</td>
+
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+          </tr>
+
+          <tr>
+            <td>Evenness</td>
+
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+          </tr>
+
+          <tr>
+            <td>Level</td>
+
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+          </tr>
+
+          <tr>
+            <td>Fall</td>
+
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+            <td class="text-center"><input class="r-size-scale" type="radio" name=""></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="text-center padding"><b>Media Attachment Preview</b></div>
+      <img class="ca-photo-view center-block" ng-src="{{lastPhoto}}">
+      
+    </form>
+
+  </ion-content>
+
+  <ion-footer-bar align-title="left" class="bar-dark">
+    <div class="buttons">
+      <button class="button button-stable" ng-click="getPhoto()">Attach Media</button>
+    </div>
+    <p class="t-wl-notif title">Form validation messages will show here.</p>
+    <div class="buttons" ng-click="formAsSubmit()">
+      <button class="button button-stable">Submit</button>
+    </div>
+  </ion-footer-bar>
+
+</ion-view>

@@ -1,0 +1,243 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="Conduct Assessment">
+  <ion-content class="ic-aconfirm">
+    <div class="col-sm-12 col-md-12">
+      <p class="t-ca-con-title text-left"><b>Architectural Works (interim) Assessment - Score Sheet</b></p>
+
+      <table class="table-ca-con table table-responsive no-border-top-all">
+        <tr>
+          <td class="col-md-1"><p class="t-label-pad-ctitle">Contact Title:</p></td>
+          <td class="t-label-pad-ctitle t-underline t-ca-con-indent col-md-12" colspan="5"><b>{{ctitle}}</b></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><p class="t-label-pad-adate text-right">Assessment Date:</p></td>
+          <td class="t-underline t-ca-con-indent col-md-4"><b>{{adate}}</b></td>
+        </tr>
+      </table>
+
+      <div class="row t-tmargs">
+        <p class="t-ca-con-t2-th">AI-1</p>
+        <p class="t-ca-con-t2-th">FLOOR</p>
+      </div>
+
+      <table class="table table-bordered table-responsive">
+        <thead>
+          <tr>
+            <th colspan="4">Sub-Factor / Item</th>
+            <th colspan="12">Block / Zone: {{bzone}}</th>
+            <th colspan="12">Floor: {{floor}}</th>
+          </tr>
+
+          <tr>
+            <td colspan="4" rowspan="3">{{sfitem}}</td>
+            <th colspan="24">Location / Flat: {{lflat}}</th>
+          </tr>
+
+          <tr>
+            <th colspan="6">Spot 1</th>
+            <th colspan="6">Spot 2</th>
+            <th colspan="6">Spot 3</th>
+            <th colspan="6">Spot 4</th>
+          </tr>
+
+          <tr>
+              <th>A*</th>
+              <th>A</th>
+              <th>B</th>
+              <th>C</th>
+              <th>D</th>
+              <th>N</th>
+              
+              <th>A*</th>
+              <th>A</th>
+              <th>B</th>
+              <th>C</th>
+              <th>D</th>
+              <th>N</th>
+              
+              <th>A*</th>
+              <th>A</th>
+              <th>B</th>
+              <th>C</th>
+              <th>D</th>
+              <th>N</th>
+              
+              <th>A*</th>
+              <th>A</th>
+              <th>B</th>
+              <th>C</th>
+              <th>D</th>
+              <th>N</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="1">1.</td>
+            <td colspan="3">Soundness</td>
+              
+            <td id="1saa"></td>
+            <td id="1sa"></td>
+            <td id="1sb"></td>
+            <td id="1sc"></td>
+            <td id="1sd"></td>
+            <td id="1sn"></td>
+              
+            <td id="1eaa"></td>
+            <td id="1ea"></td>
+            <td id="1eb"></td>
+            <td id="1ec"></td>
+            <td id="1ed"></td>
+            <td id="1en"></td>
+              
+            <td id="1laa"></td>
+            <td id="1la"></td>
+            <td id="1lb"></td>
+            <td id="1lc"></td>
+            <td id="1ld"></td>
+            <td id="1ln"></td>
+              
+            <td id="1faa"></td>
+            <td id="1fa"></td>
+            <td id="1fb"></td>
+            <td id="1fc"></td>
+            <td id="1fd"></td>
+            <td id="1fn"></td>
+          </tr>
+
+          <tr>
+            <td>2.</td>
+            <td colspan="3">Evenness</td>
+              
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+              
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+              
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+              
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>3.</td>
+            <td colspan="3">Level</td>
+              
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+              
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+              
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+              
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>4.</td>
+            <td colspan="3">Fall</td>
+              
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+              
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+              
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+              
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td class="hidden-cell" colspan="12"></td>
+            <td class="t-cpads" colspan="4"><b>Collected</b></td>
+            <td class="text-center" colspan="2">A*</td>
+            <td class="text-center" colspan="2">A</td>
+            <td class="text-center" colspan="2">B</td>
+            <td class="text-center" colspan="2">C</td>
+            <td class="text-center" colspan="2">D</td>
+            <td class="text-center" colspan="2">N</td>
+          </tr>
+
+          <tr>
+            <td class="hidden-cell" border="0" colspan="12"></td>
+            <td class="t-cpads" colspan="4"><b>Sum</b></td>
+            <td colspan="2"></td>
+            <td colspan="2"></td>
+            <td colspan="2"></td>
+            <td colspan="2"></td>
+            <td colspan="2"></td>
+            <td colspan="2"></td>
+          </tr>
+
+        </tbody>
+      </table>
+
+      <div class="t-ca-con-map text-center padding"><b>Media Attachment Preview</b></div>
+      <img class="ca-photo-view center-block" ng-src="{{lastPhoto}}">
+
+    </div>
+  </ion-content>
+
+</ion-view>
