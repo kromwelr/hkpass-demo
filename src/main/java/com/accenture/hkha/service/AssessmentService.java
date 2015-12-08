@@ -15,6 +15,10 @@ public interface AssessmentService {
 	
 	List<Assessment> findAll();
 	
+	List<Assessment> findByUser(String user);
+	
+	List<Assessment> findByStatus(String status);
+	
 	Assessment findById(Integer id);
 	
 	void saveOrUpdate(Assessment assessment);

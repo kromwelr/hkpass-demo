@@ -248,6 +248,8 @@
 
 			<div align="right">
 				<br/>
+				<spring:url value="/worklist" var="worklist"/>
+				<button type="button" onclick="location.href='${worklist}'">Back</button>
 				<button type="submit">Submit</button>
 			</div>
 

@@ -2,6 +2,7 @@ package com.accenture.hkha.controller;
 
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
@@ -24,6 +26,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.accenture.hkha.constants.UserRoles;
 import com.accenture.hkha.model.Assessment;
 import com.accenture.hkha.service.AssessmentService;
 
@@ -33,6 +36,7 @@ public class HomeController {
 	private final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
 	private AssessmentService assessmentService;
+	private String username;
 
 
 	@Autowired
@@ -43,15 +47,30 @@ public class HomeController {
 	@RequestMapping(value="/", method = RequestMethod.GET)
 	public String index(Model model){
 		logger.info("index()");
-		return showWorkList(model);//"home";
+		
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		this.username = auth.getName();
+		logger.info("Welcome " + this.username + "!");
+		
+		Collection<SimpleGrantedAuthority> authorities = (Collection<SimpleGrantedAuthority>) SecurityContextHolder.getContext().getAuthentication().getAuthorities();
+		for(SimpleGrantedAuthority sga: authorities){
+			logger.info("Roles: " + sga.getAuthority());
+			if(sga.getAuthority().equals(UserRoles.ROLE_USER.toString())){
+				return "redirect:/worklist";
+			}else if(sga.getAuthority().equals(UserRoles.ROLE_APPROVER.toString())){
+				return "redirect:/approvals";
+			}
+		}
+		
+		return "noaccess";
 	}
 
 	@RequestMapping(value="/worklist", method = RequestMethod.GET)
 	public String showWorkList(Model model){
+		
 		logger.info("showWorkList()");
-
-		model.addAttribute("worklist", assessmentService.findAll());
-
+		model.addAttribute("worklist", assessmentService.findByUser(this.username));
+		
 		return "worklist";
 	}
 
@@ -121,15 +140,34 @@ public class HomeController {
 	public String submitAssessment(@ModelAttribute("assessmentForm") Assessment assessment, Model model){
 
 		logger.info("submitAssessment()");
+		assessment.setStatus("FOR APPROVAL");
 
-		assessment.setStatus("SUBMITTED");
 		assessmentService.saveOrUpdate(assessment);
 		logger.info(assessment.toString());
 
 		return "redirect:/worklist";
 	}
-
-
+	
+	@RequestMapping(value="/approvals", method = RequestMethod.GET)
+	public String showApprovals(Model model){
+		
+		logger.info("showApprovals()");
+		model.addAttribute("approvalList", assessmentService.findByStatus("FOR APPROVAL"));
+		
+		return "approvals";
+	}
+	
+	@RequestMapping(value="/approvals/{id}/details", method = RequestMethod.GET)
+	public String showApprovalDetails(@PathVariable int id, Model model){
+		logger.info("showApprovalDetails()");
+		
+		Assessment assessment = assessmentService.findById(id);
+		model.addAttribute("assessmentForm", assessment);
+		model.addAttribute("scoreList", getScoreList());
+		
+		return "assessmentForm";
+	}
+	
 	private List<String> getScoreList(){
 		List<String> list = new ArrayList<String>();
 		list.add("A");

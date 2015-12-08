@@ -49,6 +49,30 @@ public class AssessmentDaoImpl implements AssessmentDao {
 	}
 
 	@Override
+	public List<Assessment> findByUser(String user) {
+		
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("user", user);
+		
+		String sql = "select * from assessment where created_by=:user";
+		List<Assessment> result = namedParameterJdbcTemplate.query(sql, params, new AssessmentMapper());
+		
+		return result;
+	}
+	
+	@Override
+	public List<Assessment> findByStatus(String status) {
+
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("status", status);
+		
+		String sql = "select * from assessment where status=:status";
+		List<Assessment> result = namedParameterJdbcTemplate.query(sql, params, new AssessmentMapper());
+		
+		return result;
+	}
+	
+	@Override
 	public void save(Assessment assessment) {
 		// TODO Auto-generated method stub
 
@@ -135,5 +159,9 @@ public class AssessmentDaoImpl implements AssessmentDao {
 		}
 		
 	}
+
+
+
+
 
 }

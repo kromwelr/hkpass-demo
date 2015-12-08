@@ -29,15 +29,15 @@ public class CustomHKAuthenticationProvider implements AuthenticationProvider {
 		 String pswd = auth.getCredentials().toString();
 
 
-		 if (name.equals("assessor") && pswd.equals("password")) {
+		 if (name.equals("assessor@hkha.com") && pswd.equals("hkha")) {
 			 List<GrantedAuthority> grantedAuths = new ArrayList<>();
 	         grantedAuths.add(new SimpleGrantedAuthority("ROLE_USER"));
 	         auth = new UsernamePasswordAuthenticationToken(name, pswd, grantedAuths);
-		 }else if (name.equals("approver") && pswd.equals("password")) {
+		 }else if (name.equals("approver@hkha.com") && pswd.equals("hkha")) {
 			 List<GrantedAuthority> grantedAuths = new ArrayList<>();
-	         grantedAuths.add(new SimpleGrantedAuthority("ROLE_USER"));
+	         grantedAuths.add(new SimpleGrantedAuthority("ROLE_APPROVER"));
 	         auth = new UsernamePasswordAuthenticationToken(name, pswd, grantedAuths);
-		 }else if (name.equals("admin") && pswd.equals("password")) {
+		 }else if (name.equals("admin") && pswd.equals("hkha")) {
 			 List<GrantedAuthority> grantedAuths = new ArrayList<>();
 	         grantedAuths.add(new SimpleGrantedAuthority("ROLE_USER"));
 	         auth = new UsernamePasswordAuthenticationToken(name, pswd, grantedAuths);

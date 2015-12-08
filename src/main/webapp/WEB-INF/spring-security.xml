@@ -8,7 +8,7 @@
 
 	<!-- <http pattern="/login" security="none"/> -->
 	<http auto-config="true">
-		<intercept-url pattern="/" access="hasRole('ROLE_USER')" />
+		<intercept-url pattern="/" access="hasAnyRole('ROLE_USER, ROLE_APPROVER')" />
 		<intercept-url pattern="/worklist" access="hasRole('ROLE_USER')" />
 		<intercept-url pattern="/admin**" access="hasRole('ROLE_ADMIN')" />
 
@@ -17,7 +17,6 @@
 
 		<form-login
 		    login-page="/login"
-		    default-target-url="/worklist"
 			authentication-failure-url="/login?error"
 			username-parameter="username"
 			password-parameter="password" />
