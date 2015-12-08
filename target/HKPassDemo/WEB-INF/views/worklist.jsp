@@ -29,7 +29,10 @@
 			</thead>
 			<c:forEach var="worklist" items="${worklist}">
 				<tr>
-					<td>${worklist.id}</td>
+				<spring:url value="/worklist/${worklist.id}/details" var="showUrl"/>
+					<td>
+					<a href="${showUrl}">PASS-${worklist.id}</a>
+					</td>
 					<td>${worklist.status}</td>
 					<td>${worklist.createdDate}</td>
 					<td>${worklist.createdBy}</td>
