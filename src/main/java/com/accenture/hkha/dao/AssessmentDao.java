@@ -17,6 +17,10 @@ public interface AssessmentDao {
 	
 	List<Assessment> findAll();
 	
+	List<Assessment> findByUser(String user);
+	
+	List<Assessment> findByStatus(String status);
+	
 	void save(Assessment assessment);
 	
 	void update(Assessment assessment);

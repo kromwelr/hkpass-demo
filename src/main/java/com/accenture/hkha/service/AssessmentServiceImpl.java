@@ -39,9 +39,22 @@ public class AssessmentServiceImpl implements AssessmentService {
 	}
 
 	@Override
+	public List<Assessment> findByUser(String user) {
+		return assessmentDao.findByUser(user);
+	}
+	
+	@Override
+	public List<Assessment> findByStatus(String status) {
+		return assessmentDao.findByStatus(status);
+	}
+	
+	@Override
 	public void delete(Integer id) {
 		// TODO Auto-generated method stub
 
 	}
+
+
+
 
 }
