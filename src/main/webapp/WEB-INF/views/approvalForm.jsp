@@ -18,15 +18,15 @@
 </head>
 <body>
 	<div>
-		<h1>Assessment (PASS-${assessmentForm.id})</h1>
+		<h1>Assessment (PASS-${approvalForm.id})</h1>
 		<br />
 	</div>
 	<div>
 		<h2>Conduct Assessment</h2>
 		<br />
-		<spring:url value="/submit" var="assessmentActionUrl" />
-		<form:form method="post" modelAttribute="assessmentForm"
-			action="${assessmentActionUrl}">
+		<spring:url value="/approve" var="approvalActionUrl" />
+		<form:form method="post" modelAttribute="approvalForm"
+			action="${approvalActionUrl}">
 			<div>
 				<table width="100%">
 					<form:hidden path="id" />
@@ -36,26 +36,26 @@
 					<tr>
 						<spring:bind path="project">
 							<td><label>Project :</label></td>
-							<td colspan="2"><form:input path="project" type="text" size="65"/></td>
+							<td colspan="2"><form:input path="project" type="text" size="65" disabled="true"/></td>
 						</spring:bind>
 					</tr>
 					<tr>
 						<spring:bind path="subContractor">
 							<td><label>Sub-Contractor :</label></td>
-							<td colspan="2"><form:input path="subContractor" type="text" size="65"/></td>
+							<td colspan="2"><form:input path="subContractor" type="text" size="65" disabled="true"/></td>
 						</spring:bind>
 					</tr>
 					<tr>
 						<spring:bind path="contractNumber">
 							<td><label>Contract Number :</label></td>
-							<td colspan="2"><form:input path="contractNumber" type="text" size="65"/></td>
+							<td colspan="2"><form:input path="contractNumber" type="text" size="65" disabled="true"/></td>
 						</spring:bind>
 					</tr>
 					<tr>
 						<td><label>Assessment Period :</label></td>
 						<td>
-							<form:input path="assessmentStartDate" id="assessmentStartDate" size="30"/>
-							<form:input path="assessmentEndDate" id="assessmentEndDate" size="30"/>
+							<form:input path="assessmentStartDate" id="assessmentStartDate" size="30" disabled="true"/>
+							<form:input path="assessmentEndDate" id="assessmentEndDate" size="30" disabled="true"/>
 						</td>
 					</tr>
 				</table>
@@ -95,7 +95,7 @@
 						<td>1.1 Management Structure (#)</td>
 						<td>1.1.1 Organization Chart</td>
 						<td>
-							<form:radiobuttons path="score1" items="${scoreList}" element="label class='radio-inline'" />
+							<form:radiobuttons path="score1" items="${scoreList}" element="label class='radio-inline'" disabled="true"/>
 						</td>
 					</tr>
 					<tr>
@@ -104,7 +104,7 @@
 						<td>
 							<table width="100%">
 								<tr>
-									<form:radiobuttons path="score2" items="${scoreList}" element="label class='radio-inline'" />
+									<form:radiobuttons path="score2" items="${scoreList}" element="label class='radio-inline'" disabled="true"/>
 								</tr>
 							</table>
 						</td>
@@ -115,7 +115,7 @@
 						<td>
 							<table width="100%">
 								<tr>
-									<form:radiobuttons path="score3" items="${scoreList}" element="label class='radio-inline'" />
+									<form:radiobuttons path="score3" items="${scoreList}" element="label class='radio-inline'" disabled="true"/>
 								</tr>
 							</table>
 						</td>
@@ -126,7 +126,7 @@
 						<td>
 							<table width="100%">
 								<tr>
-									<form:radiobuttons path="score4" items="${scoreList}" element="label class='radio-inline'" />
+									<form:radiobuttons path="score4" items="${scoreList}" element="label class='radio-inline'" disabled="true"/>
 								</tr>
 							</table>
 						</td>
@@ -137,7 +137,7 @@
 						<td>
 							<table width="100%">
 								<tr>
-									<form:radiobuttons path="score5" items="${scoreList}" element="label class='radio-inline'" />
+									<form:radiobuttons path="score5" items="${scoreList}" element="label class='radio-inline'" disabled="true"/>
 								</tr>
 							</table>
 						</td>
@@ -148,7 +148,7 @@
 						<td>
 							<table width="100%">
 								<tr>
-									<form:radiobuttons path="score6" items="${scoreList}" element="label class='radio-inline'" />
+									<form:radiobuttons path="score6" items="${scoreList}" element="label class='radio-inline'" disabled="true"/>
 								</tr>
 							</table>
 						</td>
@@ -159,7 +159,7 @@
 						<td>
 							<table width="100%">
 								<tr>
-									<form:radiobuttons path="score7" items="${scoreList}" element="label class='radio-inline'" />
+									<form:radiobuttons path="score7" items="${scoreList}" element="label class='radio-inline'" disabled="true"/>
 								</tr>
 							</table>
 						</td>
@@ -170,7 +170,7 @@
 						<td>
 							<table width="100%">
 								<tr>
-									<form:radiobuttons path="score8" items="${scoreList}" element="label class='radio-inline'" />
+									<form:radiobuttons path="score8" items="${scoreList}" element="label class='radio-inline'" disabled="true"/>
 								</tr>
 							</table>
 						</td>
@@ -181,7 +181,7 @@
 						<td>
 							<table width="100%">
 								<tr>
-									<form:radiobuttons path="score9" items="${scoreList}" element="label class='radio-inline'" />
+									<form:radiobuttons path="score9" items="${scoreList}" element="label class='radio-inline'" disabled="true"/>
 								</tr>
 							</table>
 						</td>
@@ -192,7 +192,7 @@
 						<td>
 							<table width="100%">
 								<tr>
-									<form:radiobuttons path="score10" items="${scoreList}" element="label class='radio-inline'" />
+									<form:radiobuttons path="score10" items="${scoreList}" element="label class='radio-inline'" disabled="true"/>
 								</tr>
 							</table>
 						</td>
@@ -203,7 +203,7 @@
 						<td>
 							<table width="100%">
 								<tr>
-									<form:radiobuttons path="score11" items="${scoreList}" element="label class='radio-inline'" />
+									<form:radiobuttons path="score11" items="${scoreList}" element="label class='radio-inline'" disabled="true"/>
 								</tr>
 							</table>
 						</td>
@@ -214,7 +214,7 @@
 						<td>
 							<table width="100%">
 								<tr>
-									<form:radiobuttons path="score12" items="${scoreList}" element="label class='radio-inline'" />
+									<form:radiobuttons path="score12" items="${scoreList}" element="label class='radio-inline'" disabled="true"/>
 								</tr>
 							</table>
 						</td>
@@ -225,7 +225,7 @@
 						<td>
 							<table width="100%">
 								<tr>
-									<form:radiobuttons path="score13" items="${scoreList}" element="label class='radio-inline'" />
+									<form:radiobuttons path="score13" items="${scoreList}" element="label class='radio-inline'" disabled="true"/>
 								</tr>
 							</table>
 						</td>
@@ -236,7 +236,7 @@
 						<td>
 							<table width="100%">
 								<tr>
-									<form:radiobuttons path="score14" items="${scoreList}" element="label class='radio-inline'" />
+									<form:radiobuttons path="score14" items="${scoreList}" element="label class='radio-inline'" disabled="true"/>
 								</tr>
 							</table>
 						</td>
@@ -246,9 +246,12 @@
 			
 			<div align="right">
 				<br/>
-				<spring:url value="/worklist" var="worklist"/>
-				<button type="button" onclick="location.href='${worklist}'">Back</button>
-				<button type="submit">Submit</button>
+				<spring:url value="/approvals" var="approvals"/>
+				<button type="button" onclick="location.href='${approvals}'">Back</button>
+				
+				<button type="submit" name="action" value="approve">Approve</button>
+				<button type="submit" name="action" value="reject">Reject</button>
+				<button type="submit" name="action" value="return">Return</button>
 			</div>
 			
 		</form:form>
