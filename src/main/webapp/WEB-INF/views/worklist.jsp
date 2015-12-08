@@ -7,14 +7,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Worklist</title>
-<spring:url value="/resources/core/css/bootstrap.min.css"
-	var="bootstrapCss" />
-<link href="${bootstrapCss}" rel="stylesheet" />
+<link href="resources/core/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
-	<div class="banner"><img src="resources/images/banner_logo.png"/><img align="right" src="resources/images/banner_side_logo.png"/></div>
-	<div><h2>Welcome : ${pageContext.request.userPrincipal.name}
-           | <a href="<c:url value="/logout" />" > Logout</a></h2></div>
+	<div class="banner">
+		<div class="banner_logo_left"></div>
+		<div class="banner_logo_right"></div>
+	</div>
+
+	<div><h4>Welcome : ${pageContext.request.userPrincipal.name}
+           | <a href="<c:url value="/logout" />" > Logout</a></h4></div>
 
 
 	<div class="container">

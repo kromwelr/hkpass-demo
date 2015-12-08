@@ -9,11 +9,14 @@
 </head>
 <body onload='document.loginForm.username.focus();'>
 
-	<div class="banner"><img src="resources/images/banner_logo.png"/><img align="right" src="resources/images/banner_side_logo.png"/></div>
-
+	<div class="banner">
+		<div class="banner_logo_left"></div>
+		<div class="banner_logo_right"></div>
+	</div>
+	<!-- <img src="resources/images/banner_logo.png"/><img align="right" src="resources/images/banner_side_logo.png"/> -->
 	<div id="login-box" align="center">
-		<!-- <div class="main_logo"></div> -->
-		<h2><img src="resources/images/main_logo.png"/></h2>
+		<div class="main_logo"></div>
+		<!-- <h2><img src="resources/images/main_logo.png"/></h2> -->
 
 		<c:if test="${not empty error}">
 			<div class="error">${error}</div>
@@ -45,6 +48,6 @@
 
 		</form>
 	</div>
-
+	<div class="footer"></div>
 </body>
 </html>
