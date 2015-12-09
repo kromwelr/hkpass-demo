@@ -17,6 +17,13 @@
 
 </head>
 <body>
+	<div class="banner">
+		<div class="banner_logo_left"></div>
+		<div class="banner_logo_right"></div>
+	</div>
+
+	<div class="welcome"><h4>Welcome : ${pageContext.request.userPrincipal.name}
+           | <a href="<c:url value="/logout" />" > Logout</a></h4></div>
 	<div>
 		<h1>Assessment (PASS-${approvalForm.id})</h1>
 		<br />
@@ -243,17 +250,17 @@
 					</tr>
 				</table>
 			</div>
-			
+
 			<div align="right">
 				<br/>
 				<spring:url value="/approvals" var="approvals"/>
 				<button type="button" onclick="location.href='${approvals}'">Back</button>
-				
+
 				<button type="submit" name="action" value="approve">Approve</button>
 				<button type="submit" name="action" value="reject">Reject</button>
 				<button type="submit" name="action" value="return">Return</button>
 			</div>
-			
+
 		</form:form>
 	</div>
 

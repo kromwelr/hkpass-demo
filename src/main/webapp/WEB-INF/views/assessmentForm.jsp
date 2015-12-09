@@ -22,6 +22,9 @@
 		<div class="banner_logo_left"></div>
 		<div class="banner_logo_right"></div>
 	</div>
+
+	<div class="welcome"><h4>Welcome : ${pageContext.request.userPrincipal.name}
+           | <a href="<c:url value="/logout" />" > Logout</a></h4></div>
 	<div>
 		<h1>Assessment (PASS-${assessmentForm.id})</h1>
 		<br />

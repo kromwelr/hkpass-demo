@@ -1,6 +1,10 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <body>
+<div class="banner">
+		<div class="banner_logo_left"></div>
+		<div class="banner_logo_right"></div>
+	</div>
 	<h1>HTTP Status 403 - Access is denied</h1>
 
 	<c:choose>

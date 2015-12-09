@@ -7298,9 +7298,36 @@ button.close {
 	height: 20px;
 }
 .menu {
+	display: block;
 	padding-top: 10px;
     padding-bottom: 10px;
     min-width: 1000px;
     background-color: #FBE5D6;
     border: 1px solid #e5e5e5;
+}
+.menu_items {
+	display: block;
+	width: 980px;
+    margin-right: auto;
+    margin-left: auto;
+}
+ul{
+	display: block;
+    list-style-type: none;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+    float: left;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+.welcome {
+	position: relative;
+	float: right;
+	padding: 5px;
+	margin: 5px;
 }

@@ -8,8 +8,14 @@
 </head>
 <body>
 
-	<div class="banner"><img src="resources/images/banner_logo.png"/><img align="right" src="resources/images/banner_side_logo.png"/></div>
-	<div>
+	<div class="banner">
+		<div class="banner_logo_left"></div>
+		<div class="banner_logo_right"></div>
+	</div>
+
+	<div class="welcome"><h4>Welcome : ${pageContext.request.userPrincipal.name}
+           | <a href="<c:url value="/logout" />" > Logout</a></h4></div><div>
+
 			<h2>Conduct Assessment</h2>
 			<br />
 
