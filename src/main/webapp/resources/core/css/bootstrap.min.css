@@ -7345,3 +7345,12 @@ li {
 	padding: 5px;
 	margin: 5px;
 }
+div.workarea{
+	background-color: #f5f5f5;
+	position: relative;
+	width: 100%;
+}
+.checkbox-inline+.checkbox-inline, .radio-inline_header+.radio-inline_header {
+	margin-top: 0;
+	margin-left: 0px
+}

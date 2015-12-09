@@ -14,7 +14,7 @@
 <link rel="stylesheet"
 	href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" href="/resources/core/css/calendar.css">
-
+<link href="../../resources/core/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
 	<div class="banner">
@@ -26,7 +26,7 @@
 		<div class="menu_items">
 			<div class="menu_container_left">
 				<ul>
-					<li><a href="#">Work List</a></li>
+					<li><a href="../../">Work List</a></li>
 					<li>|</li>
 					<li><a href="#">Cases</a></li>
 					<li>|</li>
@@ -91,7 +91,7 @@
 			</div>
 			<div>
 				<br/>
-				<table width="100%">
+				<table width="100%" border="1px">
 					<thead>
 						<tr>
 							<td>
@@ -107,17 +107,19 @@
 						<tr>
 							<td/>
 							<td/>
-							<td>
+							<!-- <td>
 								<table width="100%">
 									<tr>
-										<td align="center"><b>A</b></td>
-										<td align="center"><b>B</b></td>
-										<td align="center"><b>C</b></td>
-										<td align="center"><b>D</b></td>
-										<td align="center"><b>N</b></td>
+										<td align="left">
+											<label class="radio-inline_header"><b>A</b></label>
+											<label class="radio-inline_header"><b>B</b></label>
+											<label class="radio-inline_header"><b>C</b></label>
+											<label class="radio-inline_header"><b>D</b></label>
+											<label class="radio-inline_header"><b>N</b></label>
+										</td>
 									</tr>
 								</table>
-							</td>
+							</td> -->
 						</tr>
 					</thead>
 					<tr>
@@ -273,7 +275,7 @@
 				</table>
 			</div>
 
-			<div align="right">
+			<div align="center">
 				<br/>
 				<spring:url value="/approvals" var="approvals"/>
 				<button type="button" onclick="location.href='${approvals}'">Back</button>
