@@ -61,6 +61,18 @@ public class AssessmentDaoImpl implements AssessmentDao {
 	}
 	
 	@Override
+	public List<Assessment> findByAssignment(String user) {
+		
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("user", user);
+		
+		String sql = "select * from assessment where assigned_to=:user";
+		List<Assessment> result = namedParameterJdbcTemplate.query(sql, params, new AssessmentMapper());
+		
+		return result;
+	}
+	
+	@Override
 	public List<Assessment> findByStatus(String status) {
 
 		Map<String, Object> params = new HashMap<String, Object>();
@@ -82,7 +94,7 @@ public class AssessmentDaoImpl implements AssessmentDao {
 	public void update(Assessment assessment) {
 		
 		String sql = "update assessment set project=:project, sub_contractor=:subContractor, contract_number=:contractNumber, assessment_start_date=:assessmentStartDate,"
-				+ "assessment_end_date=:assessmentEndDate, status=:status, created_date=:createdDate, created_by=:createdBy, score_1=:score1, score_2=:score2,"
+				+ "assessment_end_date=:assessmentEndDate, status=:status, created_date=:createdDate, created_by=:createdBy, assigned_to=:assignedTo, score_1=:score1, score_2=:score2,"
 				+ "score_3=:score3, score_4=:score4, score_5=:score5, score_6=:score6, score_7=:score7, score_8=:score8, score_9=:score9, score_10=:score10,"
 				+ "score_11=:score11, score_12=:score12, score_13=:score13, score_14=:score14 where id=:id";
 		
@@ -107,6 +119,7 @@ public class AssessmentDaoImpl implements AssessmentDao {
 		paramSource.addValue("status", assessment.getStatus());
 		paramSource.addValue("createdDate", assessment.getCreatedDate());
 		paramSource.addValue("createdBy", assessment.getCreatedBy());
+		paramSource.addValue("assignedTo", assessment.getAssignedTo());
 		
 		paramSource.addValue("score1", assessment.getScore1());
 		paramSource.addValue("score2", assessment.getScore2());
@@ -140,6 +153,7 @@ public class AssessmentDaoImpl implements AssessmentDao {
 			assessment.setStatus(rs.getString("status"));
 			assessment.setCreatedDate(rs.getString("created_date"));
 			assessment.setCreatedBy(rs.getString("created_by"));
+			assessment.setAssignedTo(rs.getString("assigned_to"));
 			
 			assessment.setScore1(rs.getString("score_1"));
 			assessment.setScore2(rs.getString("score_2"));
@@ -159,6 +173,8 @@ public class AssessmentDaoImpl implements AssessmentDao {
 		}
 		
 	}
+
+
 
 
 

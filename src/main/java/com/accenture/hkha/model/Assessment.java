@@ -18,6 +18,7 @@ public class Assessment {
 	private String status;
 	private String createdDate;
 	private String createdBy;
+	private String assignedTo;
 	
 	private String score1;
 	private String score2;
@@ -173,9 +174,16 @@ public class Assessment {
 		this.score14 = score14;
 	}
 	
+	public String getAssignedTo() {
+		return assignedTo;
+	}
+	public void setAssignedTo(String assignedTo) {
+		this.assignedTo = assignedTo;
+	}
+	
 	public String toString(){
 		return "id= " + id + " | " + "project= " + project + " | " + "sub-contractor= " + subContractor + " | " + "contract number= " + contractNumber + " |"
-				+ "created date= " + createdDate + " | " + "created by= " + createdBy;
+				+ "created date= " + createdDate + " | " + "created by= " + createdBy + " | " + "assigned to= " + assignedTo;
 	}
 
 }

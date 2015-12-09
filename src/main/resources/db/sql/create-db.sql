@@ -8,6 +8,7 @@ CREATE TABLE ASSESSMENT (
 	status VARCHAR(30),
 	created_date VARCHAR(30),
 	created_by VARCHAR(30),
+	assigned_to VARCHAR(30),
 	score_1 VARCHAR(3),
 	score_2 VARCHAR(3),
 	score_3 VARCHAR(3),

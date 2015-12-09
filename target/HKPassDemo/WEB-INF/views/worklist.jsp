@@ -12,6 +12,7 @@
 <link href="${bootstrapCss}" rel="stylesheet" />
 </head>
 <body>
+	<div class="banner"><img src="resources/images/banner_logo.png"/><img align="right" src="resources/images/banner_side_logo.png"/></div>
 	<div><h2>Welcome : ${pageContext.request.userPrincipal.name}
            | <a href="<c:url value="/logout" />" > Logout</a></h2></div>
 
@@ -23,9 +24,11 @@
 			<thead>
 				<tr>
 					<th>#ID</th>
+					<th>Project</th>
 					<th>Status</th>
 					<th>Created Date</th>
 					<th>Created By</th>
+					<th>Assigned To</th>
 				</tr>
 			</thead>
 			<c:forEach var="worklist" items="${worklist}">
@@ -34,9 +37,11 @@
 					<td>
 					<a href="${showUrl}">PASS-${worklist.id}</a>
 					</td>
+					<td>${worklist.project}</td>
 					<td>${worklist.status}</td>
 					<td>${worklist.createdDate}</td>
 					<td>${worklist.createdBy}</td>
+					<td>${worklist.assignedTo}</td>
 				</tr>
 			</c:forEach>
 

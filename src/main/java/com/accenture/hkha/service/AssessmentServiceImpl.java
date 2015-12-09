@@ -44,6 +44,11 @@ public class AssessmentServiceImpl implements AssessmentService {
 	}
 	
 	@Override
+	public List<Assessment> findByAssignment(String user) {
+		return assessmentDao.findByAssignment(user);
+	}
+	
+	@Override
 	public List<Assessment> findByStatus(String status) {
 		return assessmentDao.findByStatus(status);
 	}
@@ -53,6 +58,8 @@ public class AssessmentServiceImpl implements AssessmentService {
 		// TODO Auto-generated method stub
 
 	}
+
+
 
 
 

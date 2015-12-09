@@ -26,9 +26,11 @@
 			<thead>
 				<tr>
 					<th>#ID</th>
+					<th>Project</th>
 					<th>Status</th>
 					<th>Created Date</th>
 					<th>Created By</th>
+					<th>Assigned To</th>
 				</tr>
 			</thead>
 			<c:forEach var="worklist" items="${worklist}">
@@ -37,9 +39,11 @@
 					<td>
 					<a href="${showUrl}">PASS-${worklist.id}</a>
 					</td>
+					<td>${worklist.project}</td>
 					<td>${worklist.status}</td>
 					<td>${worklist.createdDate}</td>
 					<td>${worklist.createdBy}</td>
+					<td>${worklist.assignedTo}</td>
 				</tr>
 			</c:forEach>
 

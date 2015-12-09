@@ -23,9 +23,11 @@
 			<thead>
 				<tr>
 					<th>#ID</th>
+					<th>Project</th>
 					<th>Status</th>
 					<th>Created Date</th>
 					<th>Created By</th>
+					<th>Assigned To</th>
 				</tr>
 			</thead>
 			<c:forEach var="approvalList" items="${approvalList}">
@@ -34,9 +36,11 @@
 					<td>
 					<a href="${showUrl}">PASS-${approvalList.id}</a>
 					</td>
+					<td>${approvalList.project}</td>
 					<td>${approvalList.status}</td>
 					<td>${approvalList.createdDate}</td>
 					<td>${approvalList.createdBy}</td>
+					<td>${approvalList.assignedTo}</td>
 				</tr>
 			</c:forEach>
 

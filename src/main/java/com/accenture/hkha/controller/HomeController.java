@@ -141,6 +141,7 @@ public class HomeController {
 
 		logger.info("submitAssessment()");
 		assessment.setStatus("FOR APPROVAL");
+		assessment.setAssignedTo("approver@hkha.com");
 
 		assessmentService.saveOrUpdate(assessment);
 		logger.info(assessment.toString());
@@ -152,9 +153,31 @@ public class HomeController {
 	public String showApprovals(Model model){
 		
 		logger.info("showApprovals()");
-		model.addAttribute("approvalList", assessmentService.findByStatus("FOR APPROVAL"));
+		model.addAttribute("approvalList", assessmentService.findByAssignment(this.username));
 		
 		return "approvals";
+	}
+	
+	@RequestMapping(value="/approve", method = RequestMethod.POST)
+	public String approveAssessment(@ModelAttribute("approvalForm") Assessment assessment, Model model, @RequestParam String action){
+		logger.info("approveAssessment()");
+		assessment = assessmentService.findById(assessment.getId());
+		
+		logger.info("Button clicked: " + action);
+		if(action.equals("approve")){
+			assessment.setStatus("APPROVED");			
+		}else if(action.equals("reject")){
+			assessment.setStatus("REJECTED");
+		}else if(action.equals("return")){
+			assessment.setStatus("RETURNED");
+			assessment.setAssignedTo(assessment.getCreatedBy());
+		}
+		
+		
+		
+		assessmentService.saveOrUpdate(assessment);
+		logger.info(assessment.toString());
+		return "redirect:/approvals";
 	}
 	
 	@RequestMapping(value="/approvals/{id}/details", method = RequestMethod.GET)
@@ -162,10 +185,10 @@ public class HomeController {
 		logger.info("showApprovalDetails()");
 		
 		Assessment assessment = assessmentService.findById(id);
-		model.addAttribute("assessmentForm", assessment);
+		model.addAttribute("approvalForm", assessment);
 		model.addAttribute("scoreList", getScoreList());
 		
-		return "assessmentForm";
+		return "approvalForm";
 	}
 	
 	private List<String> getScoreList(){
