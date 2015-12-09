@@ -7298,18 +7298,27 @@ button.close {
 	height: 20px;
 }
 .menu {
-	display: block;
-	padding-top: 10px;
-    padding-bottom: 10px;
-    min-width: 1000px;
-    background-color: #FBE5D6;
-    border: 1px solid #e5e5e5;
+	width: 100%;
+    min-height: 75px;
+
 }
 .menu_items {
-	display: block;
-	width: 980px;
-    margin-right: auto;
-    margin-left: auto;
+	width: 100%;
+	position: relative;
+    background-color: #FBE5D6;
+    min-height: 44px;
+
+}
+.menu_container_left{
+	width: 75%;
+	position: relative;
+	overflow: hidden;
+    float: left;
+}
+.menu_container_right{
+	position: relative;
+	overflow: hidden;
+
 }
 ul{
 	display: block;
@@ -7319,11 +7328,16 @@ ul{
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
     -webkit-padding-start: 40px;
-    float: left;
+
+    position: relative;
 }
 li {
     display: list-item;
     text-align: -webkit-match-parent;
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+
 }
 .welcome {
 	position: relative;

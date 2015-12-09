@@ -13,14 +13,7 @@
 		<div class="banner_logo_left"></div>
 		<div class="banner_logo_right"></div>
 	</div>
-	<div class="menu">
-		<div class="menu_items">
-			<ul>
-				<li>Work List</li>
-				<li>Cases</li>
-			</ul>
-		</div>
-	</div>
+
 	<!-- <img src="resources/images/banner_logo.png"/><img align="right" src="resources/images/banner_side_logo.png"/> -->
 	<div id="login-box" align="center">
 		<div class="main_logo"></div>
