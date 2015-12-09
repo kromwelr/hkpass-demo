@@ -248,10 +248,13 @@
 				<br/>
 				<spring:url value="/approvals" var="approvals"/>
 				<button type="button" onclick="location.href='${approvals}'">Back</button>
-				
-				<button type="submit" name="action" value="approve">Approve</button>
-				<button type="submit" name="action" value="reject">Reject</button>
-				<button type="submit" name="action" value="return">Return</button>
+				<c:choose>
+					<c:when test="${approvalForm.status == 'FOR APPROVAL'}">
+						<button type="submit" name="action" value="approve">Approve</button>
+						<button type="submit" name="action" value="reject">Reject</button>
+						<button type="submit" name="action" value="return">Return</button>
+					</c:when>
+				</c:choose>
 			</div>
 			
 		</form:form>

@@ -129,7 +129,13 @@ public class HomeController {
 		Assessment assessment = assessmentService.findById(id);
 		model.addAttribute("assessmentForm", assessment);
 		model.addAttribute("scoreList", getScoreList());
+		model.addAttribute("disabled", false);
 
+		if(assessment.getStatus().equals("FOR APPROVAL") || assessment.getStatus().equals("REJECTED") || assessment.getStatus().equals("APPROVED")){
+			model.addAttribute("disabled", true);
+		}
+		
+		
 		logger.info(assessment.toString());
 
 
