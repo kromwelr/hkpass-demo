@@ -8,6 +8,7 @@
 </head>
 <body>
 
+	<div class="banner"><img src="resources/images/banner_logo.png"/><img align="right" src="resources/images/banner_side_logo.png"/></div>
 	<div>
 			<h2>Conduct Assessment</h2>
 			<br />
@@ -40,6 +41,6 @@
 			</table>
 
 		</div>
-	
+
 </body>
 </html>
