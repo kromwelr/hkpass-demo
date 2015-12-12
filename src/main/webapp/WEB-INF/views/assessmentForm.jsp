@@ -17,37 +17,11 @@
 <link rel="stylesheet" href="../../resources/core/css/demo.css">
 
 <link href="../../resources/core/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="../../resources/core/css/calendar.css">
+
 </head>
 <body>
-	<div class="banner">
-		<div class="banner_logo_left"></div>
-		<div class="banner_logo_right"></div>
-	</div>
-
-	<div class="menu">
-		<div class="menu_items">
-			<div class="menu_container_left">
-				<ul>
-					<li><a href="../../">Work List</a></li>
-					<li>|</li>
-					<li><a href="#">Cases</a></li>
-					<li>|</li>
-					<li><a href="#">Calendar</a></li>
-					<li>|</li>
-					<li><a href="#">Reports</a></li>
-					<li>|</li>
-					<li><a href="#">Admin</a></li>
-				</ul>
-			</div>
-			<div class="menu_container_right">
-				<ul>
-					<li>${pageContext.request.userPrincipal.name}</li>
-					<li>|</li>
-					<li><a href="<c:url value="/logout" />" >Logout</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
+	<%@include file="header.jsp" %>
 
 	<div class="workarea">
 		<div>

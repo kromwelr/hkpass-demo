@@ -1,20 +1,14 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <%@page session="true"%>
 <html>
 <head>
 <title>HKHA Pass</title>
-
 <link href="resources/core/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="resources/core/css/calendar.css">
+
 </head>
 <body onload='document.loginForm.username.focus();'>
 
-	<div class="banner">
-		<div class="banner_logo_left"></div>
-		<div class="banner_logo_right"></div>
-	</div>
-
-	<!-- <img src="resources/images/banner_logo.png"/><img align="right" src="resources/images/banner_side_logo.png"/> -->
+	<%@include file="header.jsp" %>
 	<div id="login-box" align="center">
 		<div class="main_logo"></div>
 		<!-- <h2><img src="resources/images/main_logo.png"/></h2> -->
