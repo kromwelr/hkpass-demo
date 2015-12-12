@@ -8,10 +8,11 @@
 
 	<!-- <http pattern="/login" security="none"/> -->
 	<http auto-config="true">
-		<intercept-url pattern="/" access="hasAnyRole('ROLE_USER, ROLE_APPROVER')" />
-		<intercept-url pattern="/worklist" access="hasRole('ROLE_USER')" />
-		<intercept-url pattern="/admin**" access="hasRole('ROLE_ADMIN')" />
 
+		<intercept-url pattern="/worklist" access="hasRole('ROLE_ASSESSOR')" />
+		<intercept-url pattern="/approvals" access="hasAnyRole('ROLE_PROF, ROLE_CHIEF')" />
+		<intercept-url pattern="/admin**" access="hasRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/" access="hasAnyRole('ROLE_ASSESSOR, ROLE_PROF, ROLE_CHIEF')" />
 		<!-- access denied page -->
 		<access-denied-handler error-page="/noaccess" />
 

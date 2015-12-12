@@ -13,6 +13,9 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
 
+import com.accenture.hkha.constants.UserRoles;
+import com.accenture.hkha.model.UserRole;
+
 @Component
 public class CustomHKAuthenticationProvider implements AuthenticationProvider {
 
@@ -29,17 +32,21 @@ public class CustomHKAuthenticationProvider implements AuthenticationProvider {
 		 String pswd = auth.getCredentials().toString();
 
 
-		 if (name.equals("assessor@hkha.com") && pswd.equals("hkha")) {
+		 if (name.equals("assessor") && pswd.equals("hkpass")) {
 			 List<GrantedAuthority> grantedAuths = new ArrayList<>();
-	         grantedAuths.add(new SimpleGrantedAuthority("ROLE_USER"));
+	         grantedAuths.add(new SimpleGrantedAuthority(UserRoles.ROLE_ASSESSOR.toString()));
 	         auth = new UsernamePasswordAuthenticationToken(name, pswd, grantedAuths);
-		 }else if (name.equals("approver@hkha.com") && pswd.equals("hkha")) {
+		 }else if (name.equals("prof") && pswd.equals("hkpass")) {
 			 List<GrantedAuthority> grantedAuths = new ArrayList<>();
-	         grantedAuths.add(new SimpleGrantedAuthority("ROLE_APPROVER"));
+	         grantedAuths.add(new SimpleGrantedAuthority(UserRoles.ROLE_PROF.toString()));
 	         auth = new UsernamePasswordAuthenticationToken(name, pswd, grantedAuths);
-		 }else if (name.equals("admin") && pswd.equals("hkha")) {
+		 }else if (name.equals("chief") && pswd.equals("hkpass")) {
 			 List<GrantedAuthority> grantedAuths = new ArrayList<>();
-	         grantedAuths.add(new SimpleGrantedAuthority("ROLE_USER"));
+	         grantedAuths.add(new SimpleGrantedAuthority(UserRoles.ROLE_CHIEF.toString()));
+	         auth = new UsernamePasswordAuthenticationToken(name, pswd, grantedAuths);
+		 }else if (name.equals("dadmin") && pswd.equals("hkpass")) {
+			 List<GrantedAuthority> grantedAuths = new ArrayList<>();
+	         grantedAuths.add(new SimpleGrantedAuthority(UserRoles.ROLE_ADMIN.toString()));
 	         auth = new UsernamePasswordAuthenticationToken(name, pswd, grantedAuths);
 		 } else {
 			 auth = null;
