@@ -47,7 +47,7 @@
 			<thead>
 				<tr>
 					<th>#ID</th>
-					<th>Project</th>
+					<th>Contract</th>
 					<th>Status</th>
 					<th>Created Date</th>
 					<th>Created By</th>
@@ -56,11 +56,11 @@
 			</thead>
 			<c:forEach var="worklist" items="${worklist}">
 				<tr>
-				<spring:url value="/worklist/${worklist.id}/details" var="showUrl"/>
+				<spring:url value="/worklist/${worklist.id}/form" var="showUrl"/>
 					<td>
 					<a href="${showUrl}">PASS-${worklist.id}</a>
 					</td>
-					<td>${worklist.project}</td>
+					<td>${worklist.contract}</td>
 					<td>${worklist.status}</td>
 					<td>${worklist.createdDate}</td>
 					<td>${worklist.createdBy}</td>

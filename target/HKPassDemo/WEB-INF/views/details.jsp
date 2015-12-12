@@ -8,8 +8,36 @@
 </head>
 <body>
 
-	<div class="banner"><img src="resources/images/banner_logo.png"/><img align="right" src="resources/images/banner_side_logo.png"/></div>
-	<div>
+	<div class="banner">
+		<div class="banner_logo_left"></div>
+		<div class="banner_logo_right"></div>
+	</div>
+
+	<div class="menu">
+		<div class="menu_items">
+			<div class="menu_container_left">
+				<ul>
+					<li><a href="#">Work List</a></li>
+					<li>|</li>
+					<li><a href="#">Cases</a></li>
+					<li>|</li>
+					<li><a href="#">Calendar</a></li>
+					<li>|</li>
+					<li><a href="#">Reports</a></li>
+					<li>|</li>
+					<li><a href="#">Admin</a></li>
+				</ul>
+			</div>
+			<div class="menu_container_right">
+				<ul>
+					<li>${pageContext.request.userPrincipal.name}</li>
+					<li>|</li>
+					<li><a href="<c:url value="/logout" />" >Logout</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
 			<h2>Conduct Assessment</h2>
 			<br />
 

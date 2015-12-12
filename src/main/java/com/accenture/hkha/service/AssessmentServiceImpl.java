@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.accenture.hkha.dao.AssessmentDao;
 import com.accenture.hkha.model.Assessment;
+import com.accenture.hkha.model.Assessment2;
 
 @Service("assessmentService")
 public class AssessmentServiceImpl implements AssessmentService {
@@ -24,12 +25,12 @@ public class AssessmentServiceImpl implements AssessmentService {
 	}
 
 	@Override
-	public Assessment findById(Integer id) {
+	public Assessment2 findById(Integer id) {
 		return assessmentDao.findById(id);
 	}
 
 	@Override
-	public void saveOrUpdate(Assessment assessment) {
+	public void saveOrUpdate(Assessment2 assessment) {
 		if(findById(assessment.getId()) == null){
 			assessmentDao.save(assessment);
 		}else{
@@ -39,7 +40,7 @@ public class AssessmentServiceImpl implements AssessmentService {
 	}
 
 	@Override
-	public List<Assessment> findByUser(String user) {
+	public List<Assessment2> findByUser(String user) {
 		return assessmentDao.findByUser(user);
 	}
 	

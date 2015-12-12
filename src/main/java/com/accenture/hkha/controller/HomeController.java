@@ -28,6 +28,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.accenture.hkha.constants.UserRoles;
 import com.accenture.hkha.model.Assessment;
+import com.accenture.hkha.model.Assessment2;
 import com.accenture.hkha.service.AssessmentService;
 
 @Controller
@@ -122,18 +123,18 @@ public class HomeController {
 
 
 
-	@RequestMapping(value="/worklist/{id}/details", method = RequestMethod.GET)
+	@RequestMapping(value="/worklist/{id}/form", method = RequestMethod.GET)
 	public String showWorkDetails(@PathVariable("id") int id, Model model){
 		logger.info("showWorkDetails() id: {}", id);
 
-		Assessment assessment = assessmentService.findById(id);
+		Assessment2 assessment = assessmentService.findById(id);
 		model.addAttribute("assessmentForm", assessment);
 		model.addAttribute("scoreList", getScoreList());
 		model.addAttribute("disabled", false);
 
-		if(assessment.getStatus().equals("FOR APPROVAL") || assessment.getStatus().equals("REJECTED") || assessment.getStatus().equals("APPROVED")){
-			model.addAttribute("disabled", true);
-		}
+//		if(assessment.getStatus().equals("FOR APPROVAL") || assessment.getStatus().equals("REJECTED") || assessment.getStatus().equals("APPROVED")){
+//			model.addAttribute("disabled", true);
+//		}
 		
 		
 		logger.info(assessment.toString());
@@ -143,11 +144,11 @@ public class HomeController {
 	}
 
 	@RequestMapping(value="/submit", method = RequestMethod.POST)
-	public String submitAssessment(@ModelAttribute("assessmentForm") Assessment assessment, Model model){
+	public String submitAssessment(@ModelAttribute("assessmentForm") Assessment2 assessment, Model model){
 
 		logger.info("submitAssessment()");
 		assessment.setStatus("FOR APPROVAL");
-		assessment.setAssignedTo("approver@hkha.com");
+		assessment.setAssignedTo("prof@hkha.com");
 
 		assessmentService.saveOrUpdate(assessment);
 		logger.info(assessment.toString());
@@ -167,22 +168,22 @@ public class HomeController {
 	@RequestMapping(value="/approve", method = RequestMethod.POST)
 	public String approveAssessment(@ModelAttribute("approvalForm") Assessment assessment, Model model, @RequestParam String action){
 		logger.info("approveAssessment()");
-		assessment = assessmentService.findById(assessment.getId());
-		
-		logger.info("Button clicked: " + action);
-		if(action.equals("approve")){
-			assessment.setStatus("APPROVED");			
-		}else if(action.equals("reject")){
-			assessment.setStatus("REJECTED");
-		}else if(action.equals("return")){
-			assessment.setStatus("RETURNED");
-			assessment.setAssignedTo(assessment.getCreatedBy());
-		}
-		
-		
-		
-		assessmentService.saveOrUpdate(assessment);
-		logger.info(assessment.toString());
+//		assessment = assessmentService.findById(assessment.getId());
+//		
+//		logger.info("Button clicked: " + action);
+//		if(action.equals("approve")){
+//			assessment.setStatus("APPROVED");			
+//		}else if(action.equals("reject")){
+//			assessment.setStatus("REJECTED");
+//		}else if(action.equals("return")){
+//			assessment.setStatus("RETURNED");
+//			assessment.setAssignedTo(assessment.getCreatedBy());
+//		}
+//		
+//		
+//		
+//		assessmentService.saveOrUpdate(assessment);
+//		logger.info(assessment.toString());
 		return "redirect:/approvals";
 	}
 	
@@ -190,9 +191,9 @@ public class HomeController {
 	public String showApprovalDetails(@PathVariable int id, Model model){
 		logger.info("showApprovalDetails()");
 		
-		Assessment assessment = assessmentService.findById(id);
-		model.addAttribute("approvalForm", assessment);
-		model.addAttribute("scoreList", getScoreList());
+//		Assessment assessment = assessmentService.findById(id);
+//		model.addAttribute("approvalForm", assessment);
+//		model.addAttribute("scoreList", getScoreList());
 		
 		return "approvalForm";
 	}
