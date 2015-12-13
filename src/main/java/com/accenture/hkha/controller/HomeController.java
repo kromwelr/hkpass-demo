@@ -156,8 +156,8 @@ public class HomeController {
 
 		logger.info("submitAssessment()");
 		assessment.setStatus("FOR APPROVAL");
-		assessment.setAssignedTo("prof@hkha.com");
-		//assessment.setAssignedTo("chief");
+		//assessment.setAssignedTo("prof@hkha.com");
+		assessment.setAssignedTo("prof");
 
 
 		assessmentService.saveOrUpdate(assessment);
@@ -180,19 +180,19 @@ public class HomeController {
 		logger.info("approveAssessment()");
 
 //		assessment = assessmentService.findById(assessment.getId());
-//		
+//
 //		logger.info("Button clicked: " + action);
 //		if(action.equals("approve")){
-//			assessment.setStatus("APPROVED");			
+//			assessment.setStatus("APPROVED");
 //		}else if(action.equals("reject")){
 //			assessment.setStatus("REJECTED");
 //		}else if(action.equals("return")){
 //			assessment.setStatus("RETURNED");
 //			assessment.setAssignedTo(assessment.getCreatedBy());
 //		}
-//		
-//		
-//		
+//
+//
+//
 //		assessmentService.saveOrUpdate(assessment);
 //		logger.info(assessment.toString());
 
@@ -206,7 +206,7 @@ public class HomeController {
 //		Assessment assessment = assessmentService.findById(id);
 //		model.addAttribute("approvalForm", assessment);
 //		model.addAttribute("scoreList", getScoreList());
-		
+
 		return "approvalForm";
 	}
 

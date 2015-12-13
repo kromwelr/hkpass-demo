@@ -10,8 +10,9 @@ html {
 }
 
 body {
-	margin: 0;
+	margin: 0 auto;
 	min-height: 1000px;
+	width: 955px;
 }
 
 article, aside, details, figcaption, figure, footer, header, hgroup,
@@ -7264,25 +7265,26 @@ button.close {
 	background-position: center;
 }
 .banner_logo_left {
-   	background-image: url("../../images/banner_logo.png");
+   	background-image: url("../../images/logo-housing-authority.gif");
     min-height: 10px;
     overflow: hidden;
     float: left;
     background-repeat: no-repeat;
     height: 65px;
-    width: 307px;
+    width: 400px;
     position: relative;
+    margin-top: 10px;
 }
 
 .banner {
-    background-image: url("../../images/filler.png");
+    background-image: url("../../images/bg-top.jpg");
     min-height: 20px;
-    min-width: 1000px;
+    min-width: 955px;
 	height: 65px;
 }
 
 .banner_logo_right {
-    background-image: url("../../images/banner_side_logo.png");
+    background-image: url("../../images/logo-hong-kong.gif");
     min-height: 10px;
     overflow: hidden;
     float: right;
@@ -7290,6 +7292,8 @@ button.close {
     height: 65px;
     width: 175px;
     position: relative;
+    margin-right: 15px;
+
 }
 .footer{
 	/* background-image: url("../../images/footer_bar.png"); */
@@ -7299,26 +7303,26 @@ button.close {
 }
 .menu {
 	width: 100%;
-    min-height: 75px;
+    min-height: 44px;
 
 }
 .menu_items {
 	width: 100%;
 	position: relative;
-    background-color: #FBE5D6;
+    background-color: #E8DDDD; /*#FBE5D6;*/
     min-height: 44px;
 
 }
 .menu_container_left{
-	width: 75%;
-	position: relative;
+	width: 650px;
+	position: absolute;
 	overflow: hidden;
-    float: left;
+    /* float: left; */
 }
 .menu_container_right{
 	position: relative;
 	overflow: hidden;
-
+	float: right;
 }
 ul{
 	display: block;

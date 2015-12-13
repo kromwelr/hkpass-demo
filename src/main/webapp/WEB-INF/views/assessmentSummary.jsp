@@ -9,47 +9,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Assessment Summary</title>
-<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
-<link rel="stylesheet"
-	href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
-<link rel="stylesheet" href="/resources/core/css/calendar.css">
-<link rel="stylesheet" href="../../resources/core/css/demo.css">
 
+<link rel="stylesheet" href="../../resources/core/css/calendar.css">
+<link rel="stylesheet" href="../../resources/core/css/demo.css">
 <link href="../../resources/core/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
-	<div class="banner">
-		<div class="banner_logo_left"></div>
-		<div class="banner_logo_right"></div>
-	</div>
+	<%@include file="header.jsp" %>
 
-	<div class="menu">
-		<div class="menu_items">
-			<div class="menu_container_left">
-				<ul>
-					<li><a href="../../">Work List</a></li>
-					<li>|</li>
-					<li><a href="#">Cases</a></li>
-					<li>|</li>
-					<li><a href="#">Calendar</a></li>
-					<li>|</li>
-					<li><a href="#">Reports</a></li>
-					<li>|</li>
-					<li><a href="#">Admin</a></li>
-				</ul>
-			</div>
-			<div class="menu_container_right">
-				<ul>
-					<li>${pageContext.request.userPrincipal.name}</li>
-					<li>|</li>
-					<li><a href="<c:url value="/logout" />" >Logout</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-
-	<div class="workarea">
+	<div class="container">
 		<div>
 			<h3>Assessment</h3>
 			<br />

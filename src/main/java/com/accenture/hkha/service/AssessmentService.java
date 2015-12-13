@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package com.accenture.hkha.service;
 
@@ -13,19 +13,19 @@ import com.accenture.hkha.model.Assessment2;
  *
  */
 public interface AssessmentService {
-	
+
 	List<Assessment> findAll();
-	
+
 	List<Assessment2> findByUser(String user);
-	
+
 	List<Assessment> findByStatus(String status);
-	
-	List<Assessment> findByAssignment(String user);
-	
+
+	List<Assessment2> findByAssignment(String user);
+
 	Assessment2 findById(Integer id);
-	
+
 	void saveOrUpdate(Assessment2 assessment);
-	
+
 	void delete(Integer id);
 
 }

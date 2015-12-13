@@ -11,7 +11,7 @@
 <body>
 
 	<%@include file="header.jsp" %>
-
+		<div class="container">
 			<h2>Conduct Assessment</h2>
 			<br />
 
