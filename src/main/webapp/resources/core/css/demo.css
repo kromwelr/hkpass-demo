@@ -91,3 +91,21 @@ table tr td {
         background-color: #b2b2b2;
         box-shadow: none;
         color: #fff; }
+
+.t-ca-con-t2-th {
+	font-size: 21px;
+	margin: 0 27px !important;
+}
+
+.t-tmargs { margin-top: 47px !important; }
+.t-cpads { padding-top: 9px !important; }
+
+.hidden-cell { visibility: hidden !important; }
+
+.selected{
+	background-color: #dfdfd2
+}
+
+.no-border-top-all * {
+	border: none !important;
+}
