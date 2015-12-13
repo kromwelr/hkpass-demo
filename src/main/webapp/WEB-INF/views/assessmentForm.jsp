@@ -27,7 +27,7 @@
 		</div>
 		<h4>Conduct Assessment</h4>
 		<br />
-		<spring:url value="/submit" var="assessmentActionUrl" />
+		<spring:url value="/worklist/${assessmentForm.id}/form/submit" var="assessmentActionUrl" />
 		<form:form method="post" modelAttribute="assessmentForm"
 			action="${assessmentActionUrl}">
 
@@ -37,6 +37,7 @@
 			 	<form:hidden path="createdDate" />
 			 	<form:hidden path="assignedTo" />
 			 	<form:hidden path="status" />
+			 	<form:hidden path="subFactorItem" />
 			 	<form:hidden path="approvedByProf" />
 			 	<form:hidden path="approvedByChief" />
 			 	<tbody>
@@ -78,6 +79,7 @@
 		            <td>B</td>
 		            <td>C</td>
 		            <td>D</td>
+		            <td>E</td>
 		            <td>N</td>
 		          </tr>
 		        </thead>
@@ -87,6 +89,7 @@
 			            <td>Soundness</td>
 
 			            <td class="text-center"><form:radiobutton path="form1.soundness" value="A+" cssClass="r-size-scale"/></td>
+			            <td class="text-center"><form:radiobutton path="form1.soundness" value="A" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form1.soundness" value="B" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form1.soundness" value="C" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form1.soundness" value="D" cssClass="r-size-scale"/></td>
@@ -97,6 +100,7 @@
 			            <td>Evenness</td>
 
 			            <td class="text-center"><form:radiobutton path="form1.evenness" value="A+" cssClass="r-size-scale"/></td>
+			            <td class="text-center"><form:radiobutton path="form1.evenness" value="A" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form1.evenness" value="B" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form1.evenness" value="C" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form1.evenness" value="D" cssClass="r-size-scale"/></td>
@@ -107,6 +111,7 @@
 			            <td>Level</td>
 
 			            <td class="text-center"><form:radiobutton path="form1.level" value="A+" cssClass="r-size-scale"/></td>
+			            <td class="text-center"><form:radiobutton path="form1.level" value="A" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form1.level" value="B" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form1.level" value="C" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form1.level" value="D" cssClass="r-size-scale"/></td>
@@ -118,6 +123,7 @@
 			            <td>Fall</td>
 
 			            <td class="text-center"><form:radiobutton path="form1.fall" value="A+" cssClass="r-size-scale"/></td>
+			            <td class="text-center"><form:radiobutton path="form1.fall" value="A" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form1.fall" value="B" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form1.fall" value="C" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form1.fall" value="D" cssClass="r-size-scale"/></td>
@@ -132,6 +138,7 @@
 			            <td>Soundness</td>
 
 			            <td class="text-center"><form:radiobutton path="form2.soundness" value="A+" cssClass="r-size-scale"/></td>
+			            <td class="text-center"><form:radiobutton path="form2.soundness" value="A" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form2.soundness" value="B" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form2.soundness" value="C" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form2.soundness" value="D" cssClass="r-size-scale"/></td>
@@ -143,6 +150,7 @@
 			            <td>Evenness</td>
 
 			            <td class="text-center"><form:radiobutton path="form2.evenness" value="A+" cssClass="r-size-scale"/></td>
+			            <td class="text-center"><form:radiobutton path="form2.evenness" value="A" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form2.evenness" value="B" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form2.evenness" value="C" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form2.evenness" value="D" cssClass="r-size-scale"/></td>
@@ -154,6 +162,7 @@
 			            <td>Level</td>
 
 			            <td class="text-center"><form:radiobutton path="form2.level" value="A+" cssClass="r-size-scale"/></td>
+			            <td class="text-center"><form:radiobutton path="form2.level" value="A" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form2.level" value="B" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form2.level" value="C" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form2.level" value="D" cssClass="r-size-scale"/></td>
@@ -165,6 +174,7 @@
 			            <td>Fall</td>
 
 			            <td class="text-center"><form:radiobutton path="form2.fall" value="A+" cssClass="r-size-scale"/></td>
+			            <td class="text-center"><form:radiobutton path="form2.fall" value="A" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form2.fall" value="B" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form2.fall" value="C" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form2.fall" value="D" cssClass="r-size-scale"/></td>
@@ -179,6 +189,7 @@
 			            <td>Soundness</td>
 
 			            <td class="text-center"><form:radiobutton path="form3.soundness" value="A+" cssClass="r-size-scale"/></td>
+			            <td class="text-center"><form:radiobutton path="form3.soundness" value="A" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form3.soundness" value="B" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form3.soundness" value="C" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form3.soundness" value="D" cssClass="r-size-scale"/></td>
@@ -190,6 +201,7 @@
 			            <td>Evenness</td>
 
 			            <td class="text-center"><form:radiobutton path="form3.evenness" value="A+" cssClass="r-size-scale"/></td>
+			            <td class="text-center"><form:radiobutton path="form3.evenness" value="A" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form3.evenness" value="B" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form3.evenness" value="C" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form3.evenness" value="D" cssClass="r-size-scale"/></td>
@@ -201,6 +213,7 @@
 			            <td>Level</td>
 
 			            <td class="text-center"><form:radiobutton path="form3.level" value="A+" cssClass="r-size-scale"/></td>
+			            <td class="text-center"><form:radiobutton path="form3.level" value="A" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form3.level" value="B" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form3.level" value="C" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form3.level" value="D" cssClass="r-size-scale"/></td>
@@ -212,6 +225,7 @@
 			            <td>Fall</td>
 
 			            <td class="text-center"><form:radiobutton path="form3.fall" value="A+" cssClass="r-size-scale"/></td>
+			            <td class="text-center"><form:radiobutton path="form3.fall" value="A" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form3.fall" value="B" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form3.fall" value="C" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form3.fall" value="D" cssClass="r-size-scale"/></td>
@@ -226,6 +240,7 @@
 			            <td>Soundness</td>
 
 			            <td class="text-center"><form:radiobutton path="form4.soundness" value="A+" cssClass="r-size-scale"/></td>
+			            <td class="text-center"><form:radiobutton path="form4.soundness" value="A" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form4.soundness" value="B" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form4.soundness" value="C" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form4.soundness" value="D" cssClass="r-size-scale"/></td>
@@ -237,6 +252,7 @@
 			            <td>Evenness</td>
 
 			            <td class="text-center"><form:radiobutton path="form4.evenness" value="A+" cssClass="r-size-scale"/></td>
+			            <td class="text-center"><form:radiobutton path="form4.evenness" value="A" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form4.evenness" value="B" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form4.evenness" value="C" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form4.evenness" value="D" cssClass="r-size-scale"/></td>
@@ -248,6 +264,7 @@
 			            <td>Level</td>
 
 			            <td class="text-center"><form:radiobutton path="form4.level" value="A+" cssClass="r-size-scale"/></td>
+			            <td class="text-center"><form:radiobutton path="form4.level" value="A" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form4.level" value="B" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form4.level" value="C" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form4.level" value="D" cssClass="r-size-scale"/></td>
@@ -259,6 +276,7 @@
 			            <td>Fall</td>
 
 			            <td class="text-center"><form:radiobutton path="form4.fall" value="A+" cssClass="r-size-scale"/></td>
+			            <td class="text-center"><form:radiobutton path="form4.fall" value="A" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form4.fall" value="B" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form4.fall" value="C" cssClass="r-size-scale"/></td>
 			            <td class="text-center"><form:radiobutton path="form4.fall" value="D" cssClass="r-size-scale"/></td>
@@ -270,7 +288,9 @@
 		       </table>
 
 		       <div class="buttons" align="right">
-		       		<button type="submit" class="button button-stable" >Submit</button>
+		      
+		       		<button type="submit" class="button button-stable">Confirm</button>
+
 		       </div>
 
 			<br/>

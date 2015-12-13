@@ -38,6 +38,7 @@ public class HomeController {
 
 	private AssessmentService assessmentService;
 	private String username;
+	private Integer assessmentId;
 
 
 	@Autowired
@@ -151,17 +152,46 @@ public class HomeController {
 		return "assessmentForm";
 	}
 
-	@RequestMapping(value="/submit", method = RequestMethod.POST)
-	public String submitAssessment(@ModelAttribute("assessmentForm") Assessment2 assessment, Model model){
+	@RequestMapping(value="/worklist/{id}/form/submit", method = RequestMethod.POST)
+	public String submitAssessment(@ModelAttribute("assessmentForm") Assessment2 assessment, Model model, @PathVariable int id){
 
 		logger.info("submitAssessment()");
+		logger.info("id: " + id);
+		this.assessmentId = id;
+
 		assessment.setStatus("FOR APPROVAL");
-		//assessment.setAssignedTo("prof@hkha.com");
 		assessment.setAssignedTo("prof");
 
+		//assessment.setAssignedTo("prof@hkha.com");
+		//assessment.setAssignedTo("chief");
 
 		assessmentService.saveOrUpdate(assessment);
+		model.addAttribute("assessmentForm", assessment);
 		logger.info(assessment.toString());
+
+		return "redirect:/worklist/{id}/form/summary";
+		//return "redirect:/worklist";
+		//return "assessmentSummary";
+	}
+
+	@RequestMapping(value="/worklist/{id}/form/summary", method = RequestMethod.GET)
+	public String showSummary(Model model){
+
+		Assessment2 assessment = assessmentService.findById(this.assessmentId);
+		model.addAttribute("assessment", assessment);
+
+		return "assessmentSummary";
+	}
+
+	@RequestMapping(value="/submit", method = RequestMethod.GET)
+	public String submitSummary(Model model){
+
+		Assessment2 assessment = assessmentService.findById(this.assessmentId);
+		assessment.setStatus("FOR APPROVAL");
+		assessment.setAssignedTo("PROF");
+
+		assessmentService.saveOrUpdate(assessment);
+		logger.info("submit successful!");
 
 		return "redirect:/worklist";
 	}
@@ -176,7 +206,7 @@ public class HomeController {
 	}
 
 	@RequestMapping(value="/approve", method = RequestMethod.POST)
-	public String approveAssessment(@ModelAttribute("approvalForm") Assessment assessment, Model model, @RequestParam String action){
+	public String approveAssessment(@ModelAttribute("approvalForm") Assessment assessment, Model model, @PathVariable String action){
 		logger.info("approveAssessment()");
 
 //		assessment = assessmentService.findById(assessment.getId());
@@ -219,6 +249,14 @@ public class HomeController {
 		list.add("N");
 
 		return list;
+	}
+
+	public Integer getAssessmentId() {
+		return assessmentId;
+	}
+
+	public void setAssessmentId(Integer assessmentId) {
+		this.assessmentId = assessmentId;
 	}
 
 
