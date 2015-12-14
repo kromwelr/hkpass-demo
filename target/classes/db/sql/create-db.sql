@@ -54,7 +54,8 @@ CREATE table ASSESSMENT_2 (
 	assigned_to VARCHAR(30),
 	status VARCHAR(30),
 	approved_by_prof VARCHAR(3),
-	approved_by_chief VARCHAR(3)
+	approved_by_chief VARCHAR(3),
+	remarks VARCHAR(255)
 );
 
 

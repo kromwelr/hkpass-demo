@@ -23,7 +23,7 @@
 <body>
 	<%@include file="header.jsp" %>
 
-	<div class="workarea">
+	<div class="col-sm-12 col-md-12">
 		<div>
 			<h3>Assessment Form</h3>
 			<br />
@@ -290,7 +290,17 @@
 		        
 		       </table>
 		       
-		       <div class="buttons" align="right">
+		       <div>
+		       		<table width="100%">
+		       			<tr>
+		       				<td align="right" style="padding-right:50px"><b>Remarks:</b></td>
+		       				<td align="center">
+		       					<form:textarea path="remarks" rows="5" cols="100" cssStyle="border:solid 1px #dfdfd2;"/>
+		       				</td>
+		       			</tr>		       			
+		       		</table>
+		       </div>
+		       <div class="buttons t-tmargs" align="right">
 		      
 		       		<button type="submit" class="button button-stable">Confirm</button>
 

@@ -4,7 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -290,52 +290,77 @@
         	</tbody>
 		 </table>
 		 
-		 <div class="col-sm-12 col-md-12 t-tmargs">
+		 <div class="t-tmargs">
+		 	<table width="100%">
+		 		<tr>
+		 			<td><b>Remarks by PGE/PT/Contractor:</b></td>
+		 		</tr>
+		 		<tr>
+		 			<td style="border:solid 1px #dfdfd2;" height="100px" valign="top">
+		 				<p align="left">${assessment.remarks}</p>
+		 			</td>
+		 		</tr>
+		 	</table>
+		 </div>
+		 
+		 <div class="t-tmargs">
+		 <!-- 
 		 	<table class="table table-responsive no-border-top-all">
+		  -->
+		 	<table width="100%">
 		 		<tr>
-		 			<td align="left" style="padding-left:350px">Assessment by PGE/PT:</td>
-		 			<td colspan="2" style="border-bottom: solid 1px black !important; width:150px"></td>
+		 			<td align="left" style="padding-left:150px">Assessment by PGE/PT:</td>
+		 			<td colspan="2" style="border-bottom: solid 1px black !important; width:200px"></td>
 		 			<td align="right" style="padding-right:50px">Signed:</td>
 		 			<td style="border-bottom: solid 1px black !important; width:150px"></td>
 		 			<td align="right" style="padding-right:50px">Date:</td>
 		 			<td style="border-bottom: solid 1px black !important; width:150px"></td>
+		 	
 		 		</tr>
 		 		<tr>
+		 			
 		 			<td></td>
 		 			<td align="center">(Name)</td>
 		 			<td align="center">(Post)</td>
+		 			<td colspan="4"></td>
 		 		</tr>
 		 		<tr>
-		 			<td align="left" style="padding-left:350px">Project Site Staff:</td>
-		 			<td colspan="2" style="border-bottom: solid 1px black !important; width:150px"></td>
+		 			<td align="left" style="padding-left:150px">Project Site Staff:</td>
+		 			<td colspan="2" style="border-bottom: solid 1px black !important; width:200px"></td>
 		 			<td align="right" style="padding-right:50px">Signed:</td>
 		 			<td style="border-bottom: solid 1px black !important; width:150px"></td>
 		 			<td align="right" style="padding-right:50px">Date:</td>
 		 			<td style="border-bottom: solid 1px black !important; width:150px"></td>
+		 			
 		 		</tr>
 		 		<tr>
+		 			
 		 			<td></td>
 		 			<td align="center">(Name)</td>
 		 			<td align="center">(Post)</td>
+		 			<td colspan="4"></td>
 		 		</tr>
 		 		<tr>
-		 			<td align="left" style="padding-left:350px">Contractor's Representative:</td>
-		 			<td colspan="2" style="border-bottom: solid 1px black !important; width:150px"></td>
+		 			<td align="left" style="padding-left:150px">Contractor's Representative:</td>
+		 			<td colspan="2" style="border-bottom: solid 1px black !important; width:200px"></td>
 		 			<td align="right" style="padding-right:50px">Signed:</td>
 		 			<td style="border-bottom: solid 1px black !important; width:150px"></td>
 		 			<td align="right" style="padding-right:50px">Date:</td>
 		 			<td style="border-bottom: solid 1px black !important; width:150px"></td>
+		 			
 		 		</tr>
 		 		<tr>
+		 			
 		 			<td></td>
 		 			<td align="center">(Name)</td>
 		 			<td align="center">(Post)</td>
+		 			<td colspan="4"></td>
 		 		</tr>
 		 		
 		 	</table>
 		 </div>
 			<br/>
-			<div class="buttons" align="right">
+			<div class="buttons t-tmargs" align="right">
 				<spring:url value="/submit" var="submit"/>
 				<button type="button" class="button button-stable" onclick="location.href='${submit}'">Submit</button>
 		    </div>
