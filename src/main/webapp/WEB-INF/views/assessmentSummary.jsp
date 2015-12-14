@@ -10,9 +10,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Assessment Summary</title>
 
-<link rel="stylesheet" href="../../resources/core/css/calendar.css">
-<link rel="stylesheet" href="../../resources/core/css/demo.css">
-<link href="../../resources/core/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="../../../resources/core/css/calendar.css">
+<link rel="stylesheet" href="../../../resources/core/css/demo.css">
+<link href="../../../resources/core/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
 	<%@include file="header.jsp" %>
@@ -312,6 +312,7 @@
 		 </div>
 			<br/>
 			<div class="buttons" align="right">
+				<button type="button" class="button button-stable" onclick="javascript:history.back();">Back</button>
 				<spring:url value="/submit" var="submit"/>
 				<button type="button" class="button button-stable" onclick="location.href='${submit}'">Submit</button>
 		    </div>
