@@ -75,15 +75,15 @@ public class AssessmentDaoImpl implements AssessmentDao {
 	}
 	
 	@Override
-	public List<Assessment> findByStatus(String status) {
+	public List<Assessment2> findByStatus(String status) {
 
-//		Map<String, Object> params = new HashMap<String, Object>();
-//		params.put("status", status);
-//		
-//		String sql = "select * from assessment where status=:status";
-//		List<Assessment> result = namedParameterJdbcTemplate.query(sql, params, new AssessmentMapper());
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("status", status);
 		
-		return null;
+		String sql = "select * from assessment_2 where status=:status";
+		List<Assessment2> result = namedParameterJdbcTemplate.query(sql, params, new Assessment2Mapper());
+		
+		return result;
 	}
 	
 	@Override

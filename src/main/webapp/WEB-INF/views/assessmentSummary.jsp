@@ -362,7 +362,24 @@
 			<br/>
 			<div class="buttons t-tmargs" align="right">
 				<spring:url value="/submit" var="submit"/>
-				<button type="button" class="button button-stable" onclick="location.href='${submit}'">Submit</button>
+				<spring:url value="/approve/prof/${assessment.id}" var="approveProf"/>
+				<spring:url value="/return/prof/${assessment.id}" var="returnProf"/>
+				<spring:url value="/approve/chief/${assessment.id}" var="approveChief"/>
+				<spring:url value="/reject/chief/${assessment.id}" var="rejectChief"/>
+				
+				<c:choose>
+					<c:when test="${mode eq 'ASSESS_MODE'}">
+						<button type="button" class="button button-stable" onclick="location.href='${submit}'">Submit</button>
+					</c:when>
+					<c:when test="${mode eq 'PROF_MODE'}">
+						<button type="button" class="button button-stable" onclick="location.href='${returnProf}'">Return</button>
+						<button type="button" class="button button-stable" onclick="location.href='${approveProf}'">Approve</button>	
+					</c:when>
+					<c:when test="${mode eq 'CHIEF_MODE'}">
+						<button type="button" class="button button-stable" onclick="location.href='${rejectChief}'">Reject</button>
+						<button type="button" class="button button-stable" onclick="location.href='${approveChief}'">Approve</button>	
+					</c:when>
+				</c:choose>
 		    </div>
 	</div>
 

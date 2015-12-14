@@ -22,7 +22,7 @@ public interface AssessmentDao {
 	
 	List<Assessment> findByAssignment(String user);
 	
-	List<Assessment> findByStatus(String status);
+	List<Assessment2> findByStatus(String status);
 	
 	void save(Assessment2 assessment);
 	

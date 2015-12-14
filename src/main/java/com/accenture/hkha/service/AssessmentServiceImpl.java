@@ -50,7 +50,7 @@ public class AssessmentServiceImpl implements AssessmentService {
 	}
 	
 	@Override
-	public List<Assessment> findByStatus(String status) {
+	public List<Assessment2> findByStatus(String status) {
 		return assessmentDao.findByStatus(status);
 	}
 	

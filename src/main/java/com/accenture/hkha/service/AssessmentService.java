@@ -18,7 +18,7 @@ public interface AssessmentService {
 	
 	List<Assessment2> findByUser(String user);
 	
-	List<Assessment> findByStatus(String status);
+	List<Assessment2> findByStatus(String status);
 	
 	List<Assessment> findByAssignment(String user);
 	
