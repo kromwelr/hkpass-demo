@@ -25,6 +25,8 @@ public class Assessment2 {
 	private String status;
 	private String approvedByProf;
 	private String approvedByChief;
+	
+	private String remarks;
 
 	public String getCreatedBy() {
 		return createdBy;
@@ -160,6 +162,14 @@ public class Assessment2 {
 
 	public void setSubFactorItem(String subFactorItem) {
 		this.subFactorItem = subFactorItem;
+	}
+
+	public String getRemarks() {
+		return remarks;
+	}
+
+	public void setRemarks(String remarks) {
+		this.remarks = remarks;
 	}
 
 
