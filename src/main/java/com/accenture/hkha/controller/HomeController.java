@@ -15,7 +15,6 @@ import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,7 +26,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.accenture.hkha.constants.UserRoles;
-import com.accenture.hkha.model.Assessment;
 import com.accenture.hkha.model.Assessment2;
 import com.accenture.hkha.service.AssessmentService;
 
@@ -59,8 +57,12 @@ public class HomeController {
 			logger.info("Roles: " + sga.getAuthority());
 			if(sga.getAuthority().equals(UserRoles.ROLE_ASSESSOR.toString())){
 				return "redirect:/worklist";
-			}else if(sga.getAuthority().equals(UserRoles.ROLE_PROF.toString()) || sga.getAuthority().equals(UserRoles.ROLE_CHIEF.toString())){
-				return "redirect:/approvals";
+			}else if(sga.getAuthority().equals(UserRoles.ROLE_PROF.toString())){
+				return "redirect:/prof/worklist";
+			}else if(sga.getAuthority().equals(UserRoles.ROLE_CHIEF.toString())){
+				return "redirect:/chief/worklist";
+			}else if(sga.getAuthority().equals(UserRoles.ROLE_ADMIN.toString())){
+				return "redirect:/admin/worklist";
 			}
 		}
 
@@ -80,9 +82,148 @@ public class HomeController {
 	public String showWorkList(Model model){
 
 		logger.info("showWorkList()");
-		model.addAttribute("worklist", assessmentService.findByUser(this.username));
+
+		List<Assessment2> list = new ArrayList<Assessment2>();
+		list.addAll(assessmentService.findByStatus("FOR ASSESSMENT"));
+		list.addAll(assessmentService.findByStatus("RETURNED"));
+
+		model.addAttribute("worklist", list);
 
 		return "worklist";
+	}
+
+	@RequestMapping(value="/prof/worklist", method = RequestMethod.GET)
+	public String showProfWorklist(Model model){
+		logger.info("showProfWorkList()");
+
+		model.addAttribute("reviewList", assessmentService.findByStatusAndAssignment("FOR REVIEW",this.username));
+
+		return "worklist_prof";
+	}
+
+	@RequestMapping(value="/prof/worklist/{id}/details", method = RequestMethod.GET)
+	public String showReviewDetails(@PathVariable("id") int id, Model model){
+		logger.info("showReviewDetails()");
+		this.assessmentId = id;
+		model.addAttribute("assessment", assessmentService.findById(id));
+		model.addAttribute("mode", "PROF_MODE");
+
+		return "assessmentSummaryProf";
+	}
+
+	@RequestMapping(value="/approve/prof/{id}", method = RequestMethod.GET)
+	public String approveProf(@PathVariable("id") int id, Model model){
+		logger.info("approveProf()");
+
+		Assessment2 assessment = assessmentService.findById(id);
+		assessment.setApprovedByProf("Y");
+		assessment.setStatus("FOR APPROVAL");
+		assessment.setAssignedTo("CHIEF");
+
+		assessmentService.saveOrUpdate(assessment);
+		logger.info("PROF Approval - Complete!");
+
+		return "redirect:/prof/worklist";
+	}
+
+	@RequestMapping(value="/return/prof/{id}", method = RequestMethod.GET)
+	public String returnAssessment(@PathVariable("id") int id, Model model){
+		logger.info("returnAssessment()");
+
+		Assessment2 assessment = assessmentService.findById(id);
+		assessment.setApprovedByProf("N");
+		assessment.setStatus("RETURNED");
+		assessment.setAssignedTo("ASSESSOR");
+
+		assessmentService.saveOrUpdate(assessment);
+		logger.info("Assessment Returned!");
+
+		return "redirect:/prof/worklist";
+	}
+
+
+	@RequestMapping(value="/chief/worklist", method = RequestMethod.GET)
+	public String showChiefWorklist(Model model){
+		logger.info("showChiefWorklist()");
+
+		model.addAttribute("approvalList", assessmentService.findByStatusAndAssignment("FOR APPROVAL", this.username));
+
+		return "worklist_chief";
+	}
+
+	@RequestMapping(value="/admin/worklist", method = RequestMethod.GET)
+	public String showAdminWorklist(Model model){
+		logger.info("showAdminWorklist()");
+
+		model.addAttribute("adminList", assessmentService.findAllAssessment());
+
+		return "worklist_admin";
+	}
+	@RequestMapping(value="/admin/worklist/{id}/details", method = RequestMethod.GET)
+	public String showAssessmentDetails(@PathVariable("id") int id, Model model){
+		logger.info("showAssessmentDetails()");
+		this.assessmentId = id;
+		model.addAttribute("assessment", assessmentService.findById(id));
+		model.addAttribute("mode", "ADMIN_MODE");
+
+		return "assessmentSummaryAdmin";
+	}
+
+	@RequestMapping(value="/chief/worklist/{id}/details", method = RequestMethod.GET)
+	public String showApprovalDetails(@PathVariable("id") int id, Model model){
+		logger.info("showApprovalDetails()");
+		this.assessmentId = id;
+		model.addAttribute("assessment", assessmentService.findById(id));
+		model.addAttribute("mode", "CHIEF_MODE");
+
+		return "assessmentSummaryChief";
+	}
+
+	@RequestMapping(value="/submitChief", method = RequestMethod.GET)
+	public String submitChiefSummary(Model model){
+
+		Assessment2 assessment = assessmentService.findById(this.assessmentId);
+		assessment.setStatus("COMPLETED");
+		assessment.setAssignedTo("chief");
+
+		assessmentService.saveOrUpdate(assessment);
+		logger.info("submit successful!");
+
+		return "redirect:/chief/worklist";
+	}
+
+	@RequestMapping(value="/approve/chief/{id}", method = RequestMethod.GET)
+	public String approveChief(@PathVariable("id") int id, Model model){
+
+		logger.info("approveChief()");
+
+		Assessment2 assessment = assessmentService.findById(id);
+		assessment.setApprovedByChief("Y");
+		assessment.setStatus("APPROVED");
+		assessment.setAssignedTo("ASSESSOR");
+
+		assessmentService.saveOrUpdate(assessment);
+		logger.info("CHIEF Approval - Complete!");
+
+		return "redirect:/chief/worklist";
+
+	}
+
+	@RequestMapping(value="/reject/chief/{id}", method = RequestMethod.GET)
+	public String rejectAssessment(@PathVariable("id") int id, Model model){
+
+		logger.info("rejectAssessment()");
+
+		Assessment2 assessment = assessmentService.findById(id);
+		assessment.setApprovedByChief("N");
+		assessment.setStatus("REJECTED");
+		assessment.setAssignedTo("ASSESSOR");
+
+		assessmentService.saveOrUpdate(assessment);
+		logger.info("Assessment Rejected!");
+
+		return "redirect:/chief/worklist";
+
 	}
 
 	@RequestMapping(value="/logout", method = RequestMethod.GET)
@@ -139,12 +280,6 @@ public class HomeController {
 
 		Assessment2 assessment = assessmentService.findById(id);
 		model.addAttribute("assessmentForm", assessment);
-		model.addAttribute("scoreList", getScoreList());
-		model.addAttribute("disabled", false);
-
-//		if(assessment.getStatus().equals("FOR APPROVAL") || assessment.getStatus().equals("REJECTED") || assessment.getStatus().equals("APPROVED")){
-//			model.addAttribute("disabled", true);
-//		}
 
 		logger.info(assessment.toString());
 
@@ -167,18 +302,18 @@ public class HomeController {
 
 		assessmentService.saveOrUpdate(assessment);
 		model.addAttribute("assessmentForm", assessment);
+
 		logger.info(assessment.toString());
 
 		return "redirect:/worklist/{id}/form/summary";
-		//return "redirect:/worklist";
-		//return "assessmentSummary";
 	}
 
-	@RequestMapping(value="/worklist/{id}/form/summary", method = RequestMethod.GET)
+	@RequestMapping(value="worklist/{id}/form/summary", method = RequestMethod.GET)
 	public String showSummary(Model model){
 
 		Assessment2 assessment = assessmentService.findById(this.assessmentId);
 		model.addAttribute("assessment", assessment);
+		model.addAttribute("mode", "ASSESS_MODE");
 
 		return "assessmentSummary";
 	}
@@ -187,8 +322,8 @@ public class HomeController {
 	public String submitSummary(Model model){
 
 		Assessment2 assessment = assessmentService.findById(this.assessmentId);
-		assessment.setStatus("FOR APPROVAL");
-		assessment.setAssignedTo("PROF");
+		assessment.setStatus("FOR REVIEW");
+		assessment.setAssignedTo("prof");
 
 		assessmentService.saveOrUpdate(assessment);
 		logger.info("submit successful!");
@@ -196,60 +331,19 @@ public class HomeController {
 		return "redirect:/worklist";
 	}
 
-	@RequestMapping(value="/approvals", method = RequestMethod.GET)
-	public String showApprovals(Model model){
+	@RequestMapping(value="/submitProf", method = RequestMethod.GET)
+	public String submitProfSummary(Model model){
 
-		logger.info("showApprovals()");
-		model.addAttribute("approvalList", assessmentService.findByAssignment(this.username));
+		Assessment2 assessment = assessmentService.findById(this.assessmentId);
+		assessment.setStatus("FOR APPROVAL");
+		assessment.setAssignedTo("chief");
 
-		return "approvals";
+		assessmentService.saveOrUpdate(assessment);
+		logger.info("submit successful!");
+
+		return "redirect:/prof/worklist";
 	}
 
-	@RequestMapping(value="/approve", method = RequestMethod.POST)
-	public String approveAssessment(@ModelAttribute("approvalForm") Assessment assessment, Model model, @PathVariable String action){
-		logger.info("approveAssessment()");
-
-//		assessment = assessmentService.findById(assessment.getId());
-//
-//		logger.info("Button clicked: " + action);
-//		if(action.equals("approve")){
-//			assessment.setStatus("APPROVED");
-//		}else if(action.equals("reject")){
-//			assessment.setStatus("REJECTED");
-//		}else if(action.equals("return")){
-//			assessment.setStatus("RETURNED");
-//			assessment.setAssignedTo(assessment.getCreatedBy());
-//		}
-//
-//
-//
-//		assessmentService.saveOrUpdate(assessment);
-//		logger.info(assessment.toString());
-
-		return "redirect:/approvals";
-	}
-
-	@RequestMapping(value="/approvals/{id}/details", method = RequestMethod.GET)
-	public String showApprovalDetails(@PathVariable int id, Model model){
-		logger.info("showApprovalDetails()");
-
-//		Assessment assessment = assessmentService.findById(id);
-//		model.addAttribute("approvalForm", assessment);
-//		model.addAttribute("scoreList", getScoreList());
-
-		return "approvalForm";
-	}
-
-	private List<String> getScoreList(){
-		List<String> list = new ArrayList<String>();
-		list.add("A");
-		list.add("B");
-		list.add("C");
-		list.add("D");
-		list.add("N");
-
-		return list;
-	}
 
 	public Integer getAssessmentId() {
 		return assessmentId;

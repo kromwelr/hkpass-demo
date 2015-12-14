@@ -14,8 +14,6 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 
-
-
 import com.accenture.hkha.model.Assessment;
 import com.accenture.hkha.model.Assessment2;
 import com.accenture.hkha.model.Form;
@@ -64,6 +62,7 @@ public class AssessmentDaoImpl implements AssessmentDao {
 		return result;
 	}
 
+
 	@Override
 	public List<Assessment2> findByAssignment(String user) {
 
@@ -77,15 +76,35 @@ public class AssessmentDaoImpl implements AssessmentDao {
 	}
 
 	@Override
-	public List<Assessment> findByStatus(String status) {
+	public List<Assessment2> findAllAssessment() {
 
-//		Map<String, Object> params = new HashMap<String, Object>();
-//		params.put("status", status);
-//
-//		String sql = "select * from assessment where status=:status";
-//		List<Assessment> result = namedParameterJdbcTemplate.query(sql, params, new AssessmentMapper());
+		String sql = "select * from assessment_2";
+		List<Assessment2> result = namedParameterJdbcTemplate.query(sql, new Assessment2Mapper());
 
-		return null;
+		return result;
+	}
+
+	public List<Assessment2> findByStatusAndAssignment(String status, String assignedTo){
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("status", status);
+		params.put("assignedTo", assignedTo);
+
+		String sql = "select * from assessment_2 where status=:status and assigned_to=:assignedTo";
+		List<Assessment2> result = namedParameterJdbcTemplate.query(sql, params, new Assessment2Mapper());
+
+		return result;
+	}
+	@Override
+	public List<Assessment2> findByStatus(String status) {
+
+
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("status", status);
+
+		String sql = "select * from assessment_2 where status=:status";
+		List<Assessment2> result = namedParameterJdbcTemplate.query(sql, params, new Assessment2Mapper());
+
+		return result;
 	}
 
 	@Override

@@ -265,6 +265,8 @@
 	        	</tbody>
 			 </table>
 
+			 <div><button type="button" class="button button-stable">Calculate Score</button></div>
+
 			 <div class="t-tmargs">
 			 	<table width="100%">
 			 		<tr>
@@ -335,10 +337,8 @@
 				<br/>
 
 				<div class="buttons t-tmargs" align="right">
-					<spring:url value="/submit" var="submit"/>
 					<button type="button" class="button button-stable" onclick="javascript:document.print()">Print</button>
 					<button type="button" class="button button-stable" onclick="javascript:history.back()">Back</button>
-					<button type="button" class="button button-stable" onclick="location.href='${submit}'">Submit</button>
 			    </div>
 		</div>
 	</div>

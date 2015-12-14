@@ -3,30 +3,39 @@ package com.accenture.hkha.model;
 public class Assessment2 {
 
 	public Assessment2(){
-		
+
 	}
-	
+
 	private Form form1;
 	private Form form2;
 	private Form form3;
 	private Form form4;
-	
+
 	private Integer id;
-	private String contract; 
+	private String contract;
 	private String assessmentDate;
 	private String floor;
 	private String blockZone;
 	private String locationFlat;
 	private String subFactorItem;
-	
+
 	private String createdBy;
 	private String createdDate;
 	private String assignedTo;
 	private String status;
 	private String approvedByProf;
 	private String approvedByChief;
-	
+
 	private String remarks;
+	private String attachment;
+
+	public String getAttachment() {
+		return attachment;
+	}
+
+	public void setAttachment(String attachment) {
+		this.attachment = attachment;
+	}
 
 	public String getCreatedBy() {
 		return createdBy;
@@ -87,7 +96,7 @@ public class Assessment2 {
 	public Form getForm1() {
 		return form1;
 	}
-	
+
 	public Form getForm2() {
 		return form2;
 	}
@@ -173,5 +182,5 @@ public class Assessment2 {
 	}
 
 
-	
+
 }

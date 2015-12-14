@@ -50,8 +50,18 @@ public class AssessmentServiceImpl implements AssessmentService {
 	}
 
 	@Override
-	public List<Assessment> findByStatus(String status) {
+	public List<Assessment2> findByStatus(String status) {
 		return assessmentDao.findByStatus(status);
+	}
+
+	@Override
+	public List<Assessment2> findByStatusAndAssignment(String status, String assignedTo) {
+		return assessmentDao.findByStatusAndAssignment(status,assignedTo);
+	}
+
+	@Override
+	public List<Assessment2> findAllAssessment() {
+		return assessmentDao.findAllAssessment();
 	}
 
 	@Override

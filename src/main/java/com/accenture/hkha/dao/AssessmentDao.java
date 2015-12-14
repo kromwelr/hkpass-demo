@@ -18,11 +18,15 @@ public interface AssessmentDao {
 
 	List<Assessment> findAll();
 
+	List<Assessment2> findAllAssessment();
+
 	List<Assessment2> findByUser(String user);
 
 	List<Assessment2> findByAssignment(String user);
 
-	List<Assessment> findByStatus(String status);
+	List<Assessment2> findByStatus(String status);
+
+	List<Assessment2> findByStatusAndAssignment(String status, String assignedTo);
 
 	void save(Assessment2 assessment);
 

@@ -14,7 +14,7 @@
 
 		<intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/reports/**" access="hasAnyRole('ROLE_ASSESSOR, ROLE_PROF, ROLE_CHIEF, ROLE_ADMIN')" />
-		<intercept-url pattern="/" access="hasAnyRole('ROLE_ASSESSOR, ROLE_PROF, ROLE_CHIEF')" />
+		<intercept-url pattern="/" access="hasAnyRole('ROLE_ASSESSOR, ROLE_PROF, ROLE_CHIEF, ROLE_ADMIN')" />
 		<!-- access denied page -->
 		<access-denied-handler error-page="/noaccess" />
 
