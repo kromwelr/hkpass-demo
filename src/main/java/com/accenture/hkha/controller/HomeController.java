@@ -86,6 +86,8 @@ public class HomeController {
 		List<Assessment2> list = new ArrayList<Assessment2>();
 		list.addAll(assessmentService.findByStatus("FOR ASSESSMENT"));
 		list.addAll(assessmentService.findByStatus("RETURNED"));
+		list.addAll(assessmentService.findByStatus("SAVE DRAFT"));
+		list.addAll(assessmentService.findByStatus("SAVED"));
 
 		model.addAttribute("worklist", list);
 
@@ -105,7 +107,7 @@ public class HomeController {
 	public String showReviewDetails(@PathVariable("id") int id, Model model){
 		logger.info("showReviewDetails()");
 		this.assessmentId = id;
-		model.addAttribute("assessment", assessmentService.findById(id));
+		model.addAttribute("assessmentForm", assessmentService.findById(id));
 		model.addAttribute("mode", "PROF_MODE");
 
 		return "assessmentSummaryProf";
@@ -163,7 +165,7 @@ public class HomeController {
 	public String showAssessmentDetails(@PathVariable("id") int id, Model model){
 		logger.info("showAssessmentDetails()");
 		this.assessmentId = id;
-		model.addAttribute("assessment", assessmentService.findById(id));
+		model.addAttribute("assessmentForm", assessmentService.findById(id));
 		model.addAttribute("mode", "ADMIN_MODE");
 
 		return "assessmentSummaryAdmin";
@@ -173,7 +175,7 @@ public class HomeController {
 	public String showApprovalDetails(@PathVariable("id") int id, Model model){
 		logger.info("showApprovalDetails()");
 		this.assessmentId = id;
-		model.addAttribute("assessment", assessmentService.findById(id));
+		model.addAttribute("assessmentForm", assessmentService.findById(id));
 		model.addAttribute("mode", "CHIEF_MODE");
 
 		return "assessmentSummaryChief";
@@ -287,48 +289,69 @@ public class HomeController {
 		return "assessmentForm";
 	}
 
-	@RequestMapping(value="/worklist/{id}/form/submit", method = RequestMethod.POST)
+	@RequestMapping(value="/worklist/{id}/form/confirm", method = RequestMethod.POST)
 	public String submitAssessment(@ModelAttribute("assessmentForm") Assessment2 assessment, Model model, @PathVariable int id){
 
 		logger.info("submitAssessment()");
 		logger.info("id: " + id);
 		this.assessmentId = id;
 
-		assessment.setStatus("FOR APPROVAL");
-		assessment.setAssignedTo("prof");
+		model.addAttribute("assessmentForm", assessment);
 
-		//assessment.setAssignedTo("prof@hkha.com");
-		//assessment.setAssignedTo("chief");
+		logger.info(assessment.toString());
+
+		return "assessmentSummary";
+	}
+
+	@RequestMapping(value="/worklist/{id}/form/save", method = RequestMethod.POST)
+	public String saveAssessment(@ModelAttribute("assessmentForm") Assessment2 assessment, Model model, @PathVariable int id){
+
+		logger.info("saveAssessment()");
+		logger.info("id: " + id);
+		this.assessmentId = id;
+
+		assessment.setStatus("SAVE DRAFT");
 
 		assessmentService.saveOrUpdate(assessment);
 		model.addAttribute("assessmentForm", assessment);
 
 		logger.info(assessment.toString());
 
-		return "redirect:/worklist/{id}/form/summary";
+		return "redirect:/worklist/{id}/form";
 	}
 
 	@RequestMapping(value="worklist/{id}/form/summary", method = RequestMethod.GET)
-	public String showSummary(Model model){
+	public String showSummary(@ModelAttribute("assessmentForm") Assessment2 assessment, Model model){
 
-		Assessment2 assessment = assessmentService.findById(this.assessmentId);
-		model.addAttribute("assessment", assessment);
+		//Assessment2 assessment = assessmentService.findById(this.assessmentId);
+		/*model.addAttribute("assessment", assessment);
 		model.addAttribute("mode", "ASSESS_MODE");
+
+		assessment.setStatus("FOR APPROVAL");
+		assessment.setAssignedTo("prof");
+
+		assessmentService.saveOrUpdate(assessment);*/
+		model.addAttribute("assessmentForm", assessment);
 
 		return "assessmentSummary";
 	}
 
-	@RequestMapping(value="/submit", method = RequestMethod.GET)
-	public String submitSummary(Model model){
+	@RequestMapping(value="/worklist/{id}/form/submit", method = RequestMethod.POST)
+	public String submitSummary(@ModelAttribute("assessmentForm") Assessment2 assessment, Model model){
 
-		Assessment2 assessment = assessmentService.findById(this.assessmentId);
+		Assessment2 assessmentOrig = assessmentService.findById(this.assessmentId);
 		assessment.setStatus("FOR REVIEW");
 		assessment.setAssignedTo("prof");
+		assessment.setContract(assessmentOrig.getContract());
+		assessment.setAssessmentDate(assessmentOrig.getAssessmentDate());
+		assessment.setCreatedBy(assessmentOrig.getCreatedBy());
+		assessment.setCreatedDate(assessmentOrig.getCreatedDate());
 
 		assessmentService.saveOrUpdate(assessment);
 		logger.info("submit successful!");
 
-		return "redirect:/worklist";
+		model.addAttribute("assessmentForm", assessment);
+		return "redirect:/worklist";//"assessmentSummaryAck";//
 	}
 
 	@RequestMapping(value="/submitProf", method = RequestMethod.GET)

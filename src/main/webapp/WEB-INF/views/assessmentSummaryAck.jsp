@@ -17,20 +17,21 @@
 
 function onSubmit(){
 	
-	alert("Assessment has been submitted!");
-	
 	window.document.forms[0].submit();
 }
 </script>
 </head>
 <body>
 	<%@include file="header.jsp" %>
-	<spring:url value="/worklist/${assessmentForm.id}/form/submit" var="submit"/>
-	<form:form method="post" modelAttribute="assessmentForm"
+	<spring:url value="/worklist" var="submit"/>
+	<form:form method="get" modelAttribute="assessmentForm"
 				action="${submit}">
+				
 	<div class="container">
 		<div class="col-sm-12 col-md-12">
-
+			<br>
+			<div valign="middle" align="center"class="msg">Assessment has been submitted!</div>
+			</br>
 			<table class="table-ca-con table table-responsive no-border-top-all">
 		        <tr>
 		          <td class="col-md-1"><p class="t-label-pad-ctitle">Contact Title:</p></td>
@@ -63,13 +64,14 @@ function onSubmit(){
 		          </tr>
 
 		          <tr>
-		            <th colspan="6">Spot 1</th>
-		            <th colspan="6">Spot 2</th>
-		            <th colspan="6">Spot 3</th>
-		            <th colspan="6">Spot 4</th>
+		            <th colspan="7">Spot 1</th>
+		            <th colspan="7">Spot 2</th>
+		            <th colspan="7">Spot 3</th>
+		            <th colspan="7">Spot 4</th>
 		          </tr>
 
 		          <tr>
+		              <th>A*</th>
 		              <th>A</th>
 		              <th>B</th>
 		              <th>C</th>
@@ -77,6 +79,7 @@ function onSubmit(){
 		              <th>E</th>
 		              <th>N</th>
 
+		              <th>A*</th>
 		              <th>A</th>
 		              <th>B</th>
 		              <th>C</th>
@@ -84,6 +87,7 @@ function onSubmit(){
 		              <th>E</th>
 		              <th>N</th>
 
+		              <th>A*</th>
 		              <th>A</th>
 		              <th>B</th>
 		              <th>C</th>
@@ -91,6 +95,7 @@ function onSubmit(){
 		              <th>E</th>
 		              <th>N</th>
 
+		              <th>A*</th>
 		              <th>A</th>
 		              <th>B</th>
 		              <th>C</th>
@@ -104,7 +109,7 @@ function onSubmit(){
 		            <td colspan="1">1.</td>
 		            <td colspan="3">Soundness</td>
 
-		            
+		            <td class="${assessmentForm.form1.soundness eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form1.soundness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form1.soundness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form1.soundness eq 'C' ? 'selected':''}"></td>
@@ -112,7 +117,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form1.soundness eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form1.soundness eq 'N' ? 'selected':''}"></td>
 
-		            
+		            <td class="${assessmentForm.form2.soundness eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form2.soundness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form2.soundness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form2.soundness eq 'C' ? 'selected':''}"></td>
@@ -120,7 +125,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form2.soundness eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form2.soundness eq 'N' ? 'selected':''}"></td>
 
-		            
+		            <td class="${assessmentForm.form3.soundness eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form3.soundness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form3.soundness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form3.soundness eq 'C' ? 'selected':''}"></td>
@@ -128,7 +133,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form3.soundness eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form3.soundness eq 'N' ? 'selected':''}"></td>
 
-		            
+		            <td class="${assessmentForm.form4.soundness eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form4.soundness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form4.soundness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form4.soundness eq 'C' ? 'selected':''}"></td>
@@ -141,7 +146,7 @@ function onSubmit(){
 		            <td>2.</td>
 		            <td colspan="3">Evenness</td>
 
-		            
+		            <td class="${assessmentForm.form1.evenness eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form1.evenness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form1.evenness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form1.evenness eq 'C' ? 'selected':''}"></td>
@@ -149,7 +154,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form1.evenness eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form1.evenness eq 'N' ? 'selected':''}"></td>
 
-		            
+		            <td class="${assessmentForm.form2.evenness eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form2.evenness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form2.evenness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form2.evenness eq 'C' ? 'selected':''}"></td>
@@ -157,7 +162,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form2.evenness eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form2.evenness eq 'N' ? 'selected':''}"></td>
 
-		            
+		            <td class="${assessmentForm.form3.evenness eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form3.evenness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form3.evenness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form3.evenness eq 'C' ? 'selected':''}"></td>
@@ -165,6 +170,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form3.evenness eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form3.evenness eq 'N' ? 'selected':''}"></td>
 
+		            <td class="${assessmentForm.form4.evenness eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form4.evenness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form4.evenness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form4.evenness eq 'C' ? 'selected':''}"></td>
@@ -177,6 +183,7 @@ function onSubmit(){
 		            <td>3.</td>
 		            <td colspan="3">Level</td>
 
+		            <td class="${assessmentForm.form1.level eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form1.level eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form1.level eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form1.level eq 'C' ? 'selected':''}"></td>
@@ -184,6 +191,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form1.level eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form1.level eq 'N' ? 'selected':''}"></td>
 
+		            <td class="${assessmentForm.form2.level eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form2.level eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form2.level eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form2.level eq 'C' ? 'selected':''}"></td>
@@ -191,6 +199,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form2.level eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form2.level eq 'N' ? 'selected':''}"></td>
 
+		            <td class="${assessmentForm.form3.level eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form3.level eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form3.level eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form3.level eq 'C' ? 'selected':''}"></td>
@@ -198,6 +207,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form3.level eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form3.level eq 'N' ? 'selected':''}"></td>
 
+		            <td class="${assessmentForm.form4.level eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form4.level eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form4.level eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form4.level eq 'C' ? 'selected':''}"></td>
@@ -210,6 +220,7 @@ function onSubmit(){
 		            <td>4.</td>
 		            <td colspan="3">Fall</td>
 
+		            <td class="${assessmentForm.form1.fall eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form1.fall eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form1.fall eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form1.fall eq 'C' ? 'selected':''}"></td>
@@ -217,6 +228,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form1.fall eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form1.fall eq 'N' ? 'selected':''}"></td>
 
+		            <td class="${assessmentForm.form2.fall eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form2.fall eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form2.fall eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form2.fall eq 'C' ? 'selected':''}"></td>
@@ -224,6 +236,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form2.fall eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form2.fall eq 'N' ? 'selected':''}"></td>
 
+		            <td class="${assessmentForm.form3.fall eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form3.fall eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form3.fall eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form3.fall eq 'C' ? 'selected':''}"></td>
@@ -231,6 +244,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form3.fall eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form3.fall eq 'N' ? 'selected':''}"></td>
 
+		            <td class="${assessmentForm.form4.fall eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form4.fall eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form4.fall eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form4.fall eq 'C' ? 'selected':''}"></td>
@@ -240,8 +254,9 @@ function onSubmit(){
 		          </tr>
 
 		          <tr>
-		            <td class="hidden-cell" colspan="15"></td>
-		            <td class="t-cpads" colspan="3"><b>Collected</b></td>
+		            <td class="hidden-cell" colspan="16"></td>
+		            <td class="t-cpads" colspan="4"><b>Collected</b></td>
+		            <td class="text-center" colspan="2">A*</td>
 		            <td class="text-center" colspan="2">A</td>
 		            <td class="text-center" colspan="2">B</td>
 		            <td class="text-center" colspan="2">C</td>
@@ -250,9 +265,9 @@ function onSubmit(){
 		          </tr>
 
 		          <tr>
-		            <td class="hidden-cell" border="0" colspan="15"></td>
-		            <td class="t-cpads" colspan="3"><b>Sum</b></td>
-		            
+		            <td class="hidden-cell" border="0" colspan="16"></td>
+		            <td class="t-cpads" colspan="4"><b>Sum</b></td>
+		            <td colspan="2" class="${((assessmentForm.form1.soundness eq 'A+') or  (assessmentForm.form1.evenness eq 'A+') or (assessmentForm.form1.level eq 'A+') or (assessmentForm.form1.fall eq 'A+') or (assessmentForm.form2.soundness eq 'A+') or  (assessmentForm.form2.evenness eq 'A+') or (assessmentForm.form2.level eq 'A+') or (assessmentForm.form2.fall eq 'A+') or (assessmentForm.form3.soundness eq 'A+') or  (assessmentForm.form3.evenness eq 'A+') or (assessmentForm.form3.level eq 'A+') or (assessmentForm.form3.fall eq 'A+') or (assessmentForm.form4.soundness eq 'A+') or  (assessmentForm.form4.evenness eq 'A+') or (assessmentForm.form4.level eq 'A+') or (assessmentForm.form4.fall eq 'A+')) ? 'selected':''}"></td>
 		            <td colspan="2" class="${((assessmentForm.form1.soundness eq 'A') or  (assessmentForm.form1.evenness eq 'A') or (assessmentForm.form1.level eq 'A') or (assessmentForm.form1.fall eq 'A') or (assessmentForm.form2.soundness eq 'A') or  (assessmentForm.form2.evenness eq 'A') or (assessmentForm.form2.level eq 'A') or (assessmentForm.form2.fall eq 'A') or (assessmentForm.form3.soundness eq 'A') or  (assessmentForm.form3.evenness eq 'A') or (assessmentForm.form3.level eq 'A') or (assessmentForm.form3.fall eq 'A') or (assessmentForm.form4.soundness eq 'A') or  (assessmentForm.form4.evenness eq 'A') or (assessmentForm.form4.level eq 'A') or (assessmentForm.form4.fall eq 'A')) ? 'selected':''}"></td>
 		            <td colspan="2" class="${((assessmentForm.form1.soundness eq 'B') or  (assessmentForm.form1.evenness eq 'B') or (assessmentForm.form1.level eq 'B') or (assessmentForm.form1.fall eq 'B') or (assessmentForm.form2.soundness eq 'B') or  (assessmentForm.form2.evenness eq 'B') or (assessmentForm.form2.level eq 'B') or (assessmentForm.form2.fall eq 'B') or (assessmentForm.form3.soundness eq 'B') or  (assessmentForm.form3.evenness eq 'B') or (assessmentForm.form3.level eq 'B') or (assessmentForm.form3.fall eq 'B') or (assessmentForm.form4.soundness eq 'B') or  (assessmentForm.form4.evenness eq 'B') or (assessmentForm.form4.level eq 'B') or (assessmentForm.form4.fall eq 'B')) ? 'selected':''}"></td>
 		            <td colspan="2" class="${((assessmentForm.form1.soundness eq 'C') or  (assessmentForm.form1.evenness eq 'C') or (assessmentForm.form1.level eq 'C') or (assessmentForm.form1.fall eq 'C') or (assessmentForm.form2.soundness eq 'C') or  (assessmentForm.form2.evenness eq 'C') or (assessmentForm.form2.level eq 'C') or (assessmentForm.form2.fall eq 'C') or (assessmentForm.form3.soundness eq 'C') or  (assessmentForm.form3.evenness eq 'C') or (assessmentForm.form3.level eq 'C') or (assessmentForm.form3.fall eq 'C') or (assessmentForm.form4.soundness eq 'C') or  (assessmentForm.form4.evenness eq 'C') or (assessmentForm.form4.level eq 'C') or (assessmentForm.form4.fall eq 'C')) ? 'selected':''}"></td>
@@ -277,13 +292,14 @@ function onSubmit(){
 		          </tr>
 
 		          <tr>
-		            <th colspan="6">Spot 1</th>
-		            <th colspan="6">Spot 2</th>
-		            <th colspan="6">Spot 3</th>
-		            <th colspan="6">Spot 4</th>
+		            <th colspan="7">Spot 1</th>
+		            <th colspan="7">Spot 2</th>
+		            <th colspan="7">Spot 3</th>
+		            <th colspan="7">Spot 4</th>
 		          </tr>
 
 		          <tr>
+		              <th>A*</th>
 		              <th>A</th>
 		              <th>B</th>
 		              <th>C</th>
@@ -291,6 +307,7 @@ function onSubmit(){
 		              <th>E</th>
 		              <th>N</th>
 
+		              <th>A*</th>
 		              <th>A</th>
 		              <th>B</th>
 		              <th>C</th>
@@ -298,6 +315,7 @@ function onSubmit(){
 		              <th>E</th>
 		              <th>N</th>
 
+		              <th>A*</th>
 		              <th>A</th>
 		              <th>B</th>
 		              <th>C</th>
@@ -305,6 +323,7 @@ function onSubmit(){
 		              <th>E</th>
 		              <th>N</th>
 
+		              <th>A*</th>
 		              <th>A</th>
 		              <th>B</th>
 		              <th>C</th>
@@ -319,7 +338,7 @@ function onSubmit(){
 		            <td>1.</td>
 		            <td colspan="3">Evenness</td>
 
-		            
+		            <td class="${assessmentForm.form21.evenness eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form21.evenness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form21.evenness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form21.evenness eq 'C' ? 'selected':''}"></td>
@@ -327,7 +346,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form21.evenness eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form21.evenness eq 'N' ? 'selected':''}"></td>
                                                 
-		            
+		            <td class="${assessmentForm.form22.evenness eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form22.evenness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form22.evenness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form22.evenness eq 'C' ? 'selected':''}"></td>
@@ -335,7 +354,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form22.evenness eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form22.evenness eq 'N' ? 'selected':''}"></td>
                                                 
-		            
+		            <td class="${assessmentForm.form23.evenness eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form23.evenness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form23.evenness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form23.evenness eq 'C' ? 'selected':''}"></td>
@@ -343,7 +362,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form23.evenness eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form23.evenness eq 'N' ? 'selected':''}"></td>
                                                 
-		            
+		            <td class="${assessmentForm.form24.evenness eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form24.evenness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form24.evenness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form24.evenness eq 'C' ? 'selected':''}"></td>
@@ -356,7 +375,7 @@ function onSubmit(){
 		            <td>2.</td>
 		            <td colspan="3">Level</td>
 
-		            
+		            <td class="${assessmentForm.form21.level eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form21.level eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form21.level eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form21.level eq 'C' ? 'selected':''}"></td>
@@ -364,7 +383,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form21.level eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form21.level eq 'N' ? 'selected':''}"></td>
                                                 
-		            
+		            <td class="${assessmentForm.form22.level eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form22.level eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form22.level eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form22.level eq 'C' ? 'selected':''}"></td>
@@ -372,7 +391,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form22.level eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form22.level eq 'N' ? 'selected':''}"></td>
                                                 
-		            
+		            <td class="${assessmentForm.form23.level eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form23.level eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form23.level eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form23.level eq 'C' ? 'selected':''}"></td>
@@ -380,7 +399,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form23.level eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form23.level eq 'N' ? 'selected':''}"></td>
                                                 
-		            
+		            <td class="${assessmentForm.form24.level eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form24.level eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form24.level eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form24.level eq 'C' ? 'selected':''}"></td>
@@ -393,7 +412,7 @@ function onSubmit(){
 		            <td>3.</td>
 		            <td colspan="3">Fall</td>
 
-		            
+		            <td class="${assessmentForm.form21.fall eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form21.fall eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form21.fall eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form21.fall eq 'C' ? 'selected':''}"></td>
@@ -401,7 +420,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form21.fall eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form21.fall eq 'N' ? 'selected':''}"></td>
                                                 
-		            
+		            <td class="${assessmentForm.form22.fall eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form22.fall eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form22.fall eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form22.fall eq 'C' ? 'selected':''}"></td>
@@ -409,7 +428,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form22.fall eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form22.fall eq 'N' ? 'selected':''}"></td>
                                                 
-		            
+		            <td class="${assessmentForm.form23.fall eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form23.fall eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form23.fall eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form23.fall eq 'C' ? 'selected':''}"></td>
@@ -417,7 +436,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form23.fall eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form23.fall eq 'N' ? 'selected':''}"></td>
                                                 
-		            
+		            <td class="${assessmentForm.form24.fall eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form24.fall eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form24.fall eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form24.fall eq 'C' ? 'selected':''}"></td>
@@ -427,8 +446,9 @@ function onSubmit(){
 		          </tr>
 
 		          <tr>
-		            <td class="hidden-cell" colspan="15"></td>
-		            <td class="t-cpads" colspan="3"><b>Collected</b></td>
+		            <td class="hidden-cell" colspan="16"></td>
+		            <td class="t-cpads" colspan="4"><b>Collected</b></td>
+		            <td class="text-center" colspan="2">A*</td>
 		            <td class="text-center" colspan="2">A</td>
 		            <td class="text-center" colspan="2">B</td>
 		            <td class="text-center" colspan="2">C</td>
@@ -437,9 +457,9 @@ function onSubmit(){
 		          </tr>
 
 		          <tr>
-		            <td class="hidden-cell" border="0" colspan="15"></td>
-		            <td class="t-cpads" colspan="3"><b>Sum</b></td>
-		            
+		            <td class="hidden-cell" border="0" colspan="16"></td>
+		            <td class="t-cpads" colspan="4"><b>Sum</b></td>
+		            <td colspan="2" class="${((assessmentForm.form21.evenness eq 'A+') or (assessmentForm.form21.level eq 'A+') or (assessmentForm.form21.fall eq 'A+') or (assessmentForm.form22.evenness eq 'A+') or (assessmentForm.form22.level eq 'A+') or (assessmentForm.form22.fall eq 'A+') or  (assessmentForm.form23.evenness eq 'A+') or (assessmentForm.form23.level eq 'A+') or (assessmentForm.form23.fall eq 'A+') or  (assessmentForm.form24.evenness eq 'A+') or (assessmentForm.form24.level eq 'A+') or (assessmentForm.form24.fall eq 'A+')) ? 'selected':''}"></td>
 		            <td colspan="2" class="${((assessmentForm.form21.evenness eq 'A') or (assessmentForm.form21.level eq 'A') or (assessmentForm.form21.fall eq 'A') or (assessmentForm.form22.evenness eq 'A') or (assessmentForm.form22.level eq 'A') or (assessmentForm.form22.fall eq 'A') or  (assessmentForm.form23.evenness eq 'A') or (assessmentForm.form23.level eq 'A') or (assessmentForm.form23.fall eq 'A') or  (assessmentForm.form24.evenness eq 'A') or (assessmentForm.form24.level eq 'A') or (assessmentForm.form24.fall eq 'A')) ? 'selected':''}"></td>
 		            <td colspan="2" class="${((assessmentForm.form21.evenness eq 'B') or (assessmentForm.form21.level eq 'B') or (assessmentForm.form21.fall eq 'B') or (assessmentForm.form22.evenness eq 'B') or (assessmentForm.form22.level eq 'B') or (assessmentForm.form22.fall eq 'B') or  (assessmentForm.form23.evenness eq 'B') or (assessmentForm.form23.level eq 'B') or (assessmentForm.form23.fall eq 'B') or  (assessmentForm.form24.evenness eq 'B') or (assessmentForm.form24.level eq 'B') or (assessmentForm.form24.fall eq 'B')) ? 'selected':''}"></td>
 		            <td colspan="2" class="${((assessmentForm.form21.evenness eq 'C') or (assessmentForm.form21.level eq 'C') or (assessmentForm.form21.fall eq 'C') or (assessmentForm.form22.evenness eq 'C') or (assessmentForm.form22.level eq 'C') or (assessmentForm.form22.fall eq 'C') or  (assessmentForm.form23.evenness eq 'C') or (assessmentForm.form23.level eq 'C') or (assessmentForm.form23.fall eq 'C') or  (assessmentForm.form24.evenness eq 'C') or (assessmentForm.form24.level eq 'C') or (assessmentForm.form24.fall eq 'C')) ? 'selected':''}"></td>
@@ -464,13 +484,14 @@ function onSubmit(){
 		          </tr>
 
 		          <tr>
-		            <th colspan="6">Spot 1</th>
-		            <th colspan="6">Spot 2</th>
-		            <th colspan="6">Spot 3</th>
-		            <th colspan="6">Spot 4</th>
+		            <th colspan="7">Spot 1</th>
+		            <th colspan="7">Spot 2</th>
+		            <th colspan="7">Spot 3</th>
+		            <th colspan="7">Spot 4</th>
 		          </tr>
 
 		          <tr>
+		              <th>A*</th>
 		              <th>A</th>
 		              <th>B</th>
 		              <th>C</th>
@@ -478,6 +499,7 @@ function onSubmit(){
 		              <th>E</th>
 		              <th>N</th>
 
+		              <th>A*</th>
 		              <th>A</th>
 		              <th>B</th>
 		              <th>C</th>
@@ -485,6 +507,7 @@ function onSubmit(){
 		              <th>E</th>
 		              <th>N</th>
 
+		              <th>A*</th>
 		              <th>A</th>
 		              <th>B</th>
 		              <th>C</th>
@@ -492,6 +515,7 @@ function onSubmit(){
 		              <th>E</th>
 		              <th>N</th>
 
+		              <th>A*</th>
 		              <th>A</th>
 		              <th>B</th>
 		              <th>C</th>
@@ -504,9 +528,9 @@ function onSubmit(){
 		         
 		          <tr>
 		            <td>1.</td>
-		            <td colspan="3">Soundness</td>
+		            <td colspan="1">Soundness</td>
 
-		            
+		            <td class="${assessmentForm.form31.soundness eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form31.soundness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form31.soundness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form31.soundness eq 'C' ? 'selected':''}"></td>
@@ -514,7 +538,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form31.soundness eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form31.soundness eq 'N' ? 'selected':''}"></td>
                                                 
-		            
+		            <td class="${assessmentForm.form32.soundness eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form32.soundness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form32.soundness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form32.soundness eq 'C' ? 'selected':''}"></td>
@@ -522,7 +546,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form32.soundness eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form32.soundness eq 'N' ? 'selected':''}"></td>
                                                   
-		            
+		            <td class="${assessmentForm.form33.soundness eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form33.soundness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form33.soundness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form33.soundness eq 'C' ? 'selected':''}"></td>
@@ -530,7 +554,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form33.soundness eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form33.soundness eq 'N' ? 'selected':''}"></td>
                                                   
-		            
+		            <td class="${assessmentForm.form34.soundness eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form34.soundness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form34.soundness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form34.soundness eq 'C' ? 'selected':''}"></td>
@@ -541,8 +565,9 @@ function onSubmit(){
 
 
 		          <tr>
-		            <td class="hidden-cell" colspan="15"></td>
-		            <td class="t-cpads" colspan="3"><b>Collected</b></td>
+		            <td class="hidden-cell" colspan="16"></td>
+		            <td class="t-cpads" colspan="4"><b>Collected</b></td>
+		            <td class="text-center" colspan="2">A*</td>
 		            <td class="text-center" colspan="2">A</td>
 		            <td class="text-center" colspan="2">B</td>
 		            <td class="text-center" colspan="2">C</td>
@@ -551,9 +576,9 @@ function onSubmit(){
 		          </tr>
 
 		          <tr>
-		            <td class="hidden-cell" border="0" colspan="15"></td>
-		            <td class="t-cpads" colspan="3"><b>Sum</b></td>
-		            
+		            <td class="hidden-cell" border="0" colspan="16"></td>
+		            <td class="t-cpads" colspan="4"><b>Sum</b></td>
+		            <td colspan="2" class="${((assessmentForm.form31.soundness eq 'A+') or (assessmentForm.form32.soundness eq 'A+') or (assessmentForm.form33.soundness eq 'A+') or (assessmentForm.form34.soundness eq 'A+')) ? 'selected':''}"></td>
 		            <td colspan="2" class="${((assessmentForm.form31.soundness eq 'A') or (assessmentForm.form32.soundness eq 'A') or (assessmentForm.form33.soundness eq 'A') or (assessmentForm.form34.soundness eq 'A')) ? 'selected':''}"></td>
 		            <td colspan="2" class="${((assessmentForm.form31.soundness eq 'B') or (assessmentForm.form32.soundness eq 'B') or (assessmentForm.form33.soundness eq 'B') or (assessmentForm.form34.soundness eq 'B')) ? 'selected':''}"></td>
 		            <td colspan="2" class="${((assessmentForm.form31.soundness eq 'C') or (assessmentForm.form32.soundness eq 'C') or (assessmentForm.form33.soundness eq 'C') or (assessmentForm.form34.soundness eq 'C')) ? 'selected':''}"></td>
@@ -578,13 +603,14 @@ function onSubmit(){
 		          </tr>
 
 		          <tr>
-		            <th colspan="6">Spot 1</th>
-		            <th colspan="6">Spot 2</th>
-		            <th colspan="6">Spot 3</th>
-		            <th colspan="6">Spot 4</th>
+		            <th colspan="7">Spot 1</th>
+		            <th colspan="7">Spot 2</th>
+		            <th colspan="7">Spot 3</th>
+		            <th colspan="7">Spot 4</th>
 		          </tr>
 
 		          <tr>
+		              <th>A*</th>
 		              <th>A</th>
 		              <th>B</th>
 		              <th>C</th>
@@ -592,6 +618,7 @@ function onSubmit(){
 		              <th>E</th>
 		              <th>N</th>
 
+		              <th>A*</th>
 		              <th>A</th>
 		              <th>B</th>
 		              <th>C</th>
@@ -599,6 +626,7 @@ function onSubmit(){
 		              <th>E</th>
 		              <th>N</th>
 
+		              <th>A*</th>
 		              <th>A</th>
 		              <th>B</th>
 		              <th>C</th>
@@ -606,6 +634,7 @@ function onSubmit(){
 		              <th>E</th>
 		              <th>N</th>
 
+		              <th>A*</th>
 		              <th>A</th>
 		              <th>B</th>
 		              <th>C</th>
@@ -620,7 +649,7 @@ function onSubmit(){
 		            <td colspan="1">1.</td>
 		            <td colspan="3">Lintol</td>
 
-		            
+		            <td class="${assessmentForm.form41.lintol eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form41.lintol eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form41.lintol eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form41.lintol eq 'C' ? 'selected':''}"></td>
@@ -628,7 +657,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form41.lintol eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form41.lintol eq 'N' ? 'selected':''}"></td>
                                                    
-		            
+		            <td class="${assessmentForm.form42.lintol eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form42.lintol eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form42.lintol eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form42.lintol eq 'C' ? 'selected':''}"></td>
@@ -636,7 +665,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form42.lintol eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form42.lintol eq 'N' ? 'selected':''}"></td>
                                                    
-		            
+		            <td class="${assessmentForm.form43.lintol eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form43.lintol eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form43.lintol eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form43.lintol eq 'C' ? 'selected':''}"></td>
@@ -644,7 +673,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form43.lintol eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form43.lintol eq 'N' ? 'selected':''}"></td>
                                                    
-		            
+		            <td class="${assessmentForm.form44.lintol eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form44.lintol eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form44.lintol eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form44.lintol eq 'C' ? 'selected':''}"></td>
@@ -657,7 +686,7 @@ function onSubmit(){
 		            <td>2.</td>
 		            <td colspan="3">Evenness</td>
 
-		            
+		            <td class="${assessmentForm.form41.evenness eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form41.evenness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form41.evenness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form41.evenness eq 'C' ? 'selected':''}"></td>
@@ -665,7 +694,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form41.evenness eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form41.evenness eq 'N' ? 'selected':''}"></td>
                                                 
-		            
+		            <td class="${assessmentForm.form42.evenness eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form42.evenness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form42.evenness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form42.evenness eq 'C' ? 'selected':''}"></td>
@@ -673,7 +702,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form42.evenness eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form42.evenness eq 'N' ? 'selected':''}"></td>
                                                 
-		            
+		            <td class="${assessmentForm.form43.evenness eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form43.evenness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form43.evenness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form43.evenness eq 'C' ? 'selected':''}"></td>
@@ -681,7 +710,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form43.evenness eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form43.evenness eq 'N' ? 'selected':''}"></td>
                                                 
-		            
+		            <td class="${assessmentForm.form44.evenness eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form44.evenness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form44.evenness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form44.evenness eq 'C' ? 'selected':''}"></td>
@@ -694,7 +723,7 @@ function onSubmit(){
 		            <td>3.</td>
 		            <td colspan="3">Joint Width</td>
 
-		            
+		            <td class="${assessmentForm.form41.jointwidth eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form41.jointwidth eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form41.jointwidth eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form41.jointwidth eq 'C' ? 'selected':''}"></td>
@@ -702,7 +731,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form41.jointwidth eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form41.jointwidth eq 'N' ? 'selected':''}"></td>
                                                    
-		            
+		            <td class="${assessmentForm.form42.jointwidth eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form42.jointwidth eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form42.jointwidth eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form42.jointwidth eq 'C' ? 'selected':''}"></td>
@@ -710,7 +739,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form42.jointwidth eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form42.jointwidth eq 'N' ? 'selected':''}"></td>
                                                    
-		            
+		            <td class="${assessmentForm.form43.jointwidth eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form43.jointwidth eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form43.jointwidth eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form43.jointwidth eq 'C' ? 'selected':''}"></td>
@@ -718,7 +747,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form43.jointwidth eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form43.jointwidth eq 'N' ? 'selected':''}"></td>
                                                    
-		            
+		            <td class="${assessmentForm.form44.jointwidth eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form44.jointwidth eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form44.jointwidth eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form44.jointwidth eq 'C' ? 'selected':''}"></td>
@@ -731,7 +760,7 @@ function onSubmit(){
 		            <td>4.</td>
 		            <td colspan="3">Finish</td>
 
-		            
+		            <td class="${assessmentForm.form41.finish eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form41.finish eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form41.finish eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form41.finish eq 'C' ? 'selected':''}"></td>
@@ -739,7 +768,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form41.finish eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form41.finish eq 'N' ? 'selected':''}"></td>
                                                    
-		            
+		            <td class="${assessmentForm.form42.finish eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form42.finish eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form42.finish eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form42.finish eq 'C' ? 'selected':''}"></td>
@@ -747,7 +776,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form42.finish eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form42.finish eq 'N' ? 'selected':''}"></td>
                                                    
-		            
+		            <td class="${assessmentForm.form43.finish eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form43.finish eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form43.finish eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form43.finish eq 'C' ? 'selected':''}"></td>
@@ -755,7 +784,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form43.finish eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form43.finish eq 'N' ? 'selected':''}"></td>
                                                    
-		            
+		            <td class="${assessmentForm.form44.finish eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form44.finish eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form44.finish eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form44.finish eq 'C' ? 'selected':''}"></td>
@@ -765,8 +794,9 @@ function onSubmit(){
 		          </tr>
 
 		          <tr>
-		            <td class="hidden-cell" colspan="15"></td>
-		            <td class="t-cpads" colspan="3"><b>Collected</b></td>
+		            <td class="hidden-cell" colspan="16"></td>
+		            <td class="t-cpads" colspan="4"><b>Collected</b></td>
+		            <td class="text-center" colspan="2">A*</td>
 		            <td class="text-center" colspan="2">A</td>
 		            <td class="text-center" colspan="2">B</td>
 		            <td class="text-center" colspan="2">C</td>
@@ -775,9 +805,9 @@ function onSubmit(){
 		          </tr>
 
 		          <tr>
-		            <td class="hidden-cell" border="0" colspan="15"></td>
-		            <td class="t-cpads" colspan="3"><b>Sum</b></td>
-		            
+		            <td class="hidden-cell" border="0" colspan="16"></td>
+		            <td class="t-cpads" colspan="4"><b>Sum</b></td>
+		            <td colspan="2" class="${((assessmentForm.form41.lintol eq 'A+') or  (assessmentForm.form41.evenness eq 'A+') or (assessmentForm.form41.jointwidth eq 'A+') or (assessmentForm.form41.finish eq 'A+') or (assessmentForm.form42.lintol eq 'A+') or  (assessmentForm.form42.evenness eq 'A+') or (assessmentForm.form42.jointwidth eq 'A+') or (assessmentForm.form42.finish eq 'A+') or (assessmentForm.form43.lintol eq 'A+') or  (assessmentForm.form43.evenness eq 'A+') or (assessmentForm.form43.finish eq 'A+') or (assessmentForm.form43.jointwidth eq 'A+') or (assessmentForm.form44.lintol eq 'A+') or  (assessmentForm.form44.evenness eq 'A+') or (assessmentForm.form44.jointwidth eq 'A+') or (assessmentForm.form44.finish eq 'A+')) ? 'selected':''}"></td>
 		            <td colspan="2" class="${((assessmentForm.form41.lintol eq 'A') or  (assessmentForm.form41.evenness eq 'A') or (assessmentForm.form41.jointwidth eq 'A') or (assessmentForm.form41.finish eq 'A') or (assessmentForm.form42.lintol eq 'A') or  (assessmentForm.form42.evenness eq 'A') or (assessmentForm.form42.jointwidth eq 'A') or (assessmentForm.form42.finish eq 'A') or (assessmentForm.form43.lintol eq 'A') or  (assessmentForm.form43.evenness eq 'A') or (assessmentForm.form43.finish eq 'A') or (assessmentForm.form43.jointwidth eq 'A') or (assessmentForm.form44.lintol eq 'A') or  (assessmentForm.form44.evenness eq 'A') or (assessmentForm.form44.jointwidth eq 'A') or (assessmentForm.form44.finish eq 'A')) ? 'selected':''}"></td>
 		            <td colspan="2" class="${((assessmentForm.form41.lintol eq 'B') or  (assessmentForm.form41.evenness eq 'B') or (assessmentForm.form41.jointwidth eq 'B') or (assessmentForm.form41.finish eq 'B') or (assessmentForm.form42.lintol eq 'B') or  (assessmentForm.form42.evenness eq 'B') or (assessmentForm.form42.jointwidth eq 'B') or (assessmentForm.form42.finish eq 'B') or (assessmentForm.form43.lintol eq 'B') or  (assessmentForm.form43.evenness eq 'B') or (assessmentForm.form43.finish eq 'B') or (assessmentForm.form43.jointwidth eq 'B') or (assessmentForm.form44.lintol eq 'B') or  (assessmentForm.form44.evenness eq 'B') or (assessmentForm.form44.jointwidth eq 'B') or (assessmentForm.form44.finish eq 'B')) ? 'selected':''}"></td>
 		            <td colspan="2" class="${((assessmentForm.form41.lintol eq 'C') or  (assessmentForm.form41.evenness eq 'C') or (assessmentForm.form41.jointwidth eq 'C') or (assessmentForm.form41.finish eq 'C') or (assessmentForm.form42.lintol eq 'C') or  (assessmentForm.form42.evenness eq 'C') or (assessmentForm.form42.jointwidth eq 'C') or (assessmentForm.form42.finish eq 'C') or (assessmentForm.form43.lintol eq 'C') or  (assessmentForm.form43.evenness eq 'C') or (assessmentForm.form43.finish eq 'C') or (assessmentForm.form43.jointwidth eq 'C') or (assessmentForm.form44.lintol eq 'C') or  (assessmentForm.form44.evenness eq 'C') or (assessmentForm.form44.jointwidth eq 'C') or (assessmentForm.form44.finish eq 'C')) ? 'selected':''}"></td>
@@ -802,13 +832,14 @@ function onSubmit(){
 		          </tr>
 
 		          <tr>
-		            <th colspan="6">Spot 1</th>
-		            <th colspan="6">Spot 2</th>
-		            <th colspan="6">Spot 3</th>
-		            <th colspan="6">Spot 4</th>
+		            <th colspan="7">Spot 1</th>
+		            <th colspan="7">Spot 2</th>
+		            <th colspan="7">Spot 3</th>
+		            <th colspan="7">Spot 4</th>
 		          </tr>
 
 		          <tr>
+		              <th>A*</th>
 		              <th>A</th>
 		              <th>B</th>
 		              <th>C</th>
@@ -816,6 +847,7 @@ function onSubmit(){
 		              <th>E</th>
 		              <th>N</th>
 
+		              <th>A*</th>
 		              <th>A</th>
 		              <th>B</th>
 		              <th>C</th>
@@ -823,6 +855,7 @@ function onSubmit(){
 		              <th>E</th>
 		              <th>N</th>
 
+		              <th>A*</th>
 		              <th>A</th>
 		              <th>B</th>
 		              <th>C</th>
@@ -830,6 +863,7 @@ function onSubmit(){
 		              <th>E</th>
 		              <th>N</th>
 
+		              <th>A*</th>
 		              <th>A</th>
 		              <th>B</th>
 		              <th>C</th>
@@ -844,7 +878,7 @@ function onSubmit(){
 		            <td colspan="1">1.</td>
 		            <td colspan="3">Evenness</td>
 
-		            
+		            <td class="${assessmentForm.form51.evenness eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form51.evenness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form51.evenness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form51.evenness eq 'C' ? 'selected':''}"></td>
@@ -852,6 +886,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form51.evenness eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form51.evenness eq 'N' ? 'selected':''}"></td>
                                                    
+		            <td class="${assessmentForm.form52.evenness eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form52.evenness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form52.evenness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form52.evenness eq 'C' ? 'selected':''}"></td>
@@ -859,6 +894,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form52.evenness eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form52.evenness eq 'N' ? 'selected':''}"></td>
                                                    
+		            <td class="${assessmentForm.form53.evenness eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form53.evenness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form53.evenness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form53.evenness eq 'C' ? 'selected':''}"></td>
@@ -866,6 +902,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form53.evenness eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form53.evenness eq 'N' ? 'selected':''}"></td>
                                                    
+		            <td class="${assessmentForm.form54.evenness eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form54.evenness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form54.evenness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form54.evenness eq 'C' ? 'selected':''}"></td>
@@ -878,6 +915,7 @@ function onSubmit(){
 		            <td>2.</td>
 		            <td colspan="3">Plumb</td>
 
+		            <td class="${assessmentForm.form51.plumb eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form51.plumb eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form51.plumb eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form51.plumb eq 'C' ? 'selected':''}"></td>
@@ -885,6 +923,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form51.plumb eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form51.plumb eq 'N' ? 'selected':''}"></td>
                                                    
+		            <td class="${assessmentForm.form52.plumb eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form52.plumb eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form52.plumb eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form52.plumb eq 'C' ? 'selected':''}"></td>
@@ -892,6 +931,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form52.plumb eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form52.plumb eq 'N' ? 'selected':''}"></td>
                                                    
+		            <td class="${assessmentForm.form53.plumb eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form53.plumb eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form53.plumb eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form53.plumb eq 'C' ? 'selected':''}"></td>
@@ -899,6 +939,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form53.plumb eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form53.plumb eq 'N' ? 'selected':''}"></td>
                                                    
+		            <td class="${assessmentForm.form54.plumb eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form54.plumb eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form54.plumb eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form54.plumb eq 'C' ? 'selected':''}"></td>
@@ -911,6 +952,7 @@ function onSubmit(){
 		            <td>3.</td>
 		            <td colspan="3">Soundness</td>
 
+		            <td class="${assessmentForm.form51.soundness eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form51.soundness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form51.soundness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form51.soundness eq 'C' ? 'selected':''}"></td>
@@ -918,6 +960,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form51.soundness eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form51.soundness eq 'N' ? 'selected':''}"></td>
                                                    
+		            <td class="${assessmentForm.form52.soundness eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form52.soundness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form52.soundness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form52.soundness eq 'C' ? 'selected':''}"></td>
@@ -925,6 +968,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form52.soundness eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form52.soundness eq 'N' ? 'selected':''}"></td>
                                                    
+		            <td class="${assessmentForm.form53.soundness eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form53.soundness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form53.soundness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form53.soundness eq 'C' ? 'selected':''}"></td>
@@ -932,6 +976,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form53.soundness eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form53.soundness eq 'N' ? 'selected':''}"></td>
                                                    
+		            <td class="${assessmentForm.form54.soundness eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form54.soundness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form54.soundness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form54.soundness eq 'C' ? 'selected':''}"></td>
@@ -944,6 +989,7 @@ function onSubmit(){
 		            <td>4.</td>
 		            <td colspan="3">Finish</td>
 
+		            <td class="${assessmentForm.form51.finish eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form51.finish eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form51.finish eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form51.finish eq 'C' ? 'selected':''}"></td>
@@ -951,6 +997,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form51.finish eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form51.finish eq 'N' ? 'selected':''}"></td>
                                                   
+		            <td class="${assessmentForm.form52.finish eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form52.finish eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form52.finish eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form52.finish eq 'C' ? 'selected':''}"></td>
@@ -958,6 +1005,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form52.finish eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form52.finish eq 'N' ? 'selected':''}"></td>
                                                   
+		            <td class="${assessmentForm.form53.finish eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form53.finish eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form53.finish eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form53.finish eq 'C' ? 'selected':''}"></td>
@@ -965,6 +1013,7 @@ function onSubmit(){
 		            <td class="${assessmentForm.form53.finish eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form53.finish eq 'N' ? 'selected':''}"></td>
                                                   
+		            <td class="${assessmentForm.form54.finish eq 'A+' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form54.finish eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form54.finish eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form54.finish eq 'C' ? 'selected':''}"></td>
@@ -974,8 +1023,9 @@ function onSubmit(){
 		          </tr>
 
 		          <tr>
-		            <td class="hidden-cell" colspan="15"></td>
-		            <td class="t-cpads" colspan="3"><b>Collected</b></td>
+		            <td class="hidden-cell" colspan="16"></td>
+		            <td class="t-cpads" colspan="4"><b>Collected</b></td>
+		            <td class="text-center" colspan="2">A*</td>
 		            <td class="text-center" colspan="2">A</td>
 		            <td class="text-center" colspan="2">B</td>
 		            <td class="text-center" colspan="2">C</td>
@@ -984,8 +1034,9 @@ function onSubmit(){
 		          </tr>
 
 		          <tr>
-		            <td class="hidden-cell" border="0" colspan="15"></td>
-		            <td class="t-cpads" colspan="3"><b>Sum</b></td>
+		            <td class="hidden-cell" border="0" colspan="16"></td>
+		            <td class="t-cpads" colspan="4"><b>Sum</b></td>
+		            <td colspan="2" class="${((assessmentForm.form51.evenness eq 'A+') or  (assessmentForm.form51.plumb eq 'A+') or (assessmentForm.form51.soundness eq 'A+') or (assessmentForm.form51.finish eq 'A+') or (assessmentForm.form52.evenness eq 'A+') or  (assessmentForm.form52.plumb eq 'A+') or (assessmentForm.form52.soundness eq 'A+') or (assessmentForm.form52.finish eq 'A+') or (assessmentForm.form53.evenness eq 'A+') or  (assessmentForm.form53.plumb eq 'A+') or (assessmentForm.form53.soundness eq 'A+') or (assessmentForm.form53.finish eq 'A+') or (assessmentForm.form54.evenness eq 'A+') or  (assessmentForm.form54.plumb eq 'A+') or (assessmentForm.form54.soundness eq 'A+') or (assessmentForm.form54.finish eq 'A+')) ? 'selected':''}"></td>
 		            <td colspan="2" class="${((assessmentForm.form51.evenness eq 'A') or  (assessmentForm.form51.plumb eq 'A') or (assessmentForm.form51.soundness eq 'A') or (assessmentForm.form51.finish eq 'A') or (assessmentForm.form52.evenness eq 'A') or  (assessmentForm.form52.plumb eq 'A') or (assessmentForm.form52.soundness eq 'A') or (assessmentForm.form52.finish eq 'A') or (assessmentForm.form53.evenness eq 'A') or  (assessmentForm.form53.plumb eq 'A') or (assessmentForm.form53.soundness eq 'A') or (assessmentForm.form53.finish eq 'A') or (assessmentForm.form54.evenness eq 'A') or  (assessmentForm.form54.plumb eq 'A') or (assessmentForm.form54.soundness eq 'A') or (assessmentForm.form54.finish eq 'A')) ? 'selected':''}"></td>
 		            <td colspan="2" class="${((assessmentForm.form51.evenness eq 'B') or  (assessmentForm.form51.plumb eq 'B') or (assessmentForm.form51.soundness eq 'B') or (assessmentForm.form51.finish eq 'B') or (assessmentForm.form52.evenness eq 'B') or  (assessmentForm.form52.plumb eq 'B') or (assessmentForm.form52.soundness eq 'B') or (assessmentForm.form52.finish eq 'B') or (assessmentForm.form53.evenness eq 'B') or  (assessmentForm.form53.plumb eq 'B') or (assessmentForm.form53.soundness eq 'B') or (assessmentForm.form53.finish eq 'B') or (assessmentForm.form54.evenness eq 'B') or  (assessmentForm.form54.plumb eq 'B') or (assessmentForm.form54.soundness eq 'B') or (assessmentForm.form54.finish eq 'B')) ? 'selected':''}"></td>
 		            <td colspan="2" class="${((assessmentForm.form51.evenness eq 'E') or  (assessmentForm.form51.plumb eq 'E') or (assessmentForm.form51.soundness eq 'E') or (assessmentForm.form51.finish eq 'E') or (assessmentForm.form52.evenness eq 'E') or  (assessmentForm.form52.plumb eq 'E') or (assessmentForm.form52.soundness eq 'E') or (assessmentForm.form52.finish eq 'E') or (assessmentForm.form53.evenness eq 'E') or  (assessmentForm.form53.plumb eq 'E') or (assessmentForm.form53.soundness eq 'E') or (assessmentForm.form53.finish eq 'E') or (assessmentForm.form54.evenness eq 'E') or  (assessmentForm.form54.plumb eq 'E') or (assessmentForm.form54.soundness eq 'E') or (assessmentForm.form54.finish eq 'E')) ? 'selected':''}"></td>
@@ -1066,9 +1117,8 @@ function onSubmit(){
 				<input type="hidden" name="action" id="action" value=${submit}/>
 				<div class="buttons t-tmargs" align="right">
 					
-					<button type="button" class="button button-stable" onclick="javascript:window.print()">Print</button>
-					<button type="button" class="button button-stable" onclick="javascript:history.back()">Back</button>
-					<button type="button" class="button button-stable" onclick="javascript:onSubmit()">Submit Assessment</button>
+					<button type="button" class="button button-stable" onclick="javascript:window.print()">Print</button>				
+					<button type="button" class="button button-stable" onclick="javascript:onSubmit()">Back to worklist</button>
 			    </div>
 		</div>
 	</div>
