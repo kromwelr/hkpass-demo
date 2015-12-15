@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="../../../resources/core/css/calendar.css">
 <link rel="stylesheet" href="../../../resources/core/css/demo.css">
 <link href="../../../resources/core/css/bootstrap.min.css" rel="stylesheet" />
+
 </head>
 <body>
 	<%@include file="header.jsp" %>
@@ -336,7 +337,7 @@
 
 				<div class="buttons t-tmargs" align="right">
 					<spring:url value="/submitProf" var="submit"/>
-					<button type="button" class="button button-stable" onclick="javascript:document.print()">Print</button>
+					<button type="button" class="button button-stable" onclick="javascript:window.print()">Print</button>
 					<button type="button" class="button button-stable" onclick="javascript:history.back()">Back</button>
 					<button type="button" class="button button-stable" onclick="location.href='${submit}'">Submit</button>
 			    </div>

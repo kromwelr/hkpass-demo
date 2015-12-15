@@ -6,7 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Approvals</title>
 <link href="../resources/core/css/bootstrap.min.css" rel="stylesheet" />
-<link rel="stylesheet" href="../resources/core/css/demo.css">
+<link href="../resources/core/css/calendar.css" rel="stylesheet" />
+<link rel="../stylesheet" href="resources/core/css/demo.css">
 </head>
 <body>
 	<%@include file="header.jsp" %>

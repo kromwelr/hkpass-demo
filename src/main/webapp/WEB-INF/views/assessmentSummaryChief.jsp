@@ -336,7 +336,7 @@
 
 				<div class="buttons t-tmargs" align="right">
 					<spring:url value="/submitProf" var="submit"/>
-					<button type="button" class="button button-stable" onclick="javascript:document.print()">Print</button>
+					<button type="button" class="button button-stable" onclick="javascript:window.print()">Print</button>
 					<button type="button" class="button button-stable" onclick="javascript:history.back()">Back</button>
 					<button type="button" class="button button-stable" onclick="location.href='${submit}'">Submit</button>
 			    </div>
