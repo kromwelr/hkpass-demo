@@ -27,6 +27,7 @@ public class Assessment2 {
 	private String approvedByChief;
 	
 	private String remarks;
+	private String attachments;
 
 	public String getCreatedBy() {
 		return createdBy;
@@ -170,6 +171,14 @@ public class Assessment2 {
 
 	public void setRemarks(String remarks) {
 		this.remarks = remarks;
+	}
+
+	public String getAttachments() {
+		return attachments;
+	}
+
+	public void setAttachments(String attachments) {
+		this.attachments = attachments;
 	}
 
 

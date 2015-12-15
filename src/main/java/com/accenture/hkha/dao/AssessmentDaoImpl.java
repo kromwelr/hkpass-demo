@@ -101,7 +101,7 @@ public class AssessmentDaoImpl implements AssessmentDao {
 				+ "form_3_soundness=:form3Soundness, form_3_evenness=:form3Evenness, form_3_level=:form3Level, form_3_fall=:form3Fall,"
 				+ "form_4_soundness=:form4Soundness, form_4_evenness=:form4Evenness, form_4_level=:form4Level, form_4_fall=:form4Fall,"
 				+ "created_by=:createdBy, created_date=:createdDate, assigned_to=:assignedTo, status=:status, approved_by_prof=:approvedByProf, approved_by_chief=:approvedByChief,"
-				+ "remarks=:remarks where id=:id";
+				+ "remarks=:remarks, attachments=:attachments where id=:id";
 		
 		namedParameterJdbcTemplate.update(sql, getSqlParameterByModel(assessment));
 	}
@@ -130,6 +130,7 @@ public class AssessmentDaoImpl implements AssessmentDao {
 		paramSource.addValue("approvedByProf", assessment.getApprovedByProf());
 		paramSource.addValue("approvedByChief", assessment.getApprovedByChief());
 		paramSource.addValue("remarks", assessment.getRemarks());
+		paramSource.addValue("attachments", assessment.getAttachments());
 		
 		if(assessment.getForm1() == null){
 			assessment.setForm1(new Form());
@@ -220,6 +221,7 @@ public class AssessmentDaoImpl implements AssessmentDao {
 			assessment2.setApprovedByProf(rs.getString("approved_by_prof"));
 			assessment2.setApprovedByChief(rs.getString("approved_by_chief"));
 			assessment2.setRemarks(rs.getString("remarks"));
+			assessment2.setAttachments(rs.getString("attachments"));
 			
 			Form form1 = new Form();
 			form1.setSoundness(rs.getString("form_1_soundness"));

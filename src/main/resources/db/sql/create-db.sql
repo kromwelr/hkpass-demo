@@ -55,7 +55,8 @@ CREATE table ASSESSMENT_2 (
 	status VARCHAR(30),
 	approved_by_prof VARCHAR(3),
 	approved_by_chief VARCHAR(3),
-	remarks VARCHAR(255)
+	remarks VARCHAR(255),
+	attachments VARCHAR(255)
 );
 
 

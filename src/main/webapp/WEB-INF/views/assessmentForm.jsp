@@ -297,13 +297,22 @@
 		       				<td align="center">
 		       					<form:textarea path="remarks" rows="5" cols="100" cssStyle="border:solid 1px #dfdfd2;"/>
 		       				</td>
-		       			</tr>		       			
+		       			</tr>
+		       			<tr>
+		       				<td align="right" style="padding-right:50px"><b>Attachments:</b></td>
+		       			</tr>
+		       			<c:forEach var="att" items="${attachments}">
+		       			<tr>
+		       				<td></td>
+		       				<td><a href="#">${att}</a></td>
+		       			</tr>
+		       			</c:forEach>		       			
 		       		</table>
 		       </div>
 		       <div class="buttons t-tmargs" align="right">
-		      
+		       		<spring:url value="/worklist/${assessmentForm.id}/form/upload" var="upload"/>
+		      		<button type="button" class="button button-stable" onclick="location.href='${upload}'">Upload Attachment</button>
 		       		<button type="submit" class="button button-stable">Confirm</button>
-
 		       </div>
 
 			<br/>
@@ -311,16 +320,7 @@
 	</div>
 
 	<script>
-		$(document).ready(function() {
-			$(function() {
-				$("#assessmentStartDate").datepicker({
-					dateFormat : 'mm/dd/yy'
-				});
-				$("#assessmentEndDate").datepicker({
-					dateFormat : 'mm/dd/yy'
-				});
-			});
-		});
+
 	</script>
 
 </body>

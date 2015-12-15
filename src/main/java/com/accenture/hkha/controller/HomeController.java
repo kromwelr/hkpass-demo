@@ -1,7 +1,10 @@
 package com.accenture.hkha.controller;
 
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
@@ -11,6 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -18,15 +23,18 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.accenture.hkha.constants.UserRoles;
 import com.accenture.hkha.model.Assessment2;
+import com.accenture.hkha.model.FileBucket;
 import com.accenture.hkha.service.AssessmentService;
 
 @Controller
@@ -37,7 +45,6 @@ public class HomeController {
 	private AssessmentService assessmentService;
 	private String username;
 	private Integer assessmentId;
-
 
 	@Autowired
 	public void setWorkService(AssessmentService assessmentService) {
@@ -245,9 +252,18 @@ public class HomeController {
 	public String showWorkDetails(@PathVariable("id") int id, Model model){
 		logger.info("showWorkDetails() id: {}", id);
 
+		List<String> attachmentList = new ArrayList<String>();
+		
 		Assessment2 assessment = assessmentService.findById(id);
 		model.addAttribute("assessmentForm", assessment);
-
+		
+		if(assessment.getAttachments() != null){
+			String[] attachments = assessment.getAttachments().split(",");
+			attachmentList = Arrays.asList(attachments);			
+		}
+		
+		model.addAttribute("attachments", attachmentList);
+		
 		logger.info(assessment.toString());
 
 
@@ -290,6 +306,56 @@ public class HomeController {
 		logger.info("submit successful!");
 		
 		return "redirect:/worklist";
+	}
+	
+	@RequestMapping(value="/worklist/{id}/form/upload", method = RequestMethod.GET)
+	public String getFileUpload(@PathVariable("id") int id, Model model){
+		logger.info("File Upload: " + id);
+		FileBucket fileModel = new FileBucket();
+		fileModel.setAssessmentId(id);
+		
+		model.addAttribute("fileBucket", fileModel);
+		return "file_upload";
+	}
+	
+	@RequestMapping(value="/upload", method = RequestMethod.POST)
+	public String fileUpload(@ModelAttribute("fileBucket") FileBucket fileBucket, Model model){
+		
+		logger.info("Fetching file.." + fileBucket.getAssessmentId());
+		MultipartFile multipartFile = fileBucket.getFile();
+		
+		try {
+			FileCopyUtils.copy(fileBucket.getFile().getBytes(), new File("C:/Apps/hkha/" + fileBucket.getFile().getOriginalFilename()));
+			//save file
+			
+			Assessment2 assessment = assessmentService.findById(fileBucket.getAssessmentId());
+			
+			String attachments = "";
+			if(assessment.getAttachments() != null){
+				attachments = assessment.getAttachments();
+			}
+			
+			if(!attachments.equals("")){
+				attachments = attachments + ",";
+			}
+			
+			attachments = attachments + fileBucket.getFile().getOriginalFilename();
+			assessment.setAttachments(attachments);
+			
+			logger.info("Attachments: " + attachments);
+			
+			assessmentService.saveOrUpdate(assessment);
+			
+			model.addAttribute("fileName",multipartFile.getOriginalFilename());
+			model.addAttribute("id", fileBucket.getAssessmentId());
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return "upload_success";
+		
 	}
 
 

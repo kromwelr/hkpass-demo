@@ -366,7 +366,7 @@
 				<spring:url value="/return/prof/${assessment.id}" var="returnProf"/>
 				<spring:url value="/approve/chief/${assessment.id}" var="approveChief"/>
 				<spring:url value="/reject/chief/${assessment.id}" var="rejectChief"/>
-				
+							      		
 				<c:choose>
 					<c:when test="${mode eq 'ASSESS_MODE'}">
 						<button type="button" class="button button-stable" onclick="location.href='${submit}'">Submit</button>
