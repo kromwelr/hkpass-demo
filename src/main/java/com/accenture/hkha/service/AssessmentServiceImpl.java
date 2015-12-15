@@ -13,7 +13,7 @@ import com.accenture.hkha.model.Assessment2;
 public class AssessmentServiceImpl implements AssessmentService {
 
 	AssessmentDao assessmentDao;
-	
+
 	@Autowired
 	public void setWorkDao(AssessmentDao assessmentDao) {
 		this.assessmentDao = assessmentDao;
@@ -43,17 +43,27 @@ public class AssessmentServiceImpl implements AssessmentService {
 	public List<Assessment2> findByUser(String user) {
 		return assessmentDao.findByUser(user);
 	}
-	
+
 	@Override
-	public List<Assessment> findByAssignment(String user) {
+	public List<Assessment2> findByAssignment(String user) {
 		return assessmentDao.findByAssignment(user);
 	}
-	
+
 	@Override
 	public List<Assessment2> findByStatus(String status) {
 		return assessmentDao.findByStatus(status);
 	}
-	
+
+	@Override
+	public List<Assessment2> findByStatusAndAssignment(String status, String assignedTo) {
+		return assessmentDao.findByStatusAndAssignment(status,assignedTo);
+	}
+
+	@Override
+	public List<Assessment2> findAllAssessment() {
+		return assessmentDao.findAllAssessment();
+	}
+
 	@Override
 	public void delete(Integer id) {
 		// TODO Auto-generated method stub

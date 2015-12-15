@@ -13,21 +13,9 @@
 <link rel="stylesheet" href="../../../resources/core/css/calendar.css">
 <link rel="stylesheet" href="../../../resources/core/css/demo.css">
 <link href="../../../resources/core/css/bootstrap.min.css" rel="stylesheet" />
-<script language="javascript">
-
-function onSubmit(){
-	
-	alert("Assessment has been submitted!");
-	
-	window.document.forms[0].submit();
-}
-</script>
 </head>
 <body>
 	<%@include file="header.jsp" %>
-	<spring:url value="/worklist/${assessmentForm.id}/form/submit" var="submit"/>
-	<form:form method="post" modelAttribute="assessmentForm"
-				action="${submit}">
 	<div class="container">
 		<div class="col-sm-12 col-md-12">
 
@@ -42,7 +30,6 @@ function onSubmit(){
 		          <td class="t-underline t-ca-con-indent col-md-4"><b>${assessmentForm.assessmentDate}</b></td>
 		        </tr>
 	      	</table>
-
 
 		      <div class="row t-tmargs">
 		        <p class="t-ca-con-t2-th">AI-1</p>
@@ -356,6 +343,8 @@ function onSubmit(){
 		          <tr>
 		            <td>2.</td>
 		            <td colspan="3">Level</td>
+
+		            
 		            <td class="${assessmentForm.form21.level eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form21.level eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form21.level eq 'C' ? 'selected':''}"></td>
@@ -503,7 +492,7 @@ function onSubmit(){
 		         
 		          <tr>
 		            <td>1.</td>
-		            <td colspan="3">Soundness</td>
+		            <td colspan="1">Soundness</td>
 
 		            
 		            <td class="${assessmentForm.form31.soundness eq 'A' ? 'selected':''}"></td>
@@ -994,6 +983,10 @@ function onSubmit(){
 
 	        	</tbody>
 			 </table>
+			
+
+			 <div><button type="button" class="button button-stable">Calculate Score</button></div>
+
 			 <div class="t-tmargs">
 			 	<table width="100%">
 			 		<tr>
@@ -1062,15 +1055,12 @@ function onSubmit(){
 			 	</table>
 			 </div>
 				<br/>
-				<input type="hidden" name="action" id="action" value=${submit}/>
+
 				<div class="buttons t-tmargs" align="right">
-					
 					<button type="button" class="button button-stable" onclick="javascript:window.print()">Print</button>
 					<button type="button" class="button button-stable" onclick="javascript:history.back()">Back</button>
-					<button type="button" class="button button-stable" onclick="javascript:onSubmit()">Submit Assessment</button>
 			    </div>
 		</div>
 	</div>
-	</form:form>
 </body>
 </html>

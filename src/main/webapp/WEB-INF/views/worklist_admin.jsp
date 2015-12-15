@@ -4,16 +4,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Approvals</title>
+<title>Assessment List</title>
 <link href="../resources/core/css/bootstrap.min.css" rel="stylesheet" />
 <link href="../resources/core/css/calendar.css" rel="stylesheet" />
-<link rel="../stylesheet" href="resources/core/css/demo.css">
+<link rel="stylesheet" href="../resources/core/css/demo.css">
 </head>
 <body>
 	<%@include file="header.jsp" %>
 	<div class="container">
 
-		<h1>Approvals</h1>
+		<h1>Assessments</h1>
 		<table class="table table-striped">
 			<thead>
 				<tr>
@@ -25,17 +25,17 @@
 					<th>Assigned To</th>
 				</tr>
 			</thead>
-			<c:forEach var="approvalList" items="${approvalList}">
+			<c:forEach var="adminList" items="${adminList}">
 				<tr>
-				<spring:url value="/chief/worklist/${approvalList.id}/details" var="showUrl"/>
+				<spring:url value="/admin/worklist/${adminList.id}/details" var="showUrl"/>
 					<td>
-					<a href="${showUrl}">PASS-${approvalList.id}</a>
+					<a href="${showUrl}">PASS-${adminList.id}</a>
 					</td>
-					<td>${approvalList.contract}</td>
-					<td>${approvalList.status}</td>
-					<td>${approvalList.createdDate}</td>
-					<td>${approvalList.createdBy}</td>
-					<td>${approvalList.assignedTo}</td>
+					<td>${adminList.contract}</td>
+					<td>${adminList.status}</td>
+					<td>${adminList.createdDate}</td>
+					<td>${adminList.createdBy}</td>
+					<td>${adminList.assignedTo}</td>
 				</tr>
 			</c:forEach>
 

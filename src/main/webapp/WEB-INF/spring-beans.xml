@@ -4,10 +4,10 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean id="authenticationProvider" class = "com.accenture.hkha.config.CustomHKAuthenticationProvider"></bean>
-	<bean id="restInvoker" class="com.accenture.hkha.rest.core.RestInvoker">
+	<!-- <bean id="restInvoker" class="com.accenture.hkha.rest.core.RestInvoker">
 		<constructor-arg name="deploymentId" value="passdemo:assessmentv2:1.0"/>
 		<constructor-arg name="baseUrl" value="http://54.76.125.87:8080/jbpm-console/"/>
 		<constructor-arg name="username" value="assessor"/>
 		<constructor-arg name="password" value="hkpass"/>
-	</bean>
+	</bean> -->
 </beans>
