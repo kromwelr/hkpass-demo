@@ -13,11 +13,11 @@ function onClick(){
 	var reportType= window.document.reportForm.reportType.value;
 	var reportURL = "resources/images/reports/";
 	if(reportType=='adhoc'){
-		reportURL = reportURL + "adhoc-report.png";
+		reportURL = reportURL + "sample_report.png";
 	}else if(reportType=='score'){
 		reportURL = reportURL + "quarterly-score-report.png";
 	}else if(reportType=='summary'){
-		reportURL = reportURL + "sample_report.png";
+		reportURL = reportURL + "performance-report-1.png";
 	}
 	var opts = "title=No, directories=no,height=700px, location=no, menubar=no, resizable=no, scrollbars=no,toolbar=no,width=1000px";
 	window.open(reportURL,"_blank",opts);
@@ -40,7 +40,7 @@ function onClick(){
 			</div>
 			<div>
 				Report date:
-				<input path="assessmentDate" cssClass="form-control" value="12/15/2015"/>
+				<input path="assessmentDate" cssClass="form-control" value="12/19/2015"/>
 			</div>
 			<br>
 			<div>
