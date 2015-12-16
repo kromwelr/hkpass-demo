@@ -1,8 +1,14 @@
 package com.accenture.hkha.controller;
 
 
+import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.URLConnection;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -43,6 +49,11 @@ public class HomeController {
 	private AssessmentService assessmentService;
 	private String username;
 	private Integer assessmentId;
+
+	//unix server path - for demo
+	//private String ROOT_DIR = "/opt/upload/";
+	private String ROOT_DIR = "C:/Apps/hkha/";
+	
 
 	@Autowired
 	public void setWorkService(AssessmentService assessmentService) {
@@ -402,8 +413,8 @@ public class HomeController {
 		MultipartFile multipartFile = fileBucket.getFile();
 		
 		try {
-			//unix server path - for demo
-			FileCopyUtils.copy(fileBucket.getFile().getBytes(), new File("/opt/upload/" + fileBucket.getFile().getOriginalFilename()));
+			
+			FileCopyUtils.copy(fileBucket.getFile().getBytes(), new File(this.ROOT_DIR + fileBucket.getFile().getOriginalFilename()));
 			//save file
 			
 			Assessment2 assessment = assessmentService.findById(fileBucket.getAssessmentId());
@@ -433,6 +444,38 @@ public class HomeController {
 		}
 		
 		return "upload_success";
+		
+	}
+	
+	@RequestMapping(value="/download/{fileName:.+}", method = RequestMethod.GET)
+	public void downloadFile(HttpServletResponse response, @PathVariable String fileName) throws IOException{
+		
+		logger.info("download file: " + this.ROOT_DIR + fileName);
+		
+		File file = new File(this.ROOT_DIR + fileName);
+		if(!file.exists()){
+			String errorMessage = "Sorry. The file you are looking for does not exist";
+            System.out.println(errorMessage);
+            OutputStream outputStream = response.getOutputStream();
+            outputStream.write(errorMessage.getBytes(Charset.forName("UTF-8")));
+            outputStream.close();
+            return;
+		}
+		
+		String mimeType = URLConnection.guessContentTypeFromName(file.getName());
+		if(mimeType==null){
+            System.out.println("mimetype is not detectable, will take default");
+            mimeType = "application/octet-stream";
+        }
+		
+		logger.info("mimeType: " + mimeType);
+		
+		response.setContentType(mimeType);
+		response.setHeader("Content-Disposition", String.format("attachment; filename=\"" + file.getName() +"\""));
+		response.setContentLength((int)file.length());
+		 
+        InputStream inputStream = new BufferedInputStream(new FileInputStream(file));
+        FileCopyUtils.copy(inputStream, response.getOutputStream());
 		
 	}
 

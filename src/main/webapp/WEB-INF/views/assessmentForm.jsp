@@ -50,6 +50,7 @@ function saveAssessment(assessmentFormId){
 				 	<form:hidden path="subFactorItem" />
 				 	<form:hidden path="approvedByProf" />
 				 	<form:hidden path="approvedByChief" />
+				 	<form:hidden path="attachments" />
 					<input type="hidden" id="saveAction" name="saveAction" value=${saveActionUrl}/>
 				 	<tbody>
 				 		<tr>
@@ -1053,8 +1054,9 @@ function saveAssessment(assessmentFormId){
 			       			</tr>
 			       			<c:forEach var="att" items="${attachments}">
 			       			<tr>
+			       				<spring:url value="/download/${att}" var="download"/>
 			       				<td></td>
-			       				<td><a href="#">${att}</a></td>
+			       				<td><a href="${download}">${att}</a></td>
 			       			</tr>
 			       			</c:forEach>
 			       		</table>
