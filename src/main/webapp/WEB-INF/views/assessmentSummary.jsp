@@ -563,6 +563,11 @@ function onSubmit(){
 	        	</tbody>
 			 </table>
 			 <br>
+			 <div class="row t-tmargs">
+		        <p class="t-ca-con-t2-th">AI-2</p>
+		        <p class="t-ca-con-t2-th">INTERNAL WALL FINISHES</p>
+		      </div>
+			  <br>
 			 <table class="table table-bordered table-responsive">
 				 <thead>
 		          <tr>

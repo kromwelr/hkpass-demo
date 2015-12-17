@@ -13,6 +13,21 @@
 <link rel="stylesheet" href="../../../resources/core/css/calendar.css">
 <link rel="stylesheet" href="../../../resources/core/css/demo.css">
 <link href="../../../resources/core/css/bootstrap.min.css" rel="stylesheet" />
+<script language="javascript">
+	function toggle_scores() {
+		var div = document.getElementById('scores');
+		div.style.display = div.style.display == 'none' ? 'block' : 'none';
+		return false;
+	}
+	function showFormula() {
+		var reportURL = "../../../resources/images/formula-sample.png";
+		var opts = "title=No, directories=no,height=400px, location=no, menubar=no, resizable=no, scrollbars=no,toolbar=no,width=600px";
+		window.open(reportURL,"_blank",opts);
+
+	}
+
+</script>
+
 </head>
 <body>
 	<%@include file="header.jsp" %>
@@ -92,7 +107,7 @@
 		            <td colspan="1">1.</td>
 		            <td colspan="3">Soundness</td>
 
-		            
+
 		            <td class="${assessmentForm.form1.soundness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form1.soundness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form1.soundness eq 'C' ? 'selected':''}"></td>
@@ -100,7 +115,7 @@
 		            <td class="${assessmentForm.form1.soundness eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form1.soundness eq 'N' ? 'selected':''}"></td>
 
-		            
+
 		            <td class="${assessmentForm.form2.soundness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form2.soundness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form2.soundness eq 'C' ? 'selected':''}"></td>
@@ -108,7 +123,7 @@
 		            <td class="${assessmentForm.form2.soundness eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form2.soundness eq 'N' ? 'selected':''}"></td>
 
-		            
+
 		            <td class="${assessmentForm.form3.soundness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form3.soundness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form3.soundness eq 'C' ? 'selected':''}"></td>
@@ -116,7 +131,7 @@
 		            <td class="${assessmentForm.form3.soundness eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form3.soundness eq 'N' ? 'selected':''}"></td>
 
-		            
+
 		            <td class="${assessmentForm.form4.soundness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form4.soundness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form4.soundness eq 'C' ? 'selected':''}"></td>
@@ -129,7 +144,7 @@
 		            <td>2.</td>
 		            <td colspan="3">Evenness</td>
 
-		            
+
 		            <td class="${assessmentForm.form1.evenness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form1.evenness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form1.evenness eq 'C' ? 'selected':''}"></td>
@@ -137,7 +152,7 @@
 		            <td class="${assessmentForm.form1.evenness eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form1.evenness eq 'N' ? 'selected':''}"></td>
 
-		            
+
 		            <td class="${assessmentForm.form2.evenness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form2.evenness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form2.evenness eq 'C' ? 'selected':''}"></td>
@@ -145,7 +160,7 @@
 		            <td class="${assessmentForm.form2.evenness eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form2.evenness eq 'N' ? 'selected':''}"></td>
 
-		            
+
 		            <td class="${assessmentForm.form3.evenness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form3.evenness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form3.evenness eq 'C' ? 'selected':''}"></td>
@@ -240,7 +255,7 @@
 		          <tr>
 		            <td class="hidden-cell" border="0" colspan="15"></td>
 		            <td class="t-cpads" colspan="3"><b>Sum</b></td>
-		            
+
 		            <td colspan="2" class="${((assessmentForm.form1.soundness eq 'A') or  (assessmentForm.form1.evenness eq 'A') or (assessmentForm.form1.level eq 'A') or (assessmentForm.form1.fall eq 'A') or (assessmentForm.form2.soundness eq 'A') or  (assessmentForm.form2.evenness eq 'A') or (assessmentForm.form2.level eq 'A') or (assessmentForm.form2.fall eq 'A') or (assessmentForm.form3.soundness eq 'A') or  (assessmentForm.form3.evenness eq 'A') or (assessmentForm.form3.level eq 'A') or (assessmentForm.form3.fall eq 'A') or (assessmentForm.form4.soundness eq 'A') or  (assessmentForm.form4.evenness eq 'A') or (assessmentForm.form4.level eq 'A') or (assessmentForm.form4.fall eq 'A')) ? 'selected':''}"></td>
 		            <td colspan="2" class="${((assessmentForm.form1.soundness eq 'B') or  (assessmentForm.form1.evenness eq 'B') or (assessmentForm.form1.level eq 'B') or (assessmentForm.form1.fall eq 'B') or (assessmentForm.form2.soundness eq 'B') or  (assessmentForm.form2.evenness eq 'B') or (assessmentForm.form2.level eq 'B') or (assessmentForm.form2.fall eq 'B') or (assessmentForm.form3.soundness eq 'B') or  (assessmentForm.form3.evenness eq 'B') or (assessmentForm.form3.level eq 'B') or (assessmentForm.form3.fall eq 'B') or (assessmentForm.form4.soundness eq 'B') or  (assessmentForm.form4.evenness eq 'B') or (assessmentForm.form4.level eq 'B') or (assessmentForm.form4.fall eq 'B')) ? 'selected':''}"></td>
 		            <td colspan="2" class="${((assessmentForm.form1.soundness eq 'C') or  (assessmentForm.form1.evenness eq 'C') or (assessmentForm.form1.level eq 'C') or (assessmentForm.form1.fall eq 'C') or (assessmentForm.form2.soundness eq 'C') or  (assessmentForm.form2.evenness eq 'C') or (assessmentForm.form2.level eq 'C') or (assessmentForm.form2.fall eq 'C') or (assessmentForm.form3.soundness eq 'C') or  (assessmentForm.form3.evenness eq 'C') or (assessmentForm.form3.level eq 'C') or (assessmentForm.form3.fall eq 'C') or (assessmentForm.form4.soundness eq 'C') or  (assessmentForm.form4.evenness eq 'C') or (assessmentForm.form4.level eq 'C') or (assessmentForm.form4.fall eq 'C')) ? 'selected':''}"></td>
@@ -302,36 +317,36 @@
 		          </tr>
 		        </thead>
 		        <tbody>
-		         
+
 		          <tr>
 		            <td>1.</td>
 		            <td colspan="3">Evenness</td>
 
-		            
+
 		            <td class="${assessmentForm.form21.evenness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form21.evenness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form21.evenness eq 'C' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form21.evenness eq 'D' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form21.evenness eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form21.evenness eq 'N' ? 'selected':''}"></td>
-                                                
-		            
+
+
 		            <td class="${assessmentForm.form22.evenness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form22.evenness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form22.evenness eq 'C' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form22.evenness eq 'D' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form22.evenness eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form22.evenness eq 'N' ? 'selected':''}"></td>
-                                                
-		            
+
+
 		            <td class="${assessmentForm.form23.evenness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form23.evenness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form23.evenness eq 'C' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form23.evenness eq 'D' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form23.evenness eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form23.evenness eq 'N' ? 'selected':''}"></td>
-                                                
-		            
+
+
 		            <td class="${assessmentForm.form24.evenness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form24.evenness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form24.evenness eq 'C' ? 'selected':''}"></td>
@@ -344,31 +359,31 @@
 		            <td>2.</td>
 		            <td colspan="3">Level</td>
 
-		            
+
 		            <td class="${assessmentForm.form21.level eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form21.level eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form21.level eq 'C' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form21.level eq 'D' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form21.level eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form21.level eq 'N' ? 'selected':''}"></td>
-                                                
-		            
+
+
 		            <td class="${assessmentForm.form22.level eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form22.level eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form22.level eq 'C' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form22.level eq 'D' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form22.level eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form22.level eq 'N' ? 'selected':''}"></td>
-                                                
-		            
+
+
 		            <td class="${assessmentForm.form23.level eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form23.level eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form23.level eq 'C' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form23.level eq 'D' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form23.level eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form23.level eq 'N' ? 'selected':''}"></td>
-                                                
-		            
+
+
 		            <td class="${assessmentForm.form24.level eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form24.level eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form24.level eq 'C' ? 'selected':''}"></td>
@@ -381,31 +396,31 @@
 		            <td>3.</td>
 		            <td colspan="3">Fall</td>
 
-		            
+
 		            <td class="${assessmentForm.form21.fall eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form21.fall eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form21.fall eq 'C' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form21.fall eq 'D' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form21.fall eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form21.fall eq 'N' ? 'selected':''}"></td>
-                                                
-		            
+
+
 		            <td class="${assessmentForm.form22.fall eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form22.fall eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form22.fall eq 'C' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form22.fall eq 'D' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form22.fall eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form22.fall eq 'N' ? 'selected':''}"></td>
-                                                
-		            
+
+
 		            <td class="${assessmentForm.form23.fall eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form23.fall eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form23.fall eq 'C' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form23.fall eq 'D' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form23.fall eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form23.fall eq 'N' ? 'selected':''}"></td>
-                                                
-		            
+
+
 		            <td class="${assessmentForm.form24.fall eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form24.fall eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form24.fall eq 'C' ? 'selected':''}"></td>
@@ -427,7 +442,7 @@
 		          <tr>
 		            <td class="hidden-cell" border="0" colspan="15"></td>
 		            <td class="t-cpads" colspan="3"><b>Sum</b></td>
-		            
+
 		            <td colspan="2" class="${((assessmentForm.form21.evenness eq 'A') or (assessmentForm.form21.level eq 'A') or (assessmentForm.form21.fall eq 'A') or (assessmentForm.form22.evenness eq 'A') or (assessmentForm.form22.level eq 'A') or (assessmentForm.form22.fall eq 'A') or  (assessmentForm.form23.evenness eq 'A') or (assessmentForm.form23.level eq 'A') or (assessmentForm.form23.fall eq 'A') or  (assessmentForm.form24.evenness eq 'A') or (assessmentForm.form24.level eq 'A') or (assessmentForm.form24.fall eq 'A')) ? 'selected':''}"></td>
 		            <td colspan="2" class="${((assessmentForm.form21.evenness eq 'B') or (assessmentForm.form21.level eq 'B') or (assessmentForm.form21.fall eq 'B') or (assessmentForm.form22.evenness eq 'B') or (assessmentForm.form22.level eq 'B') or (assessmentForm.form22.fall eq 'B') or  (assessmentForm.form23.evenness eq 'B') or (assessmentForm.form23.level eq 'B') or (assessmentForm.form23.fall eq 'B') or  (assessmentForm.form24.evenness eq 'B') or (assessmentForm.form24.level eq 'B') or (assessmentForm.form24.fall eq 'B')) ? 'selected':''}"></td>
 		            <td colspan="2" class="${((assessmentForm.form21.evenness eq 'C') or (assessmentForm.form21.level eq 'C') or (assessmentForm.form21.fall eq 'C') or (assessmentForm.form22.evenness eq 'C') or (assessmentForm.form22.level eq 'C') or (assessmentForm.form22.fall eq 'C') or  (assessmentForm.form23.evenness eq 'C') or (assessmentForm.form23.level eq 'C') or (assessmentForm.form23.fall eq 'C') or  (assessmentForm.form24.evenness eq 'C') or (assessmentForm.form24.level eq 'C') or (assessmentForm.form24.fall eq 'C')) ? 'selected':''}"></td>
@@ -489,36 +504,36 @@
 		          </tr>
 		        </thead>
 		        <tbody>
-		         
+
 		          <tr>
 		            <td>1.</td>
 		            <td colspan="1">Soundness</td>
 
-		            
+
 		            <td class="${assessmentForm.form31.soundness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form31.soundness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form31.soundness eq 'C' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form31.soundness eq 'D' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form31.soundness eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form31.soundness eq 'N' ? 'selected':''}"></td>
-                                                
-		            
+
+
 		            <td class="${assessmentForm.form32.soundness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form32.soundness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form32.soundness eq 'C' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form32.soundness eq 'D' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form32.soundness eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form32.soundness eq 'N' ? 'selected':''}"></td>
-                                                  
-		            
+
+
 		            <td class="${assessmentForm.form33.soundness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form33.soundness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form33.soundness eq 'C' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form33.soundness eq 'D' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form33.soundness eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form33.soundness eq 'N' ? 'selected':''}"></td>
-                                                  
-		            
+
+
 		            <td class="${assessmentForm.form34.soundness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form34.soundness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form34.soundness eq 'C' ? 'selected':''}"></td>
@@ -541,7 +556,7 @@
 		          <tr>
 		            <td class="hidden-cell" border="0" colspan="15"></td>
 		            <td class="t-cpads" colspan="3"><b>Sum</b></td>
-		            
+
 		            <td colspan="2" class="${((assessmentForm.form31.soundness eq 'A') or (assessmentForm.form32.soundness eq 'A') or (assessmentForm.form33.soundness eq 'A') or (assessmentForm.form34.soundness eq 'A')) ? 'selected':''}"></td>
 		            <td colspan="2" class="${((assessmentForm.form31.soundness eq 'B') or (assessmentForm.form32.soundness eq 'B') or (assessmentForm.form33.soundness eq 'B') or (assessmentForm.form34.soundness eq 'B')) ? 'selected':''}"></td>
 		            <td colspan="2" class="${((assessmentForm.form31.soundness eq 'C') or (assessmentForm.form32.soundness eq 'C') or (assessmentForm.form33.soundness eq 'C') or (assessmentForm.form34.soundness eq 'C')) ? 'selected':''}"></td>
@@ -552,6 +567,11 @@
 	        	</tbody>
 			 </table>
 			 <br>
+			 <div class="row t-tmargs">
+		        <p class="t-ca-con-t2-th">AI-2</p>
+		        <p class="t-ca-con-t2-th">INTERNAL WALL FINISHES</p>
+		      </div>
+			  <br>
 			 <table class="table table-bordered table-responsive">
 				 <thead>
 		          <tr>
@@ -603,36 +623,36 @@
 		          </tr>
 		        </thead>
 		        <tbody>
-		         
+
 		          <tr>
 		            <td colspan="1">1.</td>
 		            <td colspan="3">Lintol</td>
 
-		            
+
 		            <td class="${assessmentForm.form41.lintol eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form41.lintol eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form41.lintol eq 'C' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form41.lintol eq 'D' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form41.lintol eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form41.lintol eq 'N' ? 'selected':''}"></td>
-                                                   
-		            
+
+
 		            <td class="${assessmentForm.form42.lintol eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form42.lintol eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form42.lintol eq 'C' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form42.lintol eq 'D' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form42.lintol eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form42.lintol eq 'N' ? 'selected':''}"></td>
-                                                   
-		            
+
+
 		            <td class="${assessmentForm.form43.lintol eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form43.lintol eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form43.lintol eq 'C' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form43.lintol eq 'D' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form43.lintol eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form43.lintol eq 'N' ? 'selected':''}"></td>
-                                                   
-		            
+
+
 		            <td class="${assessmentForm.form44.lintol eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form44.lintol eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form44.lintol eq 'C' ? 'selected':''}"></td>
@@ -645,31 +665,31 @@
 		            <td>2.</td>
 		            <td colspan="3">Evenness</td>
 
-		            
+
 		            <td class="${assessmentForm.form41.evenness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form41.evenness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form41.evenness eq 'C' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form41.evenness eq 'D' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form41.evenness eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form41.evenness eq 'N' ? 'selected':''}"></td>
-                                                
-		            
+
+
 		            <td class="${assessmentForm.form42.evenness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form42.evenness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form42.evenness eq 'C' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form42.evenness eq 'D' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form42.evenness eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form42.evenness eq 'N' ? 'selected':''}"></td>
-                                                
-		            
+
+
 		            <td class="${assessmentForm.form43.evenness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form43.evenness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form43.evenness eq 'C' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form43.evenness eq 'D' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form43.evenness eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form43.evenness eq 'N' ? 'selected':''}"></td>
-                                                
-		            
+
+
 		            <td class="${assessmentForm.form44.evenness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form44.evenness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form44.evenness eq 'C' ? 'selected':''}"></td>
@@ -682,31 +702,31 @@
 		            <td>3.</td>
 		            <td colspan="3">Joint Width</td>
 
-		            
+
 		            <td class="${assessmentForm.form41.jointwidth eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form41.jointwidth eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form41.jointwidth eq 'C' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form41.jointwidth eq 'D' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form41.jointwidth eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form41.jointwidth eq 'N' ? 'selected':''}"></td>
-                                                   
-		            
+
+
 		            <td class="${assessmentForm.form42.jointwidth eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form42.jointwidth eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form42.jointwidth eq 'C' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form42.jointwidth eq 'D' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form42.jointwidth eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form42.jointwidth eq 'N' ? 'selected':''}"></td>
-                                                   
-		            
+
+
 		            <td class="${assessmentForm.form43.jointwidth eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form43.jointwidth eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form43.jointwidth eq 'C' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form43.jointwidth eq 'D' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form43.jointwidth eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form43.jointwidth eq 'N' ? 'selected':''}"></td>
-                                                   
-		            
+
+
 		            <td class="${assessmentForm.form44.jointwidth eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form44.jointwidth eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form44.jointwidth eq 'C' ? 'selected':''}"></td>
@@ -719,31 +739,31 @@
 		            <td>4.</td>
 		            <td colspan="3">Finish</td>
 
-		            
+
 		            <td class="${assessmentForm.form41.finish eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form41.finish eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form41.finish eq 'C' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form41.finish eq 'D' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form41.finish eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form41.finish eq 'N' ? 'selected':''}"></td>
-                                                   
-		            
+
+
 		            <td class="${assessmentForm.form42.finish eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form42.finish eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form42.finish eq 'C' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form42.finish eq 'D' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form42.finish eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form42.finish eq 'N' ? 'selected':''}"></td>
-                                                   
-		            
+
+
 		            <td class="${assessmentForm.form43.finish eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form43.finish eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form43.finish eq 'C' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form43.finish eq 'D' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form43.finish eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form43.finish eq 'N' ? 'selected':''}"></td>
-                                                   
-		            
+
+
 		            <td class="${assessmentForm.form44.finish eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form44.finish eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form44.finish eq 'C' ? 'selected':''}"></td>
@@ -765,7 +785,7 @@
 		          <tr>
 		            <td class="hidden-cell" border="0" colspan="15"></td>
 		            <td class="t-cpads" colspan="3"><b>Sum</b></td>
-		            
+
 		            <td colspan="2" class="${((assessmentForm.form41.lintol eq 'A') or  (assessmentForm.form41.evenness eq 'A') or (assessmentForm.form41.jointwidth eq 'A') or (assessmentForm.form41.finish eq 'A') or (assessmentForm.form42.lintol eq 'A') or  (assessmentForm.form42.evenness eq 'A') or (assessmentForm.form42.jointwidth eq 'A') or (assessmentForm.form42.finish eq 'A') or (assessmentForm.form43.lintol eq 'A') or  (assessmentForm.form43.evenness eq 'A') or (assessmentForm.form43.finish eq 'A') or (assessmentForm.form43.jointwidth eq 'A') or (assessmentForm.form44.lintol eq 'A') or  (assessmentForm.form44.evenness eq 'A') or (assessmentForm.form44.jointwidth eq 'A') or (assessmentForm.form44.finish eq 'A')) ? 'selected':''}"></td>
 		            <td colspan="2" class="${((assessmentForm.form41.lintol eq 'B') or  (assessmentForm.form41.evenness eq 'B') or (assessmentForm.form41.jointwidth eq 'B') or (assessmentForm.form41.finish eq 'B') or (assessmentForm.form42.lintol eq 'B') or  (assessmentForm.form42.evenness eq 'B') or (assessmentForm.form42.jointwidth eq 'B') or (assessmentForm.form42.finish eq 'B') or (assessmentForm.form43.lintol eq 'B') or  (assessmentForm.form43.evenness eq 'B') or (assessmentForm.form43.finish eq 'B') or (assessmentForm.form43.jointwidth eq 'B') or (assessmentForm.form44.lintol eq 'B') or  (assessmentForm.form44.evenness eq 'B') or (assessmentForm.form44.jointwidth eq 'B') or (assessmentForm.form44.finish eq 'B')) ? 'selected':''}"></td>
 		            <td colspan="2" class="${((assessmentForm.form41.lintol eq 'C') or  (assessmentForm.form41.evenness eq 'C') or (assessmentForm.form41.jointwidth eq 'C') or (assessmentForm.form41.finish eq 'C') or (assessmentForm.form42.lintol eq 'C') or  (assessmentForm.form42.evenness eq 'C') or (assessmentForm.form42.jointwidth eq 'C') or (assessmentForm.form42.finish eq 'C') or (assessmentForm.form43.lintol eq 'C') or  (assessmentForm.form43.evenness eq 'C') or (assessmentForm.form43.finish eq 'C') or (assessmentForm.form43.jointwidth eq 'C') or (assessmentForm.form44.lintol eq 'C') or  (assessmentForm.form44.evenness eq 'C') or (assessmentForm.form44.jointwidth eq 'C') or (assessmentForm.form44.finish eq 'C')) ? 'selected':''}"></td>
@@ -827,33 +847,33 @@
 		          </tr>
 		        </thead>
 		        <tbody>
-		         
+
 		          <tr>
 		            <td colspan="1">1.</td>
 		            <td colspan="3">Evenness</td>
 
-		            
+
 		            <td class="${assessmentForm.form51.evenness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form51.evenness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form51.evenness eq 'C' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form51.evenness eq 'D' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form51.evenness eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form51.evenness eq 'N' ? 'selected':''}"></td>
-                                                   
+
 		            <td class="${assessmentForm.form52.evenness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form52.evenness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form52.evenness eq 'C' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form52.evenness eq 'D' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form52.evenness eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form52.evenness eq 'N' ? 'selected':''}"></td>
-                                                   
+
 		            <td class="${assessmentForm.form53.evenness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form53.evenness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form53.evenness eq 'C' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form53.evenness eq 'D' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form53.evenness eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form53.evenness eq 'N' ? 'selected':''}"></td>
-                                                   
+
 		            <td class="${assessmentForm.form54.evenness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form54.evenness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form54.evenness eq 'C' ? 'selected':''}"></td>
@@ -872,21 +892,21 @@
 		            <td class="${assessmentForm.form51.plumb eq 'D' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form51.plumb eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form51.plumb eq 'N' ? 'selected':''}"></td>
-                                                   
+
 		            <td class="${assessmentForm.form52.plumb eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form52.plumb eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form52.plumb eq 'C' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form52.plumb eq 'D' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form52.plumb eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form52.plumb eq 'N' ? 'selected':''}"></td>
-                                                   
+
 		            <td class="${assessmentForm.form53.plumb eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form53.plumb eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form53.plumb eq 'C' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form53.plumb eq 'D' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form53.plumb eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form53.plumb eq 'N' ? 'selected':''}"></td>
-                                                   
+
 		            <td class="${assessmentForm.form54.plumb eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form54.plumb eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form54.plumb eq 'C' ? 'selected':''}"></td>
@@ -905,21 +925,21 @@
 		            <td class="${assessmentForm.form51.soundness eq 'D' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form51.soundness eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form51.soundness eq 'N' ? 'selected':''}"></td>
-                                                   
+
 		            <td class="${assessmentForm.form52.soundness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form52.soundness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form52.soundness eq 'C' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form52.soundness eq 'D' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form52.soundness eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form52.soundness eq 'N' ? 'selected':''}"></td>
-                                                   
+
 		            <td class="${assessmentForm.form53.soundness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form53.soundness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form53.soundness eq 'C' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form53.soundness eq 'D' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form53.soundness eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form53.soundness eq 'N' ? 'selected':''}"></td>
-                                                   
+
 		            <td class="${assessmentForm.form54.soundness eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form54.soundness eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form54.soundness eq 'C' ? 'selected':''}"></td>
@@ -938,21 +958,21 @@
 		            <td class="${assessmentForm.form51.finish eq 'D' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form51.finish eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form51.finish eq 'N' ? 'selected':''}"></td>
-                                                  
+
 		            <td class="${assessmentForm.form52.finish eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form52.finish eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form52.finish eq 'C' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form52.finish eq 'D' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form52.finish eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form52.finish eq 'N' ? 'selected':''}"></td>
-                                                  
+
 		            <td class="${assessmentForm.form53.finish eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form53.finish eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form53.finish eq 'C' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form53.finish eq 'D' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form53.finish eq 'E' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form53.finish eq 'N' ? 'selected':''}"></td>
-                                                  
+
 		            <td class="${assessmentForm.form54.finish eq 'A' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form54.finish eq 'B' ? 'selected':''}"></td>
 		            <td class="${assessmentForm.form54.finish eq 'C' ? 'selected':''}"></td>
@@ -976,17 +996,79 @@
 		            <td class="t-cpads" colspan="3"><b>Sum</b></td>
 		            <td colspan="2" class="${((assessmentForm.form51.evenness eq 'A') or  (assessmentForm.form51.plumb eq 'A') or (assessmentForm.form51.soundness eq 'A') or (assessmentForm.form51.finish eq 'A') or (assessmentForm.form52.evenness eq 'A') or  (assessmentForm.form52.plumb eq 'A') or (assessmentForm.form52.soundness eq 'A') or (assessmentForm.form52.finish eq 'A') or (assessmentForm.form53.evenness eq 'A') or  (assessmentForm.form53.plumb eq 'A') or (assessmentForm.form53.soundness eq 'A') or (assessmentForm.form53.finish eq 'A') or (assessmentForm.form54.evenness eq 'A') or  (assessmentForm.form54.plumb eq 'A') or (assessmentForm.form54.soundness eq 'A') or (assessmentForm.form54.finish eq 'A')) ? 'selected':''}"></td>
 		            <td colspan="2" class="${((assessmentForm.form51.evenness eq 'B') or  (assessmentForm.form51.plumb eq 'B') or (assessmentForm.form51.soundness eq 'B') or (assessmentForm.form51.finish eq 'B') or (assessmentForm.form52.evenness eq 'B') or  (assessmentForm.form52.plumb eq 'B') or (assessmentForm.form52.soundness eq 'B') or (assessmentForm.form52.finish eq 'B') or (assessmentForm.form53.evenness eq 'B') or  (assessmentForm.form53.plumb eq 'B') or (assessmentForm.form53.soundness eq 'B') or (assessmentForm.form53.finish eq 'B') or (assessmentForm.form54.evenness eq 'B') or  (assessmentForm.form54.plumb eq 'B') or (assessmentForm.form54.soundness eq 'B') or (assessmentForm.form54.finish eq 'B')) ? 'selected':''}"></td>
-		            <td colspan="2" class="${((assessmentForm.form51.evenness eq 'E') or  (assessmentForm.form51.plumb eq 'E') or (assessmentForm.form51.soundness eq 'E') or (assessmentForm.form51.finish eq 'E') or (assessmentForm.form52.evenness eq 'E') or  (assessmentForm.form52.plumb eq 'E') or (assessmentForm.form52.soundness eq 'E') or (assessmentForm.form52.finish eq 'E') or (assessmentForm.form53.evenness eq 'E') or  (assessmentForm.form53.plumb eq 'E') or (assessmentForm.form53.soundness eq 'E') or (assessmentForm.form53.finish eq 'E') or (assessmentForm.form54.evenness eq 'E') or  (assessmentForm.form54.plumb eq 'E') or (assessmentForm.form54.soundness eq 'E') or (assessmentForm.form54.finish eq 'E')) ? 'selected':''}"></td>
 		            <td colspan="2" class="${((assessmentForm.form51.evenness eq 'C') or  (assessmentForm.form51.plumb eq 'C') or (assessmentForm.form51.soundness eq 'C') or (assessmentForm.form51.finish eq 'C') or (assessmentForm.form52.evenness eq 'C') or  (assessmentForm.form52.plumb eq 'C') or (assessmentForm.form52.soundness eq 'C') or (assessmentForm.form52.finish eq 'C') or (assessmentForm.form53.evenness eq 'C') or  (assessmentForm.form53.plumb eq 'C') or (assessmentForm.form53.soundness eq 'C') or (assessmentForm.form53.finish eq 'C') or (assessmentForm.form54.evenness eq 'C') or  (assessmentForm.form54.plumb eq 'C') or (assessmentForm.form54.soundness eq 'C') or (assessmentForm.form54.finish eq 'C')) ? 'selected':''}"></td>
 		            <td colspan="2" class="${((assessmentForm.form51.evenness eq 'D') or  (assessmentForm.form51.plumb eq 'D') or (assessmentForm.form51.soundness eq 'D') or (assessmentForm.form51.finish eq 'D') or (assessmentForm.form52.evenness eq 'D') or  (assessmentForm.form52.plumb eq 'D') or (assessmentForm.form52.soundness eq 'D') or (assessmentForm.form52.finish eq 'D') or (assessmentForm.form53.evenness eq 'D') or  (assessmentForm.form53.plumb eq 'D') or (assessmentForm.form53.soundness eq 'D') or (assessmentForm.form53.finish eq 'D') or (assessmentForm.form54.evenness eq 'D') or  (assessmentForm.form54.plumb eq 'D') or (assessmentForm.form54.soundness eq 'D') or (assessmentForm.form54.finish eq 'D')) ? 'selected':''}"></td>
+					<td colspan="2" class="${((assessmentForm.form51.evenness eq 'E') or  (assessmentForm.form51.plumb eq 'E') or (assessmentForm.form51.soundness eq 'E') or (assessmentForm.form51.finish eq 'E') or (assessmentForm.form52.evenness eq 'E') or  (assessmentForm.form52.plumb eq 'E') or (assessmentForm.form52.soundness eq 'E') or (assessmentForm.form52.finish eq 'E') or (assessmentForm.form53.evenness eq 'E') or  (assessmentForm.form53.plumb eq 'E') or (assessmentForm.form53.soundness eq 'E') or (assessmentForm.form53.finish eq 'E') or (assessmentForm.form54.evenness eq 'E') or  (assessmentForm.form54.plumb eq 'E') or (assessmentForm.form54.soundness eq 'E') or (assessmentForm.form54.finish eq 'E')) ? 'selected':''}"></td>
 		          </tr>
 
 	        	</tbody>
 			 </table>
-			
 
-			 <div><button type="button" class="button button-stable">Calculate Score</button></div>
 
+			 <div><button type="button" class="button button-stable" onclick="javascript:toggle_scores()">Calculate Score</button></div>
+				<br>
+				<div class="t-tmargs" id="scores" style="display:none">
+					<table width="100%" border="1px" padding="0px" margin=0px border-spacing=0px border-padding=0px>
+						<tr>
+							<td colspan=10>Architectural Works (Interim) Assessment - Summary Score Sheet</td>
+						</tr>
+						<tr>
+							<td rowspan=2 colspan=2 width=30%>&nbsp;</td>
+							<td colspan=6 align="center">Total Collected Sum</td>
+							<td rowspan=2 align="center">Allotted Mark</td>
+							<td rowspan=2 align="center">Factor Score</td>
+						</tr>
+						<tr>
+							<td align="center">A</td>
+							<td align="center">B</td>
+							<td align="center">C</td>
+							<td align="center">D</td>
+							<td align="center">E</td>
+							<td align="center">N</td>
+						</tr>
+						<tr>
+							<td  width=15%>AI-1</td>
+							<td>Floor</td>
+							<td align="center">8</td>
+							<td align="center">10</td>
+							<td align="center">4</td>
+							<td align="center">12</td>
+							<td align="center">1</td>
+							<td align="center">13</td>
+							<td align="center">3</td>
+							<td align="center">0.79</td>
+						</tr>
+						<tr>
+							<td  width=15%>AI-2</td>
+							<td>Internal Wall Finishes</td>
+							<td align="center">6</td>
+							<td align="center">9</td>
+							<td align="center">1</td>
+							<td align="center">6</td>
+							<td align="center">1</td>
+							<td align="center">9</td>
+							<td align="center">3</td>
+							<td align="center">0.94</td>
+						</tr>
+						<tr>
+							<td colspan="8">Total Factor / Allotted Mark</td>
+							<td align="center">6</td>
+							<td align="center">1.73</td>
+						<tr>
+					</table>
+					<br>
+					<table width="30%" border="1px" >
+						<tr>
+							<td width=40%>AI Score</td>
+							<td>0.29</td>
+						</tr>
+					</table>
+					<br>
+					<a href=javascript:showFormula();>Click here to view the calculation formula</a>
+				</div>
+
+
+			</span>
 			 <div class="t-tmargs">
 			 	<table width="100%">
 			 		<tr>

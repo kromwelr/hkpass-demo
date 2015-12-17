@@ -592,6 +592,8 @@ function saveAssessment(assessmentFormId){
 					<div align="left"><a href="#top">Back to top of page</a></div>
 					<div align="right"><button type="button" class="button button-stable" onclick="javascript:saveAssessment(${assessmentForm.id})">Save</button></div>	
 				   <br>
+				   <br>
+				   <h4>AI-2&nbsp;&nbsp;&nbsp;&nbsp;Internal Wall Finishes</h4>
 				   	<table class="table-ca-det table table-bordered">
 								
 			        <thead>
