@@ -53,7 +53,7 @@ public class HomeController {
 	//unix server path - for demo
 	private String ROOT_DIR = "/opt/upload/";
 	//private String ROOT_DIR = "C:/Apps/hkha/";
-	
+
 
 	@Autowired
 	public void setWorkService(AssessmentService assessmentService) {
@@ -181,7 +181,9 @@ public class HomeController {
 	public String showAssessmentDetails(@PathVariable("id") int id, Model model){
 		logger.info("showAssessmentDetails()");
 		this.assessmentId = id;
-		model.addAttribute("assessmentForm", assessmentService.findById(id));
+		Assessment2 assessment = assessmentService.findById(id);
+		assessment.calculateScores();
+		model.addAttribute("assessmentForm", assessment);
 		model.addAttribute("mode", "ADMIN_MODE");
 
 		return "assessmentSummaryAdmin";
@@ -297,17 +299,17 @@ public class HomeController {
 		logger.info("showWorkDetails() id: {}", id);
 
 		List<String> attachmentList = new ArrayList<String>();
-		
+
 		Assessment2 assessment = assessmentService.findById(id);
 		model.addAttribute("assessmentForm", assessment);
-		
+
 		if(assessment.getAttachments() != null){
 			String[] attachments = assessment.getAttachments().split(",");
-			attachmentList = Arrays.asList(attachments);			
+			attachmentList = Arrays.asList(attachments);
 		}
-		
+
 		model.addAttribute("attachments", attachmentList);
-		
+
 		logger.info(assessment.toString());
 
 
@@ -368,7 +370,7 @@ public class HomeController {
 		Assessment2 assessmentOrig = assessmentService.findById(this.assessmentId);
 		assessmentOrig.setStatus("FOR REVIEW");
 		assessmentOrig.setAssignedTo("prof");
-		
+
 //		assessment.setStatus("FOR REVIEW");
 //		assessment.setAssignedTo("prof");
 //		assessment.setContract(assessmentOrig.getContract());
@@ -395,63 +397,63 @@ public class HomeController {
 
 		return "redirect:/prof/worklist";
 	}
-	
+
 	@RequestMapping(value="/worklist/{id}/form/upload", method = RequestMethod.GET)
 	public String getFileUpload(@PathVariable("id") int id, Model model){
 		logger.info("File Upload: " + id);
 		FileBucket fileModel = new FileBucket();
 		fileModel.setAssessmentId(id);
-		
+
 		model.addAttribute("fileBucket", fileModel);
 		return "file_upload";
 	}
-	
+
 	@RequestMapping(value="/upload", method = RequestMethod.POST)
 	public String fileUpload(@ModelAttribute("fileBucket") FileBucket fileBucket, Model model){
-		
+
 		logger.info("Fetching file.." + fileBucket.getAssessmentId());
 		MultipartFile multipartFile = fileBucket.getFile();
-		
+
 		try {
-			
+
 			FileCopyUtils.copy(fileBucket.getFile().getBytes(), new File(this.ROOT_DIR + fileBucket.getFile().getOriginalFilename()));
 			//save file
-			
+
 			Assessment2 assessment = assessmentService.findById(fileBucket.getAssessmentId());
-			
+
 			String attachments = "";
 			if(assessment.getAttachments() != null){
 				attachments = assessment.getAttachments();
 			}
-			
+
 			if(!attachments.equals("")){
 				attachments = attachments + ",";
 			}
-			
+
 			attachments = attachments + fileBucket.getFile().getOriginalFilename();
 			assessment.setAttachments(attachments);
-			
+
 			logger.info("Attachments: " + attachments);
-			
+
 			assessmentService.saveOrUpdate(assessment);
-			
+
 			model.addAttribute("fileName",multipartFile.getOriginalFilename());
 			model.addAttribute("id", fileBucket.getAssessmentId());
-			
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		return "upload_success";
-		
+
 	}
-	
+
 	@RequestMapping(value="/download/{fileName:.+}", method = RequestMethod.GET)
 	public void downloadFile(HttpServletResponse response, @PathVariable String fileName) throws IOException{
-		
+
 		logger.info("download file: " + this.ROOT_DIR + fileName);
-		
+
 		File file = new File(this.ROOT_DIR + fileName);
 		if(!file.exists()){
 			String errorMessage = "Sorry. The file you are looking for does not exist";
@@ -461,22 +463,22 @@ public class HomeController {
             outputStream.close();
             return;
 		}
-		
+
 		String mimeType = URLConnection.guessContentTypeFromName(file.getName());
 		if(mimeType==null){
             System.out.println("mimetype is not detectable, will take default");
             mimeType = "application/octet-stream";
         }
-		
+
 		logger.info("mimeType: " + mimeType);
-		
+
 		response.setContentType(mimeType);
 		response.setHeader("Content-Disposition", String.format("attachment; filename=\"" + file.getName() +"\""));
 		response.setContentLength((int)file.length());
-		 
+
         InputStream inputStream = new BufferedInputStream(new FileInputStream(file));
         FileCopyUtils.copy(inputStream, response.getOutputStream());
-		
+
 	}
 
 
