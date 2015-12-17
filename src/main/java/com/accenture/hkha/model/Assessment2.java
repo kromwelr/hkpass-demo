@@ -576,9 +576,17 @@ public class Assessment2 {
 		setAllotedMark1(3);
 		setAllotedMark2(3);
 
-		factorScores = (((3*getTotalA1() + 2*getTotalB1() + getTotalC1()) / (4*(getTotalA1() + getTotalB1() + getTotalC1() + getTotalD1() + getTotalE1()))) * getAllotedMark1()) - 0.3;
+		try{
+			factorScores = (((3*getTotalA1() + 2*getTotalB1() + getTotalC1()) / (4*(getTotalA1() + getTotalB1() + getTotalC1() + getTotalD1() + getTotalE1()))) * getAllotedMark1()) - 0.3;
+		}catch(Exception e){
+			factorScores = 0;
+		}
 		setFactorScore1(factorScores);
-		factorScores = (((3*getTotalA2() + 2*getTotalB2() + getTotalC2()) / (4*(getTotalA2() + getTotalB2() + getTotalC2() + getTotalD2() + getTotalE2()))) * getAllotedMark2()) - 0.3;
+		try{
+			factorScores = (((3*getTotalA2() + 2*getTotalB2() + getTotalC2()) / (4*(getTotalA2() + getTotalB2() + getTotalC2() + getTotalD2() + getTotalE2()))) * getAllotedMark2()) - 0.3;
+		}catch(Exception e){
+			factorScores = 0;
+		}
 		setFactorScore2(factorScores);
 
 
