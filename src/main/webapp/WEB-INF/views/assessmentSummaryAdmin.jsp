@@ -1029,38 +1029,38 @@
 						<tr>
 							<td  width=15%>AI-1</td>
 							<td>Floor</td>
-							<td align="center">8</td>
-							<td align="center">10</td>
-							<td align="center">4</td>
-							<td align="center">12</td>
-							<td align="center">1</td>
-							<td align="center">13</td>
-							<td align="center">3</td>
-							<td align="center">0.79</td>
+							<td align="center">${assessmentForm.totalA1}</td>
+							<td align="center">${assessmentForm.totalB1}</td>
+							<td align="center">${assessmentForm.totalC1}</td>
+							<td align="center">${assessmentForm.totalD1}</td>
+							<td align="center">${assessmentForm.totalE1}</td>
+							<td align="center">${assessmentForm.totalN1}</td>
+							<td align="center">${assessmentForm.allotedMark1}</td>
+							<td align="center">${assessmentForm.factorScore1}</td>
 						</tr>
 						<tr>
 							<td  width=15%>AI-2</td>
 							<td>Internal Wall Finishes</td>
-							<td align="center">6</td>
-							<td align="center">9</td>
-							<td align="center">1</td>
-							<td align="center">6</td>
-							<td align="center">1</td>
-							<td align="center">9</td>
-							<td align="center">3</td>
-							<td align="center">0.94</td>
+							<td align="center">${assessmentForm.totalA2}</td>
+							<td align="center">${assessmentForm.totalB2}</td>
+							<td align="center">${assessmentForm.totalC2}</td>
+							<td align="center">${assessmentForm.totalD2}</td>
+							<td align="center">${assessmentForm.totalE2}</td>
+							<td align="center">${assessmentForm.totalN2}</td>
+							<td align="center">${assessmentForm.allotedMark2}</td>
+							<td align="center">${assessmentForm.factorScore2}</td>
 						</tr>
 						<tr>
 							<td colspan="8">Total Factor / Allotted Mark</td>
-							<td align="center">6</td>
-							<td align="center">1.73</td>
+							<td align="center">${assessmentForm.totalAllotedMark}</td>
+							<td align="center">${assessmentForm.totalFactorScore}</td>
 						<tr>
 					</table>
 					<br>
 					<table width="30%" border="1px" >
 						<tr>
 							<td width=40%>AI Score</td>
-							<td>0.29</td>
+							<td>${assessmentForm.totalAIScore}</td>
 						</tr>
 					</table>
 					<br>
@@ -1078,7 +1078,6 @@
 			 			<td colspan="2" style="border:solid 1px #dfdfd2;" height="100px" valign="top">
 			 				<p align="left">${assessmentForm.remarks}</p>
 			 			</td>
-			 			<td></td>
 			 		</tr>
 			 		<tr height="20px"></tr>
 			 		<tr>

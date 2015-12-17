@@ -1008,7 +1008,6 @@ function onSubmit(){
 			 			<td colspan="2" style="border:solid 1px #dfdfd2;" height="100px" valign="top">
 			 				<p align="left">${assessmentForm.remarks}</p>
 			 			</td>
-			 			<td></td>
 			 		</tr>
 			 		<tr height="20px"></tr>
 			 		<tr>
