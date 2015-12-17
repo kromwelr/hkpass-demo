@@ -1052,15 +1052,19 @@ function saveAssessment(assessmentFormId){
 			       <div>
 			       		<table width="100%">
 			       			<tr>
-			       				<td width="25%" align="left" style="padding-right:50px"><b>Attachments:</b></td>
+			       				<td width="25%" align="left" style="padding-right:50px" valign="top"><b>Attachments:</b></td>
+			       				<td>
+			       					<table>
+			       						<c:forEach var="att" items="${attachments}">
+							       			<tr>
+							       				<spring:url value="/download/${att}" var="download"/>
+							       				<td></td>
+							       				<td><a href="${download}">${att}</a></td>
+							       			</tr>
+						       			</c:forEach>
+			       					</table>
+			       				</td>
 			       			</tr>
-			       			<c:forEach var="att" items="${attachments}">
-			       			<tr>
-			       				<spring:url value="/download/${att}" var="download"/>
-			       				<td></td>
-			       				<td><a href="${download}">${att}</a></td>
-			       			</tr>
-			       			</c:forEach>
 			       		</table>
 			       </div>
 			       <div class="buttons t-tmargs" align="right">

@@ -4,6 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -24,6 +25,7 @@
 		<div class="menu">
 			<div class="menu_items">
 				<div class="menu_container_left">
+					
 					<ul>
 						<li><a href="/HKPassDemo/">Work List</a></li>
 						<li>|</li>
@@ -32,7 +34,13 @@
 						<li><a href="/HKPassDemo/reports">Reports</a></li>
 						<li>|</li>
 						<li><a href="#">Admin</a></li>
+						<sec:authorize access="hasRole('ROLE_ADMIN')">
+						<li>|</li>
+						<spring:url value="/reset" var="reset"/>
+						<li><a href="${reset}">Reset Demo</a></li>
+						</sec:authorize>
 					</ul>
+					
 				</div>
 				<div class="menu_container_right">
 					<ul>

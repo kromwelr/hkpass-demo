@@ -51,8 +51,8 @@ public class HomeController {
 	private Integer assessmentId;
 
 	//unix server path - for demo
-	private String ROOT_DIR = "/opt/upload/";
-	//private String ROOT_DIR = "C:/Apps/hkha/";
+	//private String ROOT_DIR = "/opt/upload/";
+	private String ROOT_DIR = "C:/Apps/hkha/";
 	
 
 	@Autowired
@@ -477,6 +477,15 @@ public class HomeController {
         InputStream inputStream = new BufferedInputStream(new FileInputStream(file));
         FileCopyUtils.copy(inputStream, response.getOutputStream());
 		
+	}
+	
+	@RequestMapping(value="/reset", method = RequestMethod.GET)
+	public String resetData(){
+		
+		assessmentService.resetDemoData();
+		logger.info("Demo data reset!");
+		
+		return "redirect:/admin/worklist";
 	}
 
 

@@ -991,11 +991,26 @@
 			 <div class="t-tmargs">
 			 	<table width="100%">
 			 		<tr>
-			 			<td><b>Remarks by PGE/PT/Contractor:</b></td>
+			 			<td width="150px"><b>Remarks by PGE/PT/Contractor:</b></td>
 			 		</tr>
 			 		<tr>
-			 			<td style="border:solid 1px #dfdfd2;" height="100px" valign="top">
+			 			<td colspan="2" style="border:solid 1px #dfdfd2;" height="100px" valign="top">
 			 				<p align="left">${assessmentForm.remarks}</p>
+			 			</td>
+			 			<td></td>
+			 		</tr>
+			 		<tr height="20px"></tr>
+			 		<tr>
+			 			<td valign="top"><b>Attachments:</b></td>
+			 			<td>
+			 				<table>
+			 				<c:forEach var="att" items="${assessmentForm.attachments}">
+								<tr>
+								<spring:url value="/download/${att}" var="download"/>
+									<td><a href="${download}">${att}</a></td>
+								</tr>
+							</c:forEach>
+			 				</table>
 			 			</td>
 			 		</tr>
 			 	</table>
@@ -1005,11 +1020,11 @@
 
 			 	<table width="100%">
 			 		<tr>
-			 			<td align="left" style="padding-left:150px">Assessment by PGE/PT:</td>
+			 			<td align="right" style="padding-left:100px; padding-right:20px;">Assessment by PGE/PT:</td>
 			 			<td colspan="2" style="border-bottom: solid 1px black !important; width:200px"></td>
-			 			<td align="right" style="padding-right:50px">Signed:</td>
+			 			<td align="right" width="75px" style="padding-right:10px">Signed:</td>
 			 			<td style="border-bottom: solid 1px black !important; width:150px"></td>
-			 			<td align="right" style="padding-right:50px">Date:</td>
+			 			<td align="right" width="75px" style="padding-right:10px">Date:</td>
 			 			<td style="border-bottom: solid 1px black !important; width:150px"></td>
 
 			 		</tr>
@@ -1021,11 +1036,11 @@
 			 			<td colspan="4"></td>
 			 		</tr>
 			 		<tr>
-			 			<td align="left" style="padding-left:150px">Project Site Staff:</td>
+			 			<td align="right" style="padding-left:100px; padding-right:20px;">Project Site Staff:</td>
 			 			<td colspan="2" style="border-bottom: solid 1px black !important; width:200px"></td>
-			 			<td align="right" style="padding-right:50px">Signed:</td>
+			 			<td align="right"align="right" width="75px" style="padding-right:10px">Signed:</td>
 			 			<td style="border-bottom: solid 1px black !important; width:150px"></td>
-			 			<td align="right" style="padding-right:50px">Date:</td>
+			 			<td align="right" width="75px" style="padding-right:10px">Date:</td>
 			 			<td style="border-bottom: solid 1px black !important; width:150px"></td>
 
 			 		</tr>
@@ -1037,11 +1052,11 @@
 			 			<td colspan="4"></td>
 			 		</tr>
 			 		<tr>
-			 			<td align="left" style="padding-left:150px">Contractor's Representative:</td>
+			 			<td align="right" style="padding-left:100px; padding-right:20px;">Contractor's Representative:</td>
 			 			<td colspan="2" style="border-bottom: solid 1px black !important; width:200px"></td>
-			 			<td align="right" style="padding-right:50px">Signed:</td>
+			 			<td align="right" width="75px" style="padding-right:10px">Signed:</td>
 			 			<td style="border-bottom: solid 1px black !important; width:150px"></td>
-			 			<td align="right" style="padding-right:50px">Date:</td>
+			 			<td align="right" width="75px" style="padding-right:10px">Date:</td>
 			 			<td style="border-bottom: solid 1px black !important; width:150px"></td>
 
 			 		</tr>

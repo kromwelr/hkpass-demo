@@ -153,6 +153,99 @@ public class AssessmentDaoImpl implements AssessmentDao {
 		// TODO Auto-generated method stub
 
 	}
+	
+	@Override
+	public void resetDemoData() {
+		
+		//demo data 1
+		Assessment2 a1 = new Assessment2();
+		a1.setId(20139135);
+		a1.setContract("Lift Modernization for Mei Shan House");
+		a1.setAssessmentDate("12/12/2015");
+		a1.setFloor("4");
+		a1.setBlockZone("3");
+		a1.setLocationFlat("Test location");
+		a1.setSubFactorItem("1.1 Grano / Terrazo / Cement Sand Screed");
+		a1.setCreatedBy("assessor");
+		a1.setCreatedDate("12/12/2015");
+		a1.setAssignedTo("");
+		a1.setStatus("FOR ASSESSMENT");
+		a1.setApprovedByProf("N");
+		a1.setApprovedByChief("N");
+		
+		update(a1);
+		
+		Assessment2 a2 = new Assessment2();
+		a2.setId(20139136);
+		a2.setContract("Lift Modernization for Ting Lung House");
+		a2.setAssessmentDate("12/12/2015");
+		a2.setFloor("4");
+		a2.setBlockZone("3");
+		a2.setLocationFlat("Test location");
+		a2.setSubFactorItem("1.1 Grano / Terrazo / Cement Sand Screed");
+		a2.setCreatedBy("assessor");
+		a2.setCreatedDate("12/12/2015");
+		a2.setAssignedTo("");
+		a2.setStatus("FOR ASSESSMENT");
+		a2.setApprovedByProf("N");
+		a2.setApprovedByChief("N");
+		
+		update(a2);
+		
+		Assessment2 a3 = new Assessment2();
+		a3.setId(20139141);
+		a3.setContract("Provision of Building Services Engineering Professional Service for Lift Addition");
+		a3.setAssessmentDate("12/12/2015");
+		a3.setFloor("4");
+		a3.setBlockZone("3");
+		a3.setLocationFlat("Test location");
+		a3.setSubFactorItem("1.1 Grano / Terrazo / Cement Sand Screed");
+		a3.setCreatedBy("assessor");
+		a3.setCreatedDate("12/12/2015");
+		a3.setAssignedTo("");
+		a3.setStatus("FOR ASSESSMENT");
+		a3.setApprovedByProf("N");
+		a3.setApprovedByChief("N");
+		
+		update(a3);
+		
+		Assessment2 a4 = new Assessment2();
+		a4.setId(20139142);
+		a4.setContract("Demo Construction Company Limited");
+		a4.setAssessmentDate("12/12/2015");
+		a4.setFloor("1");
+		a4.setBlockZone("8");
+		a4.setLocationFlat("Test location");
+		a4.setSubFactorItem("1. G/F to 15/F");
+		a4.setCreatedBy("assessor");
+		a4.setCreatedDate("12/12/2015");
+		a4.setAssignedTo("");
+		a4.setStatus("FOR ASSESSMENT");
+		a4.setApprovedByProf("N");
+		a4.setApprovedByChief("N");
+		
+		update(a4);
+		
+		Assessment2 a5 = new Assessment2();
+		a5.setId(20150001);
+		a5.setContract("Construction of Demo Estate");
+		a5.setAssessmentDate("12/19/2015");
+		a5.setFloor("1");
+		a5.setBlockZone("8");
+		a5.setLocationFlat("Kowloon");
+		a5.setSubFactorItem("1. G/F to 15/F");
+		a5.setSubFactorItem2("2. 16/F to 30/F");
+		a5.setSubFactorItem3("3. 31/F to Roof");
+		a5.setCreatedBy("assessor");
+		a5.setCreatedDate("12/19/2015");
+		a5.setAssignedTo("");
+		a5.setStatus("FOR ASSESSMENT");
+		a5.setApprovedByProf("N");
+		a5.setApprovedByChief("N");
+		
+		update(a5);
+		
+	}
 
 	private SqlParameterSource getSqlParameterByModel(Assessment2 assessment){
 
@@ -518,6 +611,8 @@ public class AssessmentDaoImpl implements AssessmentDao {
 
 
 	}
+
+
 
 
 

@@ -33,5 +33,7 @@ public interface AssessmentDao {
 	void update(Assessment2 assessment);
 
 	void delete(Integer id);
+	
+	void resetDemoData();
 
 }

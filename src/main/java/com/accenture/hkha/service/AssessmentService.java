@@ -28,5 +28,7 @@ public interface AssessmentService {
 	void saveOrUpdate(Assessment2 assessment);
 
 	void delete(Integer id);
+	
+	void resetDemoData();
 
 }

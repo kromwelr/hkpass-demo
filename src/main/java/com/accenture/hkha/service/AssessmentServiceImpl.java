@@ -70,6 +70,14 @@ public class AssessmentServiceImpl implements AssessmentService {
 
 	}
 
+	@Override
+	public void resetDemoData() {
+		assessmentDao.resetDemoData();
+		
+	}
+	
+	
+
 
 
 
