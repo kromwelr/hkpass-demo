@@ -577,14 +577,25 @@ public class Assessment2 {
 		setAllotedMark2(3);
 
 		try{
-			factorScores = (((3*getTotalA1() + 2*getTotalB1() + getTotalC1()) / (4*(getTotalA1() + getTotalB1() + getTotalC1() + getTotalD1() + getTotalE1()))) * getAllotedMark1()) - 0.3;
+			double one = 3*getTotalA1() + 2*getTotalB1() + getTotalC1();
+			double two = 4 * (getTotalA1() + getTotalB1() + getTotalC1() + getTotalD1() + getTotalE1());
+			factorScores = one / two;
+			factorScores =  factorScores  * getAllotedMark1();
+			factorScores = factorScores - 0.3;
 		}catch(Exception e){
+			e.printStackTrace();
 			factorScores = 0;
 		}
+
 		setFactorScore1(factorScores);
 		try{
-			factorScores = (((3*getTotalA2() + 2*getTotalB2() + getTotalC2()) / (4*(getTotalA2() + getTotalB2() + getTotalC2() + getTotalD2() + getTotalE2()))) * getAllotedMark2()) - 0.3;
+			double one = 3*getTotalA2() + 2*getTotalB2() + getTotalC2();
+			double two = 4 * (getTotalA2() + getTotalB2() + getTotalC2() + getTotalD2() + getTotalE2());
+			factorScores = one / two;
+			factorScores =  factorScores  * getAllotedMark2();
+			factorScores = factorScores - 0.3;
 		}catch(Exception e){
+			e.printStackTrace();
 			factorScores = 0;
 		}
 		setFactorScore2(factorScores);
