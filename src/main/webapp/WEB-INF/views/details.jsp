@@ -39,6 +39,7 @@
 					<td><label>Assessment Period :</label></td>
 					<td><form:input path="assessmentStartDate" id="assessmentStartDate" size="25"/></td>
 					<td><form:input path="assessmentEndDate" id="assessmentEndDate" size="25"/></td>
+					<input type="hidden" id="hiddenField" value=""/>
 				</tr>
 			</table>
 
