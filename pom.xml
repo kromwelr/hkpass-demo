@@ -178,6 +178,10 @@
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
 		</dependency>
+		<!-- New dependencies here-->
+		<!-- dependency 1-->
+		<!-- dependency 2-->
+		<!-- dependency 3-->
 	</dependencies>
 	<!-- 
 	<repositories>
